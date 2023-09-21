@@ -1,0 +1,8 @@
+<h1>Edit Address</h1>
+
+<%= render 'form', address: @address, adata: @address_data %>
+
+<% p_id = @address.person_id %>
+<%= link_to 'Show', @address %> |
+<%= link_to 'Person Detail', person_detail_path(p_id) %> |
+<%= link_to 'List', addresses_path %>

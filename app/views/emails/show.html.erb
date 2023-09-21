@@ -1,0 +1,17 @@
+<h1>Email Detail</h1>
+
+<% present(@email) do |email| %>
+	<%= email.notice(notice) %>
+
+	<%= email.show(:addressee) %>
+	<%= email.show(:addr, 'Address') %>
+	<%= email.show(:email_type, 'Type') %>
+	<%= email.show(:preferred) %>
+	<%= email.show(:note) %>
+<% end %>
+
+<%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Person Detail', person_detail_path(@email.person_id) %>
+<% if false %> |
+  <%= link_to 'List', emails_path %>
+<% end %>

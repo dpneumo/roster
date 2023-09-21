@@ -1,0 +1,20 @@
+<h1>Person</h1>
+
+<% present(@person) do |person| %>
+	<%= person.notice(notice) %>
+
+	<%= person.show(:nickname) %>
+	<%= person.show(:first) %>
+	<%= person.show(:middle) %>
+	<%= person.show(:last) %>
+	<%= person.show(:suffix) %>
+	<%= person.show(:honorific) %>
+	<%= person.show(:note) %>
+	<%= person.show(:house_address, 'House') %>
+	<%= person.show(:role) %>
+	<%= person.show(:status) %>
+<% end %>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Person Detail', person_detail_path(@person) %> |
+<%= link_to 'List', people_path %>

@@ -1,0 +1,18 @@
+<section id="filter_people">
+  <h1>People</h1>
+  <%= search_form_for @q, class: "max-w-4xl mx-auto px-20 pb-4 flex justify-between items-center" do |f| %>
+    <div>
+      <%= f.label :last_cont %>
+      <%= f.search_field :last_cont %>
+    </div>
+
+    <div>
+      <%= f.check_box :house_id_blank %>
+      <%= f.label :house_id_blank, "House is Blank" %>
+    </div>
+
+    <button class="bg-teal-500 hover:bg-teal-300">
+      <%= f.submit %>
+    </button>
+  <% end %>
+</section>

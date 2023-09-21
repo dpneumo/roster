@@ -1,0 +1,16 @@
+<div class="flex flex_col">
+  <div>
+    <h1>Non Occupants</h1>
+  </div>
+
+  <%= render partial:'search_form', locals: {non_occupant_id: @non_occupant_id} %>
+</div>
+
+<%= render "shared/table", 
+            head: 'non_occupants_head', 
+            body: 'non_occupants_body', 
+            collection: @non_occupants %>
+
+<%== pagy_nav(@pagy) %>
+<br>
+<%= link_to 'New Non Occupant', new_non_occupant_path %>

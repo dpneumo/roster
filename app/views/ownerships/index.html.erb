@@ -1,0 +1,14 @@
+<div class="flex flex_col">
+  <div>
+    <h1>Ownerships</h1>
+  </div>
+</div>
+
+<%= render "shared/table", 
+            head: 'ownerships_head', 
+            body: 'ownerships_body', 
+            collection: @ownerships %>
+
+<%== pagy_nav(@pagy) %>
+<br>
+<%= link_to 'New Ownership', new_ownership_path %>

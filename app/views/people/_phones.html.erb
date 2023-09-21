@@ -1,0 +1,37 @@
+<%= render  partial: 'shared/subtable_header_bs',
+            locals: { title: "Phones:",
+                      link_text1: nil,
+                      path1: nil,
+                      link_text2: nil,
+                      path2: nil } %>
+
+<table class='table table-sm table-bordered table-hover', id='phones'>
+  <thead class='thead-light'>
+    <tr class='d-flex'>
+      <th class='col-3'>Phone</th>
+      <th class='col-2'>Type</th>
+      <th class='col-1'>Pref?</th>
+      <th class='col-1'>Msgs?</th>
+      <th class='col-2'>Note</th>
+      <th class='col-3'><%= link_to 'New Phone', new_phone_path(person_id: person.id) %></th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% person.phones.each do |p| %>
+      <% present(p) do |phone| %>
+        <tr class='d-flex'>
+          <td class='col-3'><%= phone.ph_number %></td>
+          <td class='col-2'><%= phone.phone_type %></td>
+          <td class='col-1'><%= phone.primary %></td>
+          <td class='col-1'><%= phone.txt_capable %></td>
+          <td class='col-2'><%= phone.note %></td>
+          <td class='col-1'><%= link_to 'Show', phone %></td>
+          <td class='col-1'><%= link_to 'Edit', edit_phone_path(phone) %></td>
+          <td class='col-1'><%= link_to 'Destroy', phone, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,53 @@
+<% present(@person) do |person| %>
+
+  <h1><%= person.formal_name %></h1> 
+
+  <%= person.show_row do %>
+    <%= person.show :house_address, 'center', 'House', 4    %>
+    <%= person.show :nickname %>
+    <%= person.show :role      %>
+  <% end %>
+
+  <%= person.show_row do %>
+    <%= person.show :status                       %>
+    <%= person.show :current_position, 'center', 'Position' %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h5 class="bg-light font-weight-bolder">Preferred:</h5>
+    </div>
+  </div>
+
+  <%= person.show_row do %>
+    <%= person.show :preferred_email,'center', 'Email', 3  %>
+    <%= person.show :preferred_phone,'center', 'Phone', 3  %>
+    <%= person.show :preferred_address,'center', 'Address' %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm">
+      <%= render 'emails', person: @person %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <%= render 'phones', person: @person %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <%= render 'addresses', person: @person %>
+    </div>
+  </div>
+
+  <%= person.show_row do %>
+    <%= person.show :note %>
+  <% end %>
+    
+<% end %>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'List', people_path %>

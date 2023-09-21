@@ -1,0 +1,8 @@
+<h1>Edit Email</h1>
+
+<%= render 'form', email: @email %>
+
+<% p_id = @email.person_id %>
+<%= link_to 'Show', @email %> |
+<%= link_to 'Person Detail', person_detail_path(p_id) %> |
+<%= link_to 'List', emails_path %>

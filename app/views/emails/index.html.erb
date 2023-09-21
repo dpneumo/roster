@@ -1,0 +1,14 @@
+<div class="flex flex_col">
+  <div>
+    <h1>Emails</h1>
+  </div>
+</div>
+
+<%= render "shared/table", 
+            head: 'emails_head', 
+            body: 'emails_body', 
+            collection: @emails %>
+
+<%== pagy_nav(@pagy) %>
+<br>
+<%= link_to 'New Email', new_email_path %>

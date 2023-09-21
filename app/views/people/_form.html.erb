@@ -1,0 +1,33 @@
+<%= form_with(model: person, local: true) do |form| %>
+  <% present(person) do |person| %>
+    <%  person.form = form %>
+    <%= person.show_errors %>
+
+    <%= person.input_row( [ { attribute: :first},
+                            { attribute: :middle},
+                            { attribute: :last}
+                          ] ) %>
+
+    <%= person.input_row( [ { attribute: :nickname },
+                            { attribute: :suffix },
+                            { attribute: :honorific }
+                          ] ) %>
+
+    <%= person.input_row( [ {attribute: :house_id, kind: :select,
+                              collection: person.houses,
+                              blank: true,
+                              selected: person.house_id,
+                              disabled: @disable_house_select },
+                            { attribute: :role, kind: :select,
+                              collection: person.roles,
+                              selected: person.role || "Unknown" },
+                            { attribute: :status, kind: :select,
+                              collection: person.statuses,
+                              selected: person.role || "Unknown" } ] ) %>
+
+    <%= person.input_row( [ { attribute: :note, kind: :textarea } ]) %>
+
+    <%= render  partial: 'shared/form_submit_bs',
+                locals: { form: form } %>
+  <% end %>
+<% end %>

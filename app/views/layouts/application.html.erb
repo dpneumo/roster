@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roster</title>
+    <meta name="description" content="">
+    <meta name="author" content="Mitch Kuppinger, MD">
+    <meta name="copyright" content="Mitch Kuppinger, MD, Black Lake Software">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="min-h-full grid grid-template-rows: auto 1fr auto">
+      <header class="bg-teal-700 text-white sticky z-50 top-0 p-2">
+        <%= render "layouts/topnav" %>
+      </header>
+      <main class="min-h-full">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </main>
+      <footer class="bg-teal-700 text-white text-sm sticky z-50 bottom-0 p-1">
+        <div class="justify-center">
+          <%= render "layouts/copyright" %>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+ 

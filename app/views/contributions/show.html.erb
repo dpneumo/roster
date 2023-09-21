@@ -1,0 +1,15 @@
+<h1>Contribution Detail</h1>
+
+<% present(@contribution) do |contribution| %>
+	<%= contribution.notice(notice) %>
+
+	<%= contribution.show(:house_address, 'House') %>
+	<%= contribution.show(:date_paid) %>
+	<%= contribution.show(:amount) %>
+<% end %>
+
+<%= link_to 'Edit', edit_contribution_path(@contribution) %> |
+<%= link_to 'House Detail', house_detail_path(@contribution.house_id) %>
+<% if false %> |
+  <%= link_to 'List', contributions_path %>
+<% end %>

@@ -1,0 +1,5 @@
+<% collection.each do |o| %>
+  <% present(o) do |ownership| %>
+    <%= render "ownerships_row", ownership: ownership %>
+  <% end %>
+<% end %>

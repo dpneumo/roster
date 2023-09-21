@@ -1,0 +1,13 @@
+<tr>
+  <td class='pl-6'><%= address.addressee %></td>
+  <td class='pl-6'><%= address.complete_address %></td>
+  <td class='pl-6'><%= address.address_type %></td>
+  <td class='pl-6'><%= address.preferred %></td>
+  <td class='pl-6'><%= address.note %></td>
+  <td><%= link_to 'Detail', address_detail_path(address) %></td>
+  <td><%= link_to 'Edit', edit_address_path(address) %></td>
+  <td><%= link_to "Destroy", address, 
+          data: { turbo_method: :delete, 
+                  turbo_confirm: 'Are you sure?' } %></td>
+</tr>
+

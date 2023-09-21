@@ -1,0 +1,26 @@
+<div class="grid grid-cols-1 sm:grid-cols-6 my-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2 bg-blue-100">
+
+    <h1 class="mb-4 text-2xl font-extrabold">User Detail</h1>
+
+		<% present(@user) do |user| %>
+		  <div class="border-b border-gray-900/10 pb-11"> <!-- grid_container -->
+		  	<%= user.notice(notice) %>
+
+			<%= user.show(:email) %>
+			<%= user.show(:first_name) %>
+			<%= user.show(:last_name) %>
+			<%= user.show(:role) %>
+			<%= user.show(:approved) %>
+			<%= user.show(:sign_in_count) %>
+			<%= user.show(:current_sign_in_at) %>
+			<%= user.show(:current_sign_in_ip) %>
+			<%= user.show(:created_at) %>
+		  </div>
+		<% end %>
+
+	  <%= link_to 'Edit', edit_user_path(@user), class: "text-lg text-bold" %> |
+	  <%= link_to 'Users List', users_path, class: "text-lg text-bold" %>
+
+  </div>
+</div>

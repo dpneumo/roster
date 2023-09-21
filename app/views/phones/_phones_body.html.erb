@@ -1,0 +1,5 @@
+<% collection.each do |p| %>
+  <% present(p) do |phone| %>
+    <%= render "phones_row", phone: phone %>
+  <% end %>
+<% end %>

@@ -1,0 +1,34 @@
+<%= render  partial: 'shared/subtable_header_bs',
+            locals: { title: "Emails:",
+                      link_text1: nil,
+                      path1: nil,
+                      link_text2: nil,
+                      path2: nil } %>
+
+<table class='table table-sm table-bordered table-hover', id='emails'>
+  <thead class='thead-light'>
+    <tr class='d-flex'>
+      <th class='col-3'>Email</th>
+      <th class='col-2'>Type</th>
+      <th class='col-1'>Pref?</th>
+      <th class='col-3'>Note</th>                    
+      <th class='col-3'><%= link_to 'New Email', new_email_path(person_id: person.id) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% person.emails.each do |e| %>
+      <% present(e) do |email| %>
+        <tr class='d-flex'>
+          <td class='col-3'><%= email.addr %></td>
+          <td class='col-2'><%= email.email_type %></td>
+          <td class='col-1'><%= email.primary %></td>
+          <td class='col-3'><%= email.note %></td>
+          <td class='col-1'><%= link_to 'Show', email %></td>
+          <td class='col-1'><%= link_to 'Edit', edit_email_path(email) %></td>
+          <td class='col-1'><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<%= form_with(model: contribution, local: true) do |form| %>
+  <% present(contribution) do |contribution| %>
+    <%  contribution.form = form %>
+    <%= contribution.show_errors %>
+
+    <%= contribution.input_row([ { attribute: :house_id, kind: :select,
+                                   collection: contribution.house_list,
+                                   selected: contribution.house_id,
+                                   disabled: contribution.house_id } ]) %>
+
+    <%= contribution.input_row([ { attribute: :date_paid, kind: :date_select } ]) %>
+
+    <%= contribution.input_row([ { attribute: :amount } ]) %>
+
+    <%= render  partial: 'shared/form_submit_bs',
+                locals: { form: form } %>
+  <% end %>
+<% end %>

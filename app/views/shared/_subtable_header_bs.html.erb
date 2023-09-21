@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm">
+    <h5 class="bg-light font-weight-bolder text-left"><%= title %></h5>
+  </div>
+
+  <% if path1 %>
+    <div class="bg-light col-sm-2"><%= link_to link_text1, path1 %></div>
+  <% end %>
+
+  <% if path2 %>
+    <div class="bg-light col-sm-2"><%= link_to link_text2, path2 %></div>
+  <% end %>
+</div>

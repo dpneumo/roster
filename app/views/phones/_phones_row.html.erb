@@ -1,0 +1,14 @@
+<tr>
+  <td><%= phone.person.fullname %></td>
+  <td><%= phone.cc %></td>
+  <td><%= phone.ph_number %></td>
+  <td><%= phone.phone_type %></td>
+  <td><%= phone.preferred %></td>
+  <td><%= phone.txt_capable %></td>
+  <td><%= phone.note %></td>
+  <td><%= link_to 'Show', phone %></td>
+  <td><%= link_to 'Edit', edit_phone_path(phone) %></td>
+  <td><%= link_to "Destroy", phone, 
+            data: { turbo_method: :delete, 
+            turbo_confirm: 'Are you sure?' } %></td>
+</tr>

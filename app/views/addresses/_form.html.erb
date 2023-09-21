@@ -1,0 +1,35 @@
+<%= form_with(model: address, local: true) do |form| %>
+  <% present(address) do |address| %>
+    <%  address.form = form %>
+    <%= address.show_errors %>
+
+    <%= address.input_row([ { attribute: :person_id, kind: :select,
+                              collection: address.persons_list,
+                              selected: address.person_id,
+                              disabled: address.person_id },
+                            { attribute: :person_id, kind: :hidden,
+                              value: address.person_id } ]) %>
+
+    <%= address.input_row([ { attribute: :number },
+                            { attribute: :street } ]) %>
+
+    <%= address.input_row([ { attribute: :city },
+                            { attribute: :state, width: 1 },
+                            { attribute: :zip,   width: 1 } ]) %>
+
+    <%= address.input_row([ { attribute: :address_type, kind: :select,
+                              label: 'Address Type',
+                              collection: address.types,
+                              selected: address.address_type,
+                              blank: false },
+                            { attribute: :preferred, kind: :select,
+                              collection: [['Yes',true],['No',false]],
+                              selected: address.preferred,
+                              blank: false } ]) %>
+
+    <%= address.input_row([ { attribute: :note, kind: :textarea } ]) %>
+
+    <%= render  partial: 'shared/form_submit_bs',
+                locals: { form: form } %>
+  <% end %>
+<% end %>

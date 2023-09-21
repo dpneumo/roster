@@ -1,0 +1,20 @@
+<%= search_form_for @q, url: list_non_occupants_url do |f| %>
+  <%= f.hidden_field :house_id, value: @house_id %>
+
+  <div class="row">
+    <div class="col-sm-5">
+      <%= f.label :last_cont %>
+      <%= f.search_field :last_cont %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.submit %>
+    </div>
+
+    <div class="col">
+      <%= link_to "Clear", list_non_occupants_path(house_id: @house_id) %>
+    </div>
+  </div>
+
+<% end %>
+

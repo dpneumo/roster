@@ -1,0 +1,15 @@
+<tr>
+  <td class='pl-6'><%= house.house_address %></td>
+  <td class='pl-6'><%= house.flag %></td>
+  <td class='pl-6'><%= house.rental %></td>
+  <td class='pl-6'><%= house.listed %></td>
+  <td class='pl-6'><%= house.status %></td>
+  <td class='pl-6'><%= house.linked_lot_addresses %></td>
+  <td class='pl-6'><%= house.note %></td>
+  <td><%= link_to 'Detail', house_detail_path(house) %></td>
+  <td><%= link_to 'Edit', edit_house_path(house) %></td>
+  <td><%= link_to "Destroy", house, 
+            data: { turbo_method: :delete, 
+                    turbo_confirm: 'Are you sure?' } %></td>
+</tr>
+

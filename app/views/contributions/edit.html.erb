@@ -1,0 +1,8 @@
+<h1>Edit Contribution</h1>
+
+<%= render 'form', contribution: @contribution %>
+
+<% h_id = @contribution.house_id %>
+<%= link_to 'Show', @contribution %> |
+<%= link_to 'House Detail', house_detail_path(h_id) %> |
+<%= link_to 'List', contributions_path %>

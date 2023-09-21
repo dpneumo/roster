@@ -1,0 +1,5 @@
+<% collection.each do |a| %>
+  <% present(a) do |address| %>
+    <%= render "address_row", address: address %>
+  <% end %>
+<% end %>

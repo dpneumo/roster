@@ -1,0 +1,39 @@
+<%= form_with(model: phone, local: true) do |form| %>
+  <% present(phone) do |phone| %>
+    <%  phone.form = form %>
+    <%= phone.show_errors %>
+
+    <%= phone.input_row([ { attribute: :person_id, kind: :select,
+                            collection: phone.persons_list,
+                            selected: phone.person_id,
+                            disabled: phone.person_id },
+                          { attribute: :person_id, kind: :hidden,
+                            value: phone.person_id } ]) %>
+
+    <%= phone.input_row([ { attribute: :cc, label: 'Country Code' } ]) %>
+
+    <%= phone.input_row([ { attribute: :area, label: 'Area Code' },
+                          { attribute: :prefix },
+                          { attribute: :number } ]) %>
+
+    <%= phone.input_row([ { attribute: :phone_type, kind: :select,
+                            label: 'Phone Type',
+                            collection: phone.types,
+                            selected: phone.phone_type,
+                            blank: false },
+                          { attribute: :txt_capable, kind: :select,
+                            label: 'Message Capable',
+                            collection: [['Yes',true],['No',false]],
+                            selected: phone.txt_capable,
+                            blank: false },
+                          { attribute: :preferred, kind: :select,
+                            collection: [['Yes',true],['No',false]],
+                            selected: phone.preferred,
+                            blank: false } ]) %>
+
+    <%= phone.input_row([ { attribute: :note, kind: :textarea } ]) %>
+
+    <%= render  partial: 'shared/form_submit_bs',
+                locals: { form: form } %>
+  <% end %>
+<% end %>

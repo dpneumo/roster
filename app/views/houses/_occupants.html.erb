@@ -1,0 +1,34 @@
+<%= render  partial: 'shared/subtable_header_bs',
+            locals: { title: "Occupants:",
+                      link_text1: nil,
+                      path1: nil,
+                      link_text2: nil,
+                      path2: nil } %>
+
+<table class='table table-sm table-bordered table-hover'>
+  <thead class='thead-light'>
+    <% present(house) do |h| %>
+    <tr>
+      <th>Occupant</th>
+      <th>Role</th>
+      <th>Status</th>
+      <th class='col-2'><%= link_to 'New Person as Occupant', new_occupant_path(house_id: house.id) %></th>
+      <th class='col-1'><%= link_to 'Add Occupant', list_non_occupants_path(house_id: house.id)  %></th>
+    </tr>
+    <% end %>
+  </thead>
+
+  <tbody>
+    <% house.occupants.each do |o| %>
+      <% present(o) do |occupant| %>
+        <tr>
+          <td><%= occupant.fullname %></td>
+          <td><%= occupant.role %></td>
+          <td><%= occupant.status %></td>
+          <td><%= link_to 'Show', occupant %></td>
+          <td><%= link_to 'Edit', edit_person_path(occupant) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

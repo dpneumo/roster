@@ -1,0 +1,22 @@
+<h1>Phone Detail</h1>
+
+<% present(@phone) do |phone| %>
+
+	<%= phone.notice(notice) %>
+
+	<%= phone.show(:person_name, 'Person') %>
+	<%= phone.show(:cc) %>
+	<%= phone.show(:area) %>
+	<%= phone.show(:prefix) %>
+	<%= phone.show(:number) %>
+	<%= phone.show(:phone_type, 'Type') %>
+	<%= phone.show(:preferred) %>
+	<%= phone.show(:txt_capable, 'Msg Capable') %>
+	<%= phone.show(:note) %>
+<% end %>
+
+<%= link_to 'Edit', edit_phone_path(@phone) %> |
+<%= link_to 'Person Detail', person_detail_path(@phone.person_id) %>
+<% if false %> |
+  <%= link_to 'List', phones_path %>
+<% end %>

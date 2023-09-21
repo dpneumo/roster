@@ -1,0 +1,9 @@
+  <tr>
+    <td><%= ownership.house_address %></td>
+    <td><%= ownership.owner_name %></td>
+    <td><%= link_to 'Show', ownership_path(ownership.id) %></td>
+    <td><%= link_to 'Edit', edit_ownership_path(ownership.id) %></td>
+    <td><%= link_to "Destroy", ownership, 
+            data: { turbo_method: :delete, 
+            turbo_confirm: 'Are you sure?' } %></td>
+  </tr>

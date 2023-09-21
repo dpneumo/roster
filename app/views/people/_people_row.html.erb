@@ -1,0 +1,14 @@
+<tr>
+  <td class='pl-6'><%= person.nickname %></td>
+  <td class='pl-6'><%= person.sortable_name %></td>
+  <td class='pl-6'><%= person.suffix %></td>
+  <td class='pl-6'><%= person.honorific %></td>
+  <td class='pl-6'><%= person.house_id ? person.house_address : '' %></td>
+  <td class='pl-6'><%= person.role %></td>
+  <td class='pl-6'><%= person.status %></td>
+  <td class='pl-6'><%= person.note %></td>
+  <td><%= link_to 'Detail', person_detail_path(person) %></td>
+  <td><%= link_to 'Edit', edit_person_path(person) %></td>
+  <td><%= link_to "Destroy", person, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+</tr>
+

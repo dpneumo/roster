@@ -1,0 +1,9 @@
+<div class="form-group row mb-3">
+  <%= form.label( my_field,
+                  class: "col-sm-2 col-form-label" ) %>
+  <%= form.select(
+          my_field,
+          grouped_options_for_select(my_grouped_options),
+          include_blank: true,
+          class: "custom-select col-sm-3" ) %>
+</div>

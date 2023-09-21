@@ -1,0 +1,5 @@
+<% collection.each do |no| %>
+  <% present(no) do |non_occupant| %>
+    <%= render "non_occupant_row", non_occupant: non_occupant %>
+  <% end %>
+<% end %>

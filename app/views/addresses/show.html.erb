@@ -1,0 +1,21 @@
+<h1>Address Detail</h1>
+
+<% present(@address) do |address| %>
+	<%= address.notice(notice) %>
+
+	<%= address.show(:addressee) %>
+	<%= address.show(:number) %>
+	<%= address.show(:street) %>
+	<%= address.show(:city) %>
+	<%= address.show(:state) %>
+	<%= address.show(:zip) %>
+	<%= address.show(:address_type) %>
+	<%= address.show(:preferred) %>
+	<%= address.show(:note) %>
+<% end %>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Person Detail', person_detail_path(@address.person_id) %>
+<% if false %> |
+  <%= link_to 'List', addresses_path %>
+<% end %>

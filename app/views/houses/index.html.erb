@@ -1,0 +1,17 @@
+<div class="flex flex_col">
+  <div>
+    <h1>Houses</h1>
+  </div>
+  <div class="field col-sm-8">
+    <% present(nil, HousePresenter) do |h| %>
+      <%= render 'search_form', house: h %>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/table", head: 'houses_head', body: 'houses_body', collection: @houses %>
+
+
+<%== pagy_nav(@pagy) %>
+<br>
+<%= link_to 'New House', new_house_path %>

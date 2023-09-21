@@ -1,0 +1,14 @@
+<div class="flex flex_col">
+  <div>
+    <h1>Addresses</h1>
+  </div>
+</div>
+
+<%= render "shared/table", 
+            head: 'addresses_head', 
+            body: 'addresses_body', 
+            collection: @addresses %>
+
+<%== pagy_nav(@pagy) %>
+<br>
+<%= link_to 'New Address', new_address_path %>

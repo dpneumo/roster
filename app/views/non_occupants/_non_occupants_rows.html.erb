@@ -1,0 +1,7 @@
+<tr>
+  <td><%= person.nickname %></td>
+  <td><%= person.sortable_name %></td>
+  <td><%= person.role %></td>
+  <td><%= person.status %></td>
+  <td><%= link_to 'Add to House', update_non_occupant_path(person.id, {house_id: @house_id}), method: :patch %></td>
+</tr>
