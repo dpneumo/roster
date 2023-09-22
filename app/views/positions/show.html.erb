@@ -1,20 +1,18 @@
-<div class="grid grid-cols-1 sm:grid-cols-6 my-2 gap-x-6 gap-y-2">
-  <div class="col-start-1 col-end-6 sm:col-start-2 bg-blue-100">
-
+<% present(@position) do |position| %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
     <h1 class="mb-4 text-2xl font-extrabold">Position Detail</h1>
 
-		<% present(@position) do |position| %>
-		  <div class="border-b border-gray-900/10 pb-11"> <!-- grid_container -->
-				<%= position.notice(notice) %>
+		<div> Name: <%= position.name %></div>
+		<div> Person: <%= position.person_name %></div>
+		<div> Start Date: <%= position.start %></div>
+    <div> Stop Date: <%= position.stop %></div>
 
-				<%= position.show(:name) %>
-				<%= position.show(:person_name) %>
-				<%= position.show(:date_range) %>
-		  </div>
-		<% end %>
+		<div><br></div>
 
-	  <%= link_to 'Edit', edit_position_path(@position), class: "text-lg text-bold" %> |
-	  <%= link_to 'Positions List', positions_path, class: "text-lg text-bold" %>
-
-  </div>
-</div>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+		  <%= link_to 'Edit', edit_position_path(@position), class: "text-lg font-medium hover:font-extrabold" %> |
+		  <%= link_to 'Positions List', positions_path, class: "text-lg font-medium hover:font-extrabold" %>
+		</div>
+	</div>
+<% end %>

@@ -16,4 +16,19 @@ class OwnershipPresenter < ApplicationPresenter
   def owner_name
     owner.fullname
   end
+
+  def form_rows
+    [ 
+      { elements: [:house_id] },
+      { elements: [:person_id] }
+    ]
+  end
+
+  def element_info 
+    {
+      house_id:   { kind: :select, span: 3, lblfor: 'ownership_house_id', lbltxt: 'House', collection: house_list },
+      person_id:   { kind: :select, span: 3, lblfor: 'ownership_person_id', lbltxt: 'Person', collection: people_list },
+      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel' },
+    } 
+  end
 end

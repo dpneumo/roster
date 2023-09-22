@@ -1,12 +1,17 @@
-<h1>Ownership Detail</h1>
-
 <% present(@ownership) do |ownership| %>
-	<%= ownership.notice(notice) %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Ownership Detail</h1>
 
-	<%= ownership.show(:house_address, 'Property') %>
-	<%= ownership.show(:owner_name, 'Owner') %>
+		  
+		<div>Owner: <%= ownership.owner_name %></div>
+		<div>House: <%= ownership.house_address %></div>
+		
+		<div><br></div>
+
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_ownership_path(@ownership), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'Ownerships List', ownerships_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
+  </div>
 <% end %>
-
-<%= link_to 'Edit', edit_ownership_path(@ownership) %> |
-<%= link_to 'House Detail', house_detail_path(@ownership.house_id) %> |
-<%= link_to 'List', ownerships_path %>

@@ -3,15 +3,17 @@
 
     <h1 class="text-2xl font-extrabold">Users</h1>
 
-    <%= render "shared/table", 
+    <%= 
+      render "shared/table", 
             head: 'users_head', 
             item_row:  'users_row', 
-            collection: @users %>
+            collection: @users 
+    %>
 
     <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
     <br>
 
-    <%= link_to 'New User', new_user_path, class: "text-lg text-bold" %> 
+    <%= link_to 'New User', new_user_path, class: "text-lg font-medium hover:font-extrabold" %> 
 
   </div>
 </div>

@@ -1,8 +1,14 @@
-<h1>New Phone</h1>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
 
-<%= render 'form', phone: @phone %>
+    <h1 class="text-2xl font-extrabold">New Phone</h1>
 
-<% p_id = @phone.person_id %>
-<%= link_to 'Show', @phone %> |
-<%= link_to('Person Detail', person_detail_path(p_id)) + ' | ' if p_id %>
-<%= link_to 'List', phones_path %>
+    <%= render 'shared/form', mdl: @phone %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+
+    <%= link_to 'Person Detail', person_detail_path(p_id) %> |
+    <%= link_to 'Phones List', phones_path, class: "text-lg text-bold" %>
+
+  </div>
+</div>

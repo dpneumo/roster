@@ -47,5 +47,4 @@ class PositionPresenter < ApplicationPresenter
       submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel' },
     } 
   end
-
 end
