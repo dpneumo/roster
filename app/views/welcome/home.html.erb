@@ -1,46 +1,24 @@
-<h1>Welcome to the WWNA Roster!</h1>
-
 <% present(nil, WelcomePresenter) do |w| %>
-  <row>
-    <h3>Total Dues Paid <%= w.current_year %>: <%= humanized_money_with_symbol w.total_dues_current %></h3>
-    <h3>Total Dues Paid <%= w.last_year %>: <%= humanized_money_with_symbol w.total_dues_last_year %></h3>
-  </row>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 place-content-center border-b border-gray-900/10 pb-11">
+	  <h1 class="mb-4 text-2xl font-extrabold">Welcome to the WWNA Roster!</h1>
+
+		<div class="max-w-full justify-items-center">
+			<h3>Total Dues Paid <%= w.current_year %>: <%= humanized_money_with_symbol w.total_dues_current %></h3>
+		  <h3>Total Dues Paid <%= w.last_year %>: <%= humanized_money_with_symbol w.total_dues_last_year %></h3>		    
+	  </div>
+
+		<div class="max-w-full">....</div>
+
+		<div class="text-xl font-bold"> WWNA Board </div>
+
+		<div>
+			<%= 
+        render "shared/table", 
+            head: 'current_positions_head', 
+            item_row: 'current_positions_row', 
+            collection: w.current_positions 
+      %>
+		</div>
+		
+	</div>
 <% end %>
-
-<row>....</row>
-
-<row>
-  <h3>Current Officers and Committee Chairs</h3>
-  <div class="container">
-    <div class="w-25"></div>
-      <table class='table table-sm table-bordered table-hover'>
-        <thead class='thead-light'>
-          <tr>
-            <th>Position</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% present(nil, WelcomePresenter) do |w| %>
-            <% w.current_positions.each do |position| %>
-              <tr>
-                <td><%= position.name %></td>
-                <td>
-                  <% if position.person_id %>
-                    <%= link_to position.person_name, person_detail_path(position.person_id) %>
-                  <% else %>
-                    <%= position.person_name %>
-                  <% end %>
-                </td>
-                <td><%= position.person_pref_phone %></td>
-                <td><%= position.person_pref_email %></td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</row>
