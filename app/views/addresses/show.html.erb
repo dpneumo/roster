@@ -1,21 +1,20 @@
-<h1>Address Detail</h1>
-
 <% present(@address) do |address| %>
-	<%= address.notice(notice) %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Address Detail</h1>
 
-	<%= address.show(:addressee) %>
-	<%= address.show(:number) %>
-	<%= address.show(:street) %>
-	<%= address.show(:city) %>
-	<%= address.show(:state) %>
-	<%= address.show(:zip) %>
-	<%= address.show(:address_type) %>
-	<%= address.show(:preferred) %>
-	<%= address.show(:note) %>
-<% end %>
+		  
+		<div>Person: <%= address.addressee %></div>
+		<div>Address: <%= address.complete_address %></div>
+		<div>Address Type: <%= address.address_type %></div>
+		<div>Preferred: <%= address.primary %></div>
+		<div>Note: <%= address.note %></div>
+	
+		<div><br></div>
 
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Person Detail', person_detail_path(@address.person_id) %>
-<% if false %> |
-  <%= link_to 'List', addresses_path %>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_address_path(@address), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'Addresses List', addresses_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
+  </div>
 <% end %>

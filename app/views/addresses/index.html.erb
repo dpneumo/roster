@@ -1,14 +1,22 @@
-<div class="flex flex_col">
-  <div>
-    <h1>Addresses</h1>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
+
+    <h1 class="text-2xl font-extrabold">Addresses</h1>
+
+    <%= 
+      render "shared/table", 
+            head: 'addresses_head', 
+            item_row:  'addresses_row', 
+            collection: @addresses 
+    %>
+
+    <br>
+    <%== pagy_nav(@pagy) %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <br>
+
+    <%= link_to 'New Address', new_address_path, class: "text-lg font-medium hover:font-extrabold" %> 
+
   </div>
 </div>
-
-<%= render "shared/table", 
-            head: 'addresses_head', 
-            body: 'addresses_body', 
-            collection: @addresses %>
-
-<%== pagy_nav(@pagy) %>
-<br>
-<%= link_to 'New Address', new_address_path %>

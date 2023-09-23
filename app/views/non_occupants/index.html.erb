@@ -1,16 +1,22 @@
-<div class="flex flex_col">
-  <div>
-    <h1>Non Occupants</h1>
-  </div>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
 
-  <%= render partial:'search_form', locals: {non_occupant_id: @non_occupant_id} %>
-</div>
+    <h1 class="text-2xl font-extrabold">Occupants</h1>
 
-<%= render "shared/table", 
+    <%= 
+      render "shared/table", 
             head: 'non_occupants_head', 
-            body: 'non_occupants_body', 
-            collection: @non_occupants %>
+            item_row:  'non_occupants_row', 
+            collection: @non_occupants 
+    %>
 
-<%== pagy_nav(@pagy) %>
-<br>
-<%= link_to 'New Non Occupant', new_non_occupant_path %>
+    <br>
+    <%== pagy_nav(@pagy) %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <br>
+
+    <%= link_to 'New Non Occupant', new_non_occupant_path, class: "text-lg font-medium hover:font-extrabold" %> 
+
+  </div>
+</div>

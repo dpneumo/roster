@@ -5,6 +5,7 @@ class UserPresenter < ApplicationPresenter
     Enums.user_roles
   end
 
+# For New & Edit forms
   def form_rows
     [ 
       { elements: [:email, :role] },
@@ -22,7 +23,7 @@ class UserPresenter < ApplicationPresenter
       role:        { kind: :select,    span: 3, lblfor: 'user_role',       lbltxt: 'Role', collection: roles, default: 'user' },
       password:    { kind: :password,  span: 3, lblfor: 'user_password',   lbltxt: 'Password'   },
       password_confirmation: { kind: :password, span: 3, lblfor: 'user_password_confirmation', lbltxt: 'Password Confirmation' },
-      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel' },
+      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: users_path },
     } 
   end
 end

@@ -1,17 +1,19 @@
-<h1>Email Detail</h1>
-
 <% present(@email) do |email| %>
-	<%= email.notice(notice) %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Email Detail</h1>
 
-	<%= email.show(:addressee) %>
-	<%= email.show(:addr, 'Address') %>
-	<%= email.show(:email_type, 'Type') %>
-	<%= email.show(:preferred) %>
-	<%= email.show(:note) %>
-<% end %>
+		<div>Addressee: <%= email.addressee %></div>
+		<div>Address: <%= email.addr %></div>
+		<div>Type: <%= email.email_type %></div>
+		<div>Preferred: <%= email.primary %></div>
+		<div>Note: <%= email.note %></div>
+	
+		<div><br></div>
 
-<%= link_to 'Edit', edit_email_path(@email) %> |
-<%= link_to 'Person Detail', person_detail_path(@email.person_id) %>
-<% if false %> |
-  <%= link_to 'List', emails_path %>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_email_path(@email), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'Emails List', emails_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
+  </div>
 <% end %>

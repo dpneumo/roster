@@ -1,8 +1,15 @@
-<h1>Edit Contribution</h1>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
 
-<%= render 'form', contribution: @contribution %>
+    <h1 class="text-2xl font-extrabold">Edit Contribution</h1>
 
-<% h_id = @contribution.house_id %>
-<%= link_to 'Show', @contribution %> |
-<%= link_to 'House Detail', house_detail_path(h_id) %> |
-<%= link_to 'List', contributions_path %>
+    <%= render 'shared/form', mdl: @contribution %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+
+    <%= link_to 'Details', @contribution, class: "text-lg text-bold" %> |
+    <%= link_to 'House Detail', house_detail_path(@contribution.house_id), class: "text-lg text-bold" %> |
+    <%= link_to 'Contributions List', contributions_path, class: "text-lg text-bold" %>
+
+  </div>
+</div>

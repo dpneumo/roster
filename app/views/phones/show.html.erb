@@ -1,22 +1,22 @@
 <% present(@phone) do |phone| %>
-		<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-	    <h1 class="mb-4 text-2xl font-extrabold">Phone Detail</h1>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Phone Detail</h1>
 
-			  
-			<div>Person: <%= phone.person_name %></div>
-			<div>Country Code: <%= phone.cc %></div>
-			<div>Phone Number: <%= phone.ph_number %></div>
-			<div>Phone Type: <%= phone.phone_type %></div>
-			<div>Preferred: <%= phone.preferred %></div>
-			<div>Text Capable: <%= phone.txt_capable %></div>
-			<div>Note: <%= phone.note %></div>
-		
-			<div><br></div>
+		  
+		<div>Person: <%= phone.person_name %></div>
+		<div>Country Code: <%= phone.cc %></div>
+		<div>Phone Number: <%= phone.ph_number %></div>
+		<div>Phone Type: <%= phone.phone_type %></div>
+		<div>Preferred: <%= phone.primary %></div>
+		<div>Textable: <%= phone.textable %></div>
+		<div>Note: <%= phone.note %></div>
+	
+		<div><br></div>
 
-			<div>
-				<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-		    <%= link_to 'Edit', edit_phone_path(@phone), class: "text-lg font-medium hover:font-extrabold" %> |
-		    <%= link_to 'Phones List', phones_path, class: "text-lg font-medium hover:font-extrabold" %>
-		  </div>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_phone_path(@phone), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'Phones List', phones_path, class: "text-lg font-medium hover:font-extrabold" %>
 	  </div>
+  </div>
 <% end %>

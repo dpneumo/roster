@@ -1,10 +1,8 @@
-<tr>
-  <td><%= contribution.house_address %></td>
-  <td><%= contribution.date_paid %></td>
-  <td><%= contribution.amount %></td>
-  <td><%= link_to 'Show', contribution_path(contribution.id) %></td>
-  <td><%= link_to 'Edit', edit_contribution_path(contribution.id) %></td>
-  <td><%= link_to "Destroy", contribution, 
-          data: { turbo_method: :delete, 
-                  turbo_confirm: 'Are you sure?' } %></td>
-</tr>
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='pl-6'><%= item.house_address %></td>
+    <td class='pl-6'><%= item.date_paid %></td>
+    <td class='pl-6'><%= item.amount %></td>
+    <td><%= link_to 'Detail', contribution_path(item.id) %></td>
+  </tr>
+<% end %>

@@ -54,4 +54,10 @@ class HousePresenter < ApplicationPresenter
   def house_id
     id
   end
+
+  def note_hint  
+    note.length > 20 ? note.slice(0..19)+'...' : note
+  end
+
+# For New & Edit forms
 end

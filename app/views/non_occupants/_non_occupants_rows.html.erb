@@ -1,7 +1,9 @@
-<tr>
-  <td><%= person.nickname %></td>
-  <td><%= person.sortable_name %></td>
-  <td><%= person.role %></td>
-  <td><%= person.status %></td>
-  <td><%= link_to 'Add to House', update_non_occupant_path(person.id, {house_id: @house_id}), method: :patch %></td>
-</tr>
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='pl-6'><%= item.nickname %></td>
+    <td class='pl-6'><%= item.sortable_name %></td>
+    <td class='pl-6'><%= item.role %></td>
+    <td class='pl-6'><%= item.status %></td>
+    <td><%= link_to 'Add to House', update_non_occupant_path(item.id, {house_id: @house_id}), method: :patch %></td>
+  </tr>
+<% end %>

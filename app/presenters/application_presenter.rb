@@ -2,6 +2,7 @@
 
 class ApplicationPresenter < SimpleDelegator
   include ActionView::Helpers::TagHelper
+  include Rails.application.routes.url_helpers
   include Decorators::Show
   include Decorators::ShowErrs
   include Decorators::Input

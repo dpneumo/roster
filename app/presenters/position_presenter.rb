@@ -29,6 +29,7 @@ class PositionPresenter < ApplicationPresenter
     em.nil? ? '' : EmailPresenter.new(em, nil).addr
   end
 
+# For New & Edit forms
   def form_rows
     [ 
       { elements: [:name] },
@@ -44,7 +45,7 @@ class PositionPresenter < ApplicationPresenter
       person_id:   { kind: :select,    span: 3, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
       start:       { kind: :date, span: 3, lblfor: 'position_start', lbltxt: 'Start' },
       stop:        { kind: :date, span: 3, lblfor: 'position_stop',  lbltxt: 'End'  },
-      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel' },
+      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
     } 
   end
 end

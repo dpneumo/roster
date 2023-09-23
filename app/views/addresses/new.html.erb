@@ -1,8 +1,16 @@
-<h1>New Address</h1>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
 
-<%= render 'form', address: @address, adata: @address_data %>
+    <h1 class="text-2xl font-extrabold">New Address</h1>
 
-<% p_id = @address.person_id %>
-<%= link_to 'Show', @address %> |
-<%= link_to('Person Detail', person_detail_path(p_id)) + ' | ' if p_id %>
-<%= link_to 'List', addresses_path %>
+    <%= render 'shared/form', mdl: @address %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+
+    <% if @address.person_id %>
+      <%= link_to 'Person Detail', person_detail_path(@address.person_id) %> |
+    <% end %>
+    <%= link_to 'Addresses List', addresses_path, class: "text-lg text-bold" %>
+
+  </div>
+</div>

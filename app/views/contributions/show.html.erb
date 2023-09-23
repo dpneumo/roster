@@ -1,15 +1,20 @@
-<h1>Contribution Detail</h1>
-
 <% present(@contribution) do |contribution| %>
-	<%= contribution.notice(notice) %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Contribution Detail</h1>
 
-	<%= contribution.show(:house_address, 'House') %>
-	<%= contribution.show(:date_paid) %>
-	<%= contribution.show(:amount) %>
-<% end %>
+		  
+		<div>House: <%= contribution.house_address %></div>
+		<div>Date Paid: <%= contribution.date_paid %></div>
+		<div>Amount: <%= contribution.amount %></div>
+		
+	
+		<div><br></div>
 
-<%= link_to 'Edit', edit_contribution_path(@contribution) %> |
-<%= link_to 'House Detail', house_detail_path(@contribution.house_id) %>
-<% if false %> |
-  <%= link_to 'List', contributions_path %>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_contribution_path(@contribution), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'House Detail', house_detail_path(@contribution.house_id) %> |
+	    <%= link_to 'Contributions List', contributions_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
+  </div>
 <% end %>

@@ -4,7 +4,7 @@ class PersonPresenter < ApplicationPresenter
   def select_list
     Person.all
           .collect { |person| [person.sortable_name, person.id] }
-          .sort_by(&:first)
+          .sort_by(&:first)  
   end
 
   def roles
@@ -63,4 +63,10 @@ class PersonPresenter < ApplicationPresenter
   def person_id
     id
   end
+
+  def note_hint  
+    note.length > 20 ? note.slice(0..19)+'...' : note
+  end
+
+# For New & Edit forms
 end
