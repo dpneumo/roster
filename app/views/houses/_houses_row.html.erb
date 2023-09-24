@@ -1,15 +1,12 @@
-<tr>
-  <td class='pl-6'><%= house.house_address %></td>
-  <td class='pl-6'><%= house.flag %></td>
-  <td class='pl-6'><%= house.rental %></td>
-  <td class='pl-6'><%= house.listed %></td>
-  <td class='pl-6'><%= house.status %></td>
-  <td class='pl-6'><%= house.linked_lot_addresses %></td>
-  <td class='pl-6'><%= house.note %></td>
-  <td><%= link_to 'Detail', house_detail_path(house) %></td>
-  <td><%= link_to 'Edit', edit_house_path(house) %></td>
-  <td><%= link_to "Destroy", house, 
-            data: { turbo_method: :delete, 
-                    turbo_confirm: 'Are you sure?' } %></td>
-</tr>
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+  <td class='pl-6'><%= item.house_address %></td>
+  <td class='pl-6'><%= item.gets_flag %></td>
+  <td class='pl-6'><%= item.is_rented %></td>
+  <td class='pl-6'><%= item.is_listed %></td>
+  <td class='pl-6'><%= item.status %></td>
+  <td class='pl-6'><%= item.linked_lot_addresses %></td>
+  <td class='pl-6'><%= item.note_hint %></td>
+  <td><%= link_to 'Detail', house_detail_path(item) %></td>
+<% end %>
 

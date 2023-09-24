@@ -21,7 +21,8 @@ class OwnershipPresenter < ApplicationPresenter
   def form_rows
     [ 
       { elements: [:house_id] },
-      { elements: [:person_id] }
+      { elements: [:person_id] },
+      { elements: [:submit_cncl] },
     ]
   end
 

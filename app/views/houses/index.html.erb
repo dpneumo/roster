@@ -1,17 +1,22 @@
-<div class="flex flex_col">
-  <div>
-    <h1>Houses</h1>
-  </div>
-  <div class="field col-sm-8">
-    <% present(nil, HousePresenter) do |h| %>
-      <%= render 'search_form', house: h %>
-    <% end %>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
+
+    <h1 class="text-2xl font-extrabold">Houses</h1>
+
+    <%= 
+      render "shared/table", 
+            head: 'houses_head', 
+            item_row:  'houses_row', 
+            collection: @houses 
+    %>
+
+    <br>
+    <%== pagy_nav(@pagy) %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <br>
+
+    <%= link_to 'New House', new_house_path, class: "text-lg font-medium hover:font-extrabold" %> 
+
   </div>
 </div>
-
-<%= render "shared/table", head: 'houses_head', body: 'houses_body', collection: @houses %>
-
-
-<%== pagy_nav(@pagy) %>
-<br>
-<%= link_to 'New House', new_house_path %>
