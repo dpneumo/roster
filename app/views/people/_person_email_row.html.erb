@@ -1,0 +1,11 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='pl-6'><%= item.addr %></td>
+    <td class='pl-6'><%= item.email_type %></td>
+    <td class='pl-6'><%= item.primary %></td>
+    <td class='pl-6'><%= item.note_hint %></td>
+    <td class='pl-6'><%= link_to 'Show', item %></td>
+    <td class='pl-6'><%= link_to 'Edit', edit_email_path(item) %></td>
+    <td class='pl-6'><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>

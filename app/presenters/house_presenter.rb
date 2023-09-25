@@ -109,7 +109,7 @@ class HousePresenter < ApplicationPresenter
                       collection: statuses },
       current_dues: { kind: :text,     span: 1, lblfor: 'house_current_dues', lbltxt: 'Current Dues' },
       note:         { kind: :textarea, span: 3, lblfor: 'house_note',       lbltxt: 'Note' },
-      submit_cncl:  { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: addresses_path },
+      submit_cncl:  { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: houses_path },
     } 
   end
 end

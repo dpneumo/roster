@@ -1,53 +1,45 @@
 <% present(@person) do |person| %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Person Detail</h1>
 
-  <h1><%= person.formal_name %></h1> 
+		  
+		<div>Person: <%= person.formal_name %></div>
+		<div>House: <%= person.house_address %></div>
+		<div>Nickname: <%= person.nickname %></div>
+		<div>Role: <%= person.role %></div>
+		<div>Status: <%= person.status %></div>
+		<div>Position: <%= person.current_position %></div>
+		<div>Note: <%= person.note %></div>
+		<div>
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_email_head', 
+	            item_row: 'person_email_row', 
+	            collection: person.emails 
+	      %>
+			
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_phone_head', 
+	            item_row: 'person_phone_row', 
+	            collection: person.phones 
+	      %>
+			
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_address_head', 
+	            item_row: 'person_address_row', 
+	            collection: person.addresses 
+	      %>
+			
+		</div>
+	
+		<div><br></div>
 
-  <%= person.show_row do %>
-    <%= person.show :house_address, 'center', 'House', 4    %>
-    <%= person.show :nickname %>
-    <%= person.show :role      %>
-  <% end %>
-
-  <%= person.show_row do %>
-    <%= person.show :status                       %>
-    <%= person.show :current_position, 'center', 'Position' %>
-  <% end %>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h5 class="bg-light font-weight-bolder">Preferred:</h5>
-    </div>
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_person_path(@person), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'People List', people_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
   </div>
-
-  <%= person.show_row do %>
-    <%= person.show :preferred_email,'center', 'Email', 3  %>
-    <%= person.show :preferred_phone,'center', 'Phone', 3  %>
-    <%= person.show :preferred_address,'center', 'Address' %>
-  <% end %>
-
-  <div class="row">
-    <div class="col-sm">
-      <%= render 'emails', person: @person %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm">
-      <%= render 'phones', person: @person %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm">
-      <%= render 'addresses', person: @person %>
-    </div>
-  </div>
-
-  <%= person.show_row do %>
-    <%= person.show :note %>
-  <% end %>
-    
 <% end %>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'List', people_path %>

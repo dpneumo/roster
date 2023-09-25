@@ -1,7 +1,14 @@
-<h1>Edit Person</h1>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
 
-<%= render 'form', person: @person %>
+    <h1 class="text-2xl font-extrabold">Edit Person</h1>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Person Detail', person_detail_path(@person) %> |
-<%= link_to 'List', people_path %>
+    <%= render 'shared/form', mdl: @person %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+
+    <%= link_to 'Person Detail', person_detail_path(@person), class: "text-lg text-bold" %> |
+    <%= link_to 'People List', people_path, class: "text-lg text-bold" %>
+
+  </div>
+</div>

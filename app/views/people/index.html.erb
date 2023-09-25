@@ -1,17 +1,22 @@
-<div class="flex flex_col">
-  <div>
-    <h1>People</h1>
-  </div>
-  <div class="field col-sm-8">
-    <% present(nil, PersonPresenter) do |p| %>
-      <%= render 'search_form', person: p %>
-    <% end %>
+<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
+  <div class="col-start-1 col-end-6 sm:col-start-2">
+
+    <h1 class="text-2xl font-extrabold">People</h1>
+
+    <%= 
+      render "shared/table", 
+            head: 'people_head', 
+            item_row:  'people_row', 
+            collection: @people 
+    %>
+
+    <br>
+    <%== pagy_nav(@pagy) %>
+
+    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <br>
+
+    <%= link_to 'New Person', new_person_path, class: "text-lg font-medium hover:font-extrabold" %> 
+
   </div>
 </div>
-
-<%= render "shared/table", head: 'people_head', body: 'people_body', collection: @people %>
-
-
-<%== pagy_nav(@pagy) %>
-<br>
-<%= link_to 'New Person', new_person_path %>
