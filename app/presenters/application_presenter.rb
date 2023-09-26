@@ -3,6 +3,7 @@
 class ApplicationPresenter < SimpleDelegator
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::FormOptionsHelper
+  include MoneyRails::ActionViewExtension
   include Rails.application.routes.url_helpers
   include Decorators::Show
   include Decorators::ShowErrs

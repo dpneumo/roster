@@ -13,10 +13,18 @@
     <br>
     <%== pagy_nav(@pagy) %>
 
-    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <hr class="border-1 border-gray-700" />
     <br>
 
     <%= link_to 'New House', new_house_path, class: "text-lg font-medium hover:font-extrabold" %> 
+
+  </div>
+
+  <div class="col-start-6">
+    Search
+    <%= 
+      render "search_form"
+    %>
 
   </div>
 </div>
