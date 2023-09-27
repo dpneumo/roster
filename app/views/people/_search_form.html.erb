@@ -1,18 +1,19 @@
 <section id="filter_people">
-  <h1>People</h1>
-  <%= search_form_for @q, class: "max-w-4xl mx-auto px-20 pb-4 flex justify-between items-center" do |f| %>
-    <div>
-      <%= f.label :last_cont %>
-      <%= f.search_field :last_cont %>
-    </div>
+  <%= search_form_for @q, class: "mx-auto p-4 " do |f| %>
+    <div class="grid-rows-4">
 
-    <div>
-      <%= f.check_box :house_id_blank %>
-      <%= f.label :house_id_blank, "House is Blank" %>
-    </div>
+      <div class='row-start-1 mt-2'>
+        <h2 class="text-2xl font-medium mr-4">
+          Filter:
+        </h2>
+      </div>
 
-    <button class="bg-teal-500 hover:bg-teal-300">
-      <%= f.submit %>
-    </button>
+      <%= render 'shared/search/checkbox', f: f, label: 'House is Blank: ', field_matcher: :house_id_blank %>
+
+      <%= render 'shared/search/field', f: f, label: 'Last Name: ', field_matcher: :last_i_cont %>
+
+      <%= render "shared/search/filter_cancel", f: f %>
+
+    </div>
   <% end %>
 </section>

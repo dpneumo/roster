@@ -8,48 +8,36 @@
         </h2>
       </div>
 
-      <div class='row-start-2 mt-2'>
-        <%= f.label :number_eq, 'Number: ' %>
-        <%= f.search_field :number_eq, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-      </div>
+      <%= render 'shared/search/field', f: f, 
+                                        label: 'Number: ', 
+                                        field_matcher: :number_eq %>
 
-      <div class='row-start-3 mt-2'>
-        <%= f.label :street_eq, 'Street: ' %>
-        <%= f.select :street_eq, options_for_select(House.sorted_streets.unshift(''), params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-       </div>
+      <%= render 'shared/search/select',  f: f, 
+                                          label: 'Street: ', 
+                                          field_matcher: :street_eq, 
+                                          collection: House.sorted_streets.unshift('') %>
 
-      <div class='row-start-4 mt-2'>
-        <%= f.label :status_eq, 'Status: ' %>
-        <%= f.select :status_eq, options_for_select(House.statuses.unshift(''), params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-      </div>
+      <%= render 'shared/search/select',  f: f, 
+                                          label: 'Status: ', 
+                                          field_matcher: :status_eq, 
+                                          collection: House.statuses.unshift('') %>
 
-      <div class='row-start-5 mt-2'>
-        <%= f.label :flag, 'Flag: ' %>
-        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-      </div>
+      <%= render 'shared/search/select',  f: f, 
+                                          label: 'Flag: ', 
+                                          field_matcher: :flag_eq, 
+                                          collection: ['All', 'Yes', 'No'] %>
 
-      <div class='row-start-5 mt-2'>
-        <%= f.label :rental, 'Rental: ' %>
-        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-      </div>
+      <%= render 'shared/search/select',  f: f, 
+                                          label: 'Rental: ', 
+                                          field_matcher: :rental_eq, 
+                                          collection: ['All', 'Yes', 'No'] %>
 
-      <div class='row-start-5 mt-2'>
-        <%= f.label :listed, 'Listed: ' %>
-        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
-      </div>
+      <%= render 'shared/search/select',  f: f, 
+                                          label: 'Listed: ', 
+                                          field_matcher: :listed_eq, 
+                                          collection: ['All', 'Yes', 'No'] %>
 
-      <div class='row-start-8 mt-2'>
-        <div class='grid grid-cols-2'>
-          <div class='col-start-1 col-end-2'>
-            <button class='mt-2'>
-              <%= f.submit 'Search', class: "w-full text-center px-2 pt-2 pb-3 rounded bg-indigo-400 text-white hover:bg-green-600 focus:outline-none" %>
-            </button>
-          </div>
-          <div class='col-start-2 col-end-4 pt-4 pl-4'>
-            <%= link_to "Clear", request.path, class:"cancel-button" %>
-          </div>
-        </div>
-      </div>
+      <%= render "shared/search/filter_cancel", f: f %>
 
     </div>
   <% end %>
