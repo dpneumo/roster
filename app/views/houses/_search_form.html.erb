@@ -1,27 +1,56 @@
 <section id="filter_houses">
-  <%= search_form_for @q, class: "max-w-4xl mx-auto p-4 flex justify-between items-center" do |f| %>
-    <h2 class="text-3xl font-medium mr-4">
-      Filter:
-    </h2>
+  <%= search_form_for @q, class: "mx-auto p-4 " do |f| %>
+    <div class="grid-rows-8">
 
-    <div class=''>
-      <%= f.label :number, 'Number: ' %>
-      <%= f.search_field :number_eq, class: "block appearance-none bg-white border border-gray-400 hover:border-gray-500 w-fit py-2 px-3 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" %>
+      <div class='row-start-1 mt-2'>
+        <h2 class="text-2xl font-medium mr-4">
+          Filter:
+        </h2>
+      </div>
+
+      <div class='row-start-2 mt-2'>
+        <%= f.label :number_eq, 'Number: ' %>
+        <%= f.search_field :number_eq, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+      </div>
+
+      <div class='row-start-3 mt-2'>
+        <%= f.label :street_eq, 'Street: ' %>
+        <%= f.select :street_eq, options_for_select(House.sorted_streets.unshift(''), params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+       </div>
+
+      <div class='row-start-4 mt-2'>
+        <%= f.label :status_eq, 'Status: ' %>
+        <%= f.select :status_eq, options_for_select(House.statuses.unshift(''), params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+      </div>
+
+      <div class='row-start-5 mt-2'>
+        <%= f.label :flag, 'Flag: ' %>
+        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+      </div>
+
+      <div class='row-start-5 mt-2'>
+        <%= f.label :rental, 'Rental: ' %>
+        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+      </div>
+
+      <div class='row-start-5 mt-2'>
+        <%= f.label :listed, 'Listed: ' %>
+        <%= f.select :flag, options_for_select(['All', 'Yes', 'No'], params[:street_eq]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+      </div>
+
+      <div class='row-start-8 mt-2'>
+        <div class='grid grid-cols-2'>
+          <div class='col-start-1 col-end-2'>
+            <button class='mt-2'>
+              <%= f.submit 'Search', class: "w-full text-center px-2 pt-2 pb-3 rounded bg-indigo-400 text-white hover:bg-green-600 focus:outline-none" %>
+            </button>
+          </div>
+          <div class='col-start-2 col-end-4 pt-4 pl-4'>
+            <%= link_to "Clear", request.path, class:"cancel-button" %>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <%= render 'shared/dropdown_select_1', fldname: 'street_eq', select_label: 'Street', items: house.street_names.unshift('') %>
-
-    <%= render 'shared/dropdown_select_1', fldname: 'status_eq', select_label: 'Status', items: house.statuses.unshift('') %>
-
-    <%= render 'shared/dropdown_select_1', fldname: 'flag', select_label: 'Flag', items: ['All', 'Yes', 'No'] %>
-
-    <%= render 'shared/dropdown_select_1', fldname: 'rental', select_label: 'Rental', items: ['All', 'Yes', 'No'] %>
-
-    <%= render 'shared/dropdown_select_1', fldname: 'listed', select_label: 'Listed', items: ['All', 'Yes', 'No'] %>
-
-    <button class="bg-teal-500 hover:bg-teal-300">
-      <%= f.submit 'Search', class: "w-full text-center ml-3 pt-4 pb-5 rounded bg-indigo-400 text-white hover:bg-green-600 focus:outline-none" %>
-    </button>
-
   <% end %>
 </section>
