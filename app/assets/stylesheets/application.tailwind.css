@@ -12,6 +12,14 @@
 
 */
 
+.tile {
+  @apply flex justify-center items-center min-w-fit;
+}
+
+.tile-marker {
+  @apply text-4xl;
+}
+
 /* 
    Add the following markup AFTER your import statements
    Notice: this style contains all the rules for pagy-nav, pagy-nav-js and pagy-combo-nav-js
@@ -31,10 +39,10 @@
 .pagy-nav-js .page.prev.disabled,
 .pagy-nav-js .page.next.disabled {
   @apply block rounded-lg px-3 py-1 text-sm text-gray-500 font-semibold bg-gray-200 shadow-md;
-  &:hover{
+  &:hover {
     @apply bg-gray-300;
   }
-  &:active{
+  &:active {
     @apply bg-gray-400 text-white;
   }
 }
@@ -63,13 +71,12 @@
   }
 }
 
-
 .pagy-combo-nav-js {
   @apply flex max-w-max rounded-full px-3 py-1 text-sm text-gray-500 font-semibold bg-gray-200 shadow-md;
 }
 
 .pagy-combo-nav-js .pagy-combo-input {
-  @apply bg-white px-2 rounded-sm
+  @apply bg-white px-2 rounded-sm;
 }
 
 .pagy-combo-nav-js .page.prev,

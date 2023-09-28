@@ -1,22 +1,17 @@
-<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
-  <div class="col-start-1 col-end-6 sm:col-start-2">
-
+<div class="grid grid-cols-12 gap-x-6 gap-y-2">
+  <div class="col-start-2 col-span-9 bg-red-400">
     <h1 class="text-2xl font-extrabold">Occupants</h1>
 
-    <%= 
-      render "shared/table", 
+    <%= render "shared/table", 
             head: 'non_occupants_head', 
             item_row:  'non_occupants_row', 
-            collection: @non_occupants 
-    %>
-
+            collection: @non_occupants %>
     <br>
     <%== pagy_nav(@pagy) %>
 
-    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <hr class="border-1 border-gray-700" />
     <br>
 
     <%= link_to 'New Non Occupant', new_non_occupant_path, class: "text-lg font-medium hover:font-extrabold" %> 
-
   </div>
 </div>

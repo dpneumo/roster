@@ -15,20 +15,18 @@
   </head>
 
   <body>
-    <div class="min-h-full grid grid-template-rows: auto 1fr auto">
-      <header class="bg-teal-700 text-white sticky z-50 top-0 p-2">
+    <div class="container m-auto mt-2 grid grid-cols-12 grid-rows-12 gap-4">
+      <div class="tile bg-teal-700 col-start-1 col-span-12 row-start-1 row-span-3">
         <%= render "layouts/topnav" %>
-      </header>
-      <main class="min-h-full">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-      </main>
-      <footer class="bg-teal-700 text-white text-sm sticky z-50 bottom-0 p-1">
-        <div class="justify-center">
-          <%= render "layouts/copyright" %>
-        </div>
-      </footer>
+      </div>
+
+      <div class="tile bg-indigo-600 col-start-1 col-span-12 row-start-4 row-span-7">
+       <%= yield %>
+      </div>
+
+      <div class="tile bg-gray-300 col-start-1 col-span-full row-start-11 row-span-2">
+        <%= render "layouts/copyright" %>
+      </div>
     </div>
   </body>
 </html>
