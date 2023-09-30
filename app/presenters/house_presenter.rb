@@ -72,8 +72,6 @@ class HousePresenter < ApplicationPresenter
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
-  private
-
   def addr(house)
     "#{house.number} #{house.street}"
   end
