@@ -83,11 +83,9 @@ class HousePresenter < ApplicationPresenter
 # For New & Edit forms
   def form_rows
     [ 
-      { elements: [:number, :street] },
+      { elements: [:number, :street, :status] },
+      { elements: [:flag, :rental, :listed] },
       { elements: [:lat, :lng, :image_link] },
-      { elements: [:flag, :rental] },
-      { elements: [:listed, :status] },
-      { elements: [:current_dues] },
       { elements: [:note] },
       { elements: [:submit_cncl] },
     ]
@@ -95,18 +93,17 @@ class HousePresenter < ApplicationPresenter
 
   def element_info 
     {
-      number:       { kind: :text,     span: 1, lblfor: 'house_number',     lbltxt: 'Number' },
-      street:       { kind: :text,     span: 1, lblfor: 'house_street',     lbltxt: 'Street' },
-      lat:          { kind: :text,     span: 1, lblfor: 'house_lat',        lbltxt: 'Latitude' },
-      lng:          { kind: :text,     span: 1, lblfor: 'house_long',       lbltxt: 'Longitude' },
-      image_link:   { kind: :text,     span: 1, lblfor: 'house_image_link', lbltxt: 'Image Link' },
+      number:       { kind: :text,     span: 2, lblfor: 'house_number',     lbltxt: 'Number' },
+      street:       { kind: :text,     span: 2, lblfor: 'house_street',     lbltxt: 'Street' },
+      lat:          { kind: :text,     span: 2, lblfor: 'house_lat',        lbltxt: 'Latitude' },
+      lng:          { kind: :text,     span: 2, lblfor: 'house_long',       lbltxt: 'Longitude' },
+      image_link:   { kind: :text,     span: 2, lblfor: 'house_image_link', lbltxt: 'Image Link' },
       flag:         { kind: :checkbox, span: 1, lblfor: 'house_flag',       lbltxt: 'Flag' },
       rental:       { kind: :checkbox, span: 1, lblfor: 'house_rental',     lbltxt: 'Rental' },
-      listed:       { kind: :checkbox, span: 3, lblfor: 'house_listed',     lbltxt: 'Listed' },
-      status:       { kind: :select,   span: 1, lblfor: 'house_status',     lbltxt: 'Status',
+      listed:       { kind: :checkbox, span: 1, lblfor: 'house_listed',     lbltxt: 'Listed' },
+      status:       { kind: :select,   span: 2, lblfor: 'house_status',     lbltxt: 'Status',
                       collection: statuses },
-      current_dues: { kind: :text,     span: 1, lblfor: 'house_current_dues', lbltxt: 'Current Dues' },
-      note:         { kind: :textarea, span: 3, lblfor: 'house_note',       lbltxt: 'Note' },
+      note:         { kind: :textarea, span: 4, lblfor: 'house_note',       lbltxt: 'Note' },
       submit_cncl:  { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: houses_path },
     } 
   end
