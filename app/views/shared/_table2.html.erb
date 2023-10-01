@@ -1,0 +1,15 @@
+  <div class="mt-4 flow-root overflow-hidden">
+    <div class="mx-auto max-w-full">
+      <table class="text-left">
+        <thead class="bg-white">
+          <%= render head %>
+        </thead>
+        <tbody class="bg-white">
+          <% collection.each_with_index do |item, i| %>
+            <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
+            <%= render item_row, item: item, background: background %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

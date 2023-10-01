@@ -69,7 +69,7 @@ class PersonPresenter < ApplicationPresenter
   end
 
   def note_hint  
-    note.length > 20 ? note.slice(0..19)+'...' : note
+    note.length > 15 ? note.slice(0..14)+'...' : note
   end
 
 # For New & Edit forms
@@ -87,22 +87,22 @@ class PersonPresenter < ApplicationPresenter
 
   def element_info 
     {
-      first:     { kind: :text,   span: 1, lblfor: 'person_first',     lbltxt: 'First' },
-      middle:    { kind: :text,   span: 1, lblfor: 'person_middle',    lbltxt: 'Middle' },
-      last:      { kind: :text,   span: 1, lblfor: 'person_last',      lbltxt: 'Last' },
-      nickname:  { kind: :text,   span: 1, lblfor: 'person_nickname',  lbltxt: 'Nickname' },
-      suffix:    { kind: :text,   span: 1, lblfor: 'person_suffix',    lbltxt: 'Suffix' },
-      honorific: { kind: :text,   span: 1, lblfor: 'person_honorific', lbltxt: 'Honorific' },
-      role:      { kind: :select, span: 1, lblfor: 'person_role',      lbltxt: 'Role',
+      first:     { kind: :text,   span: 2, lblfor: 'person_first',     lbltxt: 'First' },
+      middle:    { kind: :text,   span: 2, lblfor: 'person_middle',    lbltxt: 'Middle' },
+      last:      { kind: :text,   span: 2, lblfor: 'person_last',      lbltxt: 'Last' },
+      nickname:  { kind: :text,   span: 2, lblfor: 'person_nickname',  lbltxt: 'Nickname' },
+      suffix:    { kind: :text,   span: 2, lblfor: 'person_suffix',    lbltxt: 'Suffix' },
+      honorific: { kind: :text,   span: 2, lblfor: 'person_honorific', lbltxt: 'Honorific' },
+      role:      { kind: :select, span: 2, lblfor: 'person_role',      lbltxt: 'Role',
                    collection: roles,    blank: true, prompt: true },
-      status:    { kind: :select, span: 1, lblfor: 'person_status',    lbltxt: 'Status',
+      status:    { kind: :select, span: 2, lblfor: 'person_status',    lbltxt: 'Occupancy Status',
                    collection: statuses, blank: true, prompt: true },
-      house_id:  { kind: :select, span: 3, lblfor: 'person_house_id',  lbltxt: 'House',
+      house_id:  { kind: :select, span: 2, lblfor: 'person_house_id',  lbltxt: 'House',
                    collection: houses_grouped_by_street, blank: true, prompt: true },
-      pref_email_id:   { kind: :text, span: 1, lblfor: 'person_pref_email_id',   lbltxt: 'Preferred Email' },
-      pref_phone_id:   { kind: :text, span: 1, lblfor: 'person_pref_phone_id',   lbltxt: 'Preferred Phone' },
-      pref_address_id: { kind: :text, span: 1, lblfor: 'person_pref_address_id', lbltxt: 'Preferred Address' },
-      note:        { kind: :textarea, span: 3, lblfor: 'person_note',  lbltxt: 'Note' },
+      pref_email_id:   { kind: :text, span: 2, lblfor: 'person_pref_email_id',   lbltxt: 'Preferred Email' },
+      pref_phone_id:   { kind: :text, span: 2, lblfor: 'person_pref_phone_id',   lbltxt: 'Preferred Phone' },
+      pref_address_id: { kind: :text, span: 2, lblfor: 'person_pref_address_id', lbltxt: 'Preferred Address' },
+      note:        { kind: :textarea, span: 4, lblfor: 'person_note',  lbltxt: 'Note' },
       submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: people_path },
     } 
   end

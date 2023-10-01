@@ -41,11 +41,11 @@ class PositionPresenter < ApplicationPresenter
 
   def element_info 
     {
-      name:        { kind: :text,      span: 3, lblfor: 'position_name',    lbltxt: 'Position'      },
-      person_id:   { kind: :select,    span: 3, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
-      start:       { kind: :date, span: 3, lblfor: 'position_start', lbltxt: 'Start' },
-      stop:        { kind: :date, span: 3, lblfor: 'position_stop',  lbltxt: 'End'  },
-      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
+      name:        { kind: :text,      span: 2, lblfor: 'position_name',    lbltxt: 'Position'      },
+      person_id:   { kind: :select,    span: 2, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
+      start:       { kind: :date, span: 2, lblfor: 'position_start', lbltxt: 'Start' },
+      stop:        { kind: :date, span: 2, lblfor: 'position_stop',  lbltxt: 'End'  },
+      submit_cncl: { kind: :submit_or_cncl, span: 2, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
     } 
   end
 end

@@ -8,9 +8,9 @@
         </h2>
       </div>
 
-      <%= render 'shared/search/checkbox', f: f, label: 'House is Blank: ', field_matcher: :house_id_blank %>
-
       <%= render 'shared/search/field', f: f, label: 'Last Name: ', field_matcher: :last_i_cont %>
+
+      <%= render 'shared/search/checkbox', f: f, label: 'House is Blank: ', field_matcher: :house_id_blank %>
 
       <%= render "shared/search/filter_cancel", f: f %>
 
