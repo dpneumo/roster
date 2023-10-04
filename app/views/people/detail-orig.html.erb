@@ -1,0 +1,45 @@
+<% present(@person) do |person| %>
+	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
+    <h1 class="mb-4 text-2xl font-extrabold">Person Detail</h1>
+
+		  
+		<div>Person: <%= person.formal_name %></div>
+		<div>House: <%= person.house_address %></div>
+		<div>Nickname: <%= person.nickname %></div>
+		<div>Role: <%= person.role %></div>
+		<div>Occupancy Status: <%= person.status %></div>
+		<div>Position: <%= person.current_position %></div>
+		<div>Note: <%= person.note %></div>
+		<div>
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_email_head', 
+	            item_row: 'person_email_row', 
+	            collection: person.emails 
+	      %>
+			
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_phone_head', 
+	            item_row: 'person_phone_row', 
+	            collection: person.phones 
+	      %>
+			
+	      <%= 
+	        render "shared/table", 
+	            head: 'person_address_head', 
+	            item_row: 'person_address_row', 
+	            collection: person.addresses 
+	      %>
+			
+		</div>
+	
+		<div><br></div>
+
+		<div>
+			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+	    <%= link_to 'Edit', edit_person_path(@person), class: "text-lg font-medium hover:font-extrabold" %> |
+	    <%= link_to 'People List', people_path, class: "text-lg font-medium hover:font-extrabold" %>
+	  </div>
+  </div>
+<% end %>

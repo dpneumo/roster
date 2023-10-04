@@ -13,7 +13,7 @@
 */
 
 .tile {
-  @apply flex justify-center items-center min-w-fit;
+  @apply flex justify-center items-center min-w-max;
 }
 
 .tile-marker {

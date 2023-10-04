@@ -1,12 +1,15 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.ph_number %></td>
+    <td class='pl-6'>
+      <%= link_to item.ph_number, 
+            edit_phone_path(item),
+            class: "text-sm font-medium hover:font-extrabold underline"
+      %>
+      
+    </td>
     <td class='pl-6'><%= item.phone_type %></td>
     <td class='pl-6'><%= item.primary %></td>
     <td class='pl-6'><%= item.txt_capable %></td>
-    <td class='pl-6'><%= item.note_hint %></td>
-    <td class='pl-6'><%= link_to 'Show', item %></td>
-    <td class='pl-6'><%= link_to 'Edit', edit_phone_path(item) %></td>
-    <td class='pl-6'><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class='pl-6 hidden md:table-cell'><%= item.note_hint %></td>
   </tr>
 <% end %>

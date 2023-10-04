@@ -1,45 +1,63 @@
 <% present(@person) do |person| %>
-	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-    <h1 class="mb-4 text-2xl font-extrabold">Person Detail</h1>
-
-		  
-		<div>Person: <%= person.formal_name %></div>
-		<div>House: <%= person.house_address %></div>
-		<div>Nickname: <%= person.nickname %></div>
-		<div>Role: <%= person.role %></div>
-		<div>Occupancy Status: <%= person.status %></div>
-		<div>Position: <%= person.current_position %></div>
-		<div>Note: <%= person.note %></div>
-		<div>
-	      <%= 
-	        render "shared/table", 
-	            head: 'person_email_head', 
-	            item_row: 'person_email_row', 
-	            collection: person.emails 
-	      %>
-			
-	      <%= 
-	        render "shared/table", 
-	            head: 'person_phone_head', 
-	            item_row: 'person_phone_row', 
-	            collection: person.phones 
-	      %>
-			
-	      <%= 
-	        render "shared/table", 
-	            head: 'person_address_head', 
-	            item_row: 'person_address_row', 
-	            collection: person.addresses 
-	      %>
-			
-		</div>
-	
-		<div><br></div>
-
-		<div>
-			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-	    <%= link_to 'Edit', edit_person_path(@person), class: "text-lg font-medium hover:font-extrabold" %> |
-	    <%= link_to 'People List', people_path, class: "text-lg font-medium hover:font-extrabold" %>
+	<div class="flow-root flex-auto w-full h-full p-3 bg-green-100">
+		<div class="w-full bg-green-400">
+	    <h1 class="text-2xl font-extrabold">Person Detail</h1>
 	  </div>
+
+	  <div class="w-full bg-green-200">
+		  <div class="flow-root grid grid-cols-8 grid-rows-7 gap-x-6 gap-y-2 bg-blue-100">
+		  	<h2 class="col-start-1 col-span-4 text-right font-bold">Person: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.formal_name %></div>
+
+			  <h2 class="colstart-1 col-span-4 text-right font-bold">House: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.house_address %></div>
+
+			  <h2 class="colstart-1 col-span-4 text-right font-bold">Nickname: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.nickname %></div>
+
+			  <h2 class="colstart-1 col-span-4 text-right font-bold">Occupancy Status: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.status %></div>
+
+			  <h2 class="colstart-1 col-span-4 text-right font-bold">Position: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.current_position %></div>
+
+			  <h2 class="colstart-1 col-span-4 text-right font-bold">Note: </h2>
+			  <div class="col-start-5 col-span-4 "><%= person.note %></div>
+			</div>
+		</div>
+
+	  <div class="flex flex-row flex-wrap gap-4 justify-center">
+			<div class="flex-initial w-fit bg-indigo-300">
+		      <%= 
+		        render "shared/table", 
+		            head: 'person_email_head', 
+		            item_row: 'person_email_row', 
+		            collection: person.emails       %>
+		  </div>
+			<div class="flex-initial w-fit bg-indigo-300">
+		      <%= 
+		        render "shared/table", 
+		            head: 'person_phone_head', 
+		            item_row: 'person_phone_row', 
+		            collection: person.phones       %>
+		  </div>
+			<div class="flex-initial w-fit bg-indigo-300">
+		      <%= 
+		        render "shared/table", 
+		            head: 'person_address_head', 
+		            item_row: 'person_address_row', 
+		            collection: person.addresses    %>
+		  </div>
+		</div>
+	</div>
+
+	<div class="flex flex-row">
+	  <hr  class="border-1 border-gray-700"> 
+	</div>
+
+	<div class='flex flex-row justify-center'>
+		<%= link_to 'Edit', edit_person_path(@person), class: "text-lg font-medium hover:font-extrabold" %> &nbsp|&nbsp
+    <%= link_to 'People List', people_path, class: "text-lg font-medium hover:font-extrabold" %> &nbsp|&nbsp
+    <%= link_to 'Destroy', @person, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>

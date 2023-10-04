@@ -1,11 +1,14 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='col-3'><%= item.address %></td>
-    <td class='col-2'><%= item.address_type %></td>
-    <td class='col-1'><%= item.primary %></td>
-    <td class='col-3'><%= item.note_hint %></td>
-    <td class='col-1'><%= link_to 'Show', item %></td>
-    <td class='col-1'><%= link_to 'Edit', edit_address_path(item) %></td>
-    <td class='col-1'><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class='pl-6'>
+      <%= link_to item.address, 
+            edit_address_path(item),
+            class: "text-sm font-medium hover:font-extrabold underline"
+      %>
+      
+    </td>
+    <td class='pl-6'><%= item.address_type %></td>
+    <td class='pl-6'><%= item.primary %></td>
+    <td class='pl-6 hidden md:table-cell'><%= item.note_hint %></td>
   </tr>
 <% end %>
