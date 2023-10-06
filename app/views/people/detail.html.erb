@@ -58,6 +58,6 @@
 	<div class='flex flex-row justify-center'>
 		<%= link_to 'Edit', edit_person_path(@person), class: "text-lg font-medium hover:font-extrabold" %> &nbsp|&nbsp
     <%= link_to 'People List', people_path, class: "text-lg font-medium hover:font-extrabold" %> &nbsp|&nbsp
-    <%= link_to 'Destroy', @person, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Destroy", @person, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "text-lg font-medium hover:font-extrabold" %>
   </div>
 <% end %>
