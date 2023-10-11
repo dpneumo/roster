@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class Person < ApplicationRecord
-  has_many :addresses, -> { order(state: :asc, city: :asc, street: :asc, number: :asc) }
-  has_many :emails, -> { order(addr: :asc) }
-  has_many :phones, -> { order(cc: :asc, area: :asc, prefix: :asc, number: :asc) }
+  has_many :addresses, -> { order(state: :asc, city: :asc, street: :asc, number: :asc) }, dependent: :destroy
+  has_many :emails, -> { order(addr: :asc) }, dependent: :destroy
+  has_many :phones, -> { order(cc: :asc, area: :asc, prefix: :asc, number: :asc) }, dependent: :destroy
   belongs_to :house, optional: true
-  has_many :ownerships
+  has_many :ownerships, dependent: :destroy
   has_many :properties, through: :ownerships
-  has_many :positions
+  has_many :positions, dependent: :destroy
 
   validates :first, presence: true
   validates :last,  presence: true

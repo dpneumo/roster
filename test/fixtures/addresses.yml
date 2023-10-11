@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  number: '123A'
+  street: 'Oak Dr'
+  city: Arlington
+  state: TX
+  zip: '76016'
+  address_type: Other
+  preferred: 'Yes'
+  note: 'Addr note'
+
+two:
+  person: two
+  number: zzz
+  street: aaa
+  city: Ghost
+  zip: '66666'

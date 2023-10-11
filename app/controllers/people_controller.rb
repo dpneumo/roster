@@ -11,9 +11,6 @@ class PeopleController < ApplicationController
     @pagy, @people = pagy(@q.result)
   end
 
-  # GET /people/1
-  def show; end
-
   # GET /people/1/detail
   def detail; end
 

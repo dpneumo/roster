@@ -10,9 +10,6 @@ class HousesController < ApplicationController
     @pagy, @houses = pagy(@q.result)
   end
 
-  # GET /houses/1
-  def show; end
-
   # GET /houses/1/detail
   def detail; end
 

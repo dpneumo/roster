@@ -68,7 +68,8 @@ class PersonPresenter < ApplicationPresenter
     id
   end
 
-  def note_hint  
+  def note_hint 
+    return '' unless note 
     note.length > 15 ? note.slice(0..14)+'...' : note
   end
 

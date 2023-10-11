@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get    '/houses/:id/detail',     to: 'houses#detail',           as: 'house_detail'
     get    '/people/:id/detail',     to: 'people#detail',           as: 'person_detail'
 
-    get    '/people/occupant/:house_id', to: 'people#new_occupant', as: 'new_occupant'
+    get    '/people/occupant',       to: 'people#new_occupant',     as: 'new_occupant'
 
     get    '/non_occupants',         to: 'non_occupants#index',     as: 'list_non_occupants'
     patch  '/non_occupant/:id',      to: 'non_occupants#update',    as: 'update_non_occupant'

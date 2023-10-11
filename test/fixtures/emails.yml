@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  addr: "aaa@bbb.ccc"
+  email_type: work
+  preferred: Yes
+  note: MyText
+
+two:
+  person: two
+  addr: MyString
+  email_type: home
+  note: MyText

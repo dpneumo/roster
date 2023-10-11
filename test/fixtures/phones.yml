@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  cc: '1'
+  area: '817'
+  prefix: '123'
+  number: '4567'
+  phone_type: 'home'
+  preferred: 'Yes'
+  txt_capable: true
+  note: "A note"
+
+two:
+  person: two
+  area: '214'
+  prefix: '789'
+  number: '1234'
+  phone_type: 'other'
