@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  name: President
+  start: <%= Date.yesterday %>
+  stop: <%= Date.tomorrow %>
+
+two:
+  person: one
+  name: Secretary
+  start: <%= Date.current %>
+  stop: <%= Date.tomorrow %>
+
+three:
+  person: two
+  name: Treasurer
+  start: <%= Date.current.beginning_of_year %>
+  stop: <%= Date.current.end_of_year %>
+
+four:
+  person: two
+  name: Vice
+  start: <%= Date.current.next_year.at_beginning_of_year %>
+  stop: <%= Date.current.next_year.at_end_of_year %>

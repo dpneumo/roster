@@ -1,0 +1,46 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nickname: Bob
+  first: Robert
+  middle: A
+  last: Heinlin 
+  suffix: Sr.
+  honorific: Sir
+  note: "A Fake"
+  house: one
+  role: MyString
+  status: MyString
+  pref_email_id: 
+  pref_phone_id: 
+  pref_address_id: 
+
+two:
+  nickname: Mike
+  first: Michael
+  middle: B
+  last: Satre
+  suffix: Jr.
+  honorific: Dr.
+  note: MyText
+  house: two
+  role: MyString
+  status: MyString
+  pref_email_id: 
+  pref_phone_id: 
+  pref_address_id: 
+
+three:
+  nickname: Geoff
+  first: Geoffry
+  middle: K
+  last: Swarch
+  suffix: 
+  honorific: 
+  note: MyText
+  house: 
+  role: MyString
+  status: MyString
+  pref_email_id: 
+  pref_phone_id: 
+  pref_address_id: 
