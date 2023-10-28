@@ -32,20 +32,20 @@ class PositionPresenter < ApplicationPresenter
 # For New & Edit forms
   def form_rows
     [ 
-      { elements: [:name] },
+      { elements: [:name] },      
       { elements: [:person_id] },
       { elements: [:start, :stop] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit_cncl] },      
     ]
   end
 
   def element_info 
     {
-      name:        { kind: :text,      span: 2, lblfor: 'position_name',    lbltxt: 'Position'      },
-      person_id:   { kind: :select,    span: 2, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
-      start:       { kind: :date, span: 2, lblfor: 'position_start', lbltxt: 'Start' },
-      stop:        { kind: :date, span: 2, lblfor: 'position_stop',  lbltxt: 'End'  },
-      submit_cncl: { kind: :submit_or_cncl, span: 2, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
+      name:        { kind: :text, rstart: 1,   start: 1, span: 3, lblfor: 'position_name',    lbltxt: 'Position'      },
+      person_id:   { kind: :select, rstart: 2, start: 1, span: 3, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
+      start:       { kind: :date, rstart: 3,   start: 1, span: 3, lblfor: 'position_start', lbltxt: 'Start' },
+      stop:        { kind: :date, rstart: 3,   start: 4, span: 3, lblfor: 'position_stop',  lbltxt: 'End'  },
+      submit_cncl: { kind: :submit_or_cncl, rstart: 4, start: 1, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
     } 
   end
 end

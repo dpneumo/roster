@@ -1,6 +1,8 @@
   <% info = mdl.element_info[elem] %>
 
-  <div class="col-span-<%= info[:span] %> " > 
+  <div class="row-start-<%= info[:rstart] %> 
+              col-start-<%= info[:start] %> 
+              col-span-<%= info[:span] %>" > 
     <%= render 'shared/form/label', lblfor: info[:lblfor], lbltxt: info[:lbltxt] %>
     
     <div class="mt-2">
