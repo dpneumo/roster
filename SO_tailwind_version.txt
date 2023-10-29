@@ -1,0 +1,2 @@
+> npm info tailwindcss version
+3.3.5

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Roster</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="csrf-param" content="authenticity_token" />
+        <meta name="csrf-token" content="_..." />
+        
+        <link rel="stylesheet" href="/assets/tailwind-d76ad4c81760e2fd94aa0058dec61aea3c0286900bde904dbf999176f37d22a0.css" data-turbo-track="reload" />
+        <link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" data-turbo-track="reload" />
+        <link rel="stylesheet" href="/assets/application-6bb923de6d7f0aa1d30c15d5996e958d774e1e7bc812d9dea05c0c95fa6d68b9.css" data-turbo-track="reload" />
+        <script type="importmap" data-turbo-track="reload">{
+            "imports": {
+                "application": "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js",
+                "@hotwired/turbo-rails": "/assets/turbo.min-f309baafa3ae5ad6ccee3e7362118b87678d792db8e8ab466c4fa284dd3a4700.js",
+                "@hotwired/stimulus": "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js",
+                "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+                "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
+                "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+                "controllers": "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js"
+                }
+            }
+        </script>
+        <link rel="modulepreload" href="/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js">
+        <link rel="modulepreload" href="/assets/turbo.min-f309baafa3ae5ad6ccee3e7362118b87678d792db8e8ab466c4fa284dd3a4700.js">
+        <link rel="modulepreload" href="/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js">
+        <link rel="modulepreload" href="/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js">
+        <script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+        <script type="module">import "application"</script>
+    </head>
+
+    <body>
+        <header class="flex-row flex-grow w-full ">...</header>
+
+        <main class="flex-col sm:flex-row flex-grow w-full justify-items-center overflow-hidden">
+
+            <!-- grid_container 1 - position the form -->
+            <div class="grid grid-cols-12 gap-x-6 gap-y-2 w-screen">
+                <div class="col-start-1 col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 2xl:col-start-5 2xl:col-span-4">
+
+                    <h1 class="text-2xl font-extrabold">Edit Position</h1>
+
+                    <form action="/positions/729587d1-6e5e-4992-9fb8-146b790cac6f" accept-charset="UTF-8" method="post">
+                        <input type="hidden" name="_method" value="patch" autocomplete="off" />
+                        <input type="hidden" name="authenticity_token" value="..." autocomplete="off" />
+
+
+                        <!-- grid_container 2 - position form elements-->
+                        <div class="border-b border-gray-900/10 pb-11">
+                            <div class="grid grid-cols-6 mt-6 gap-x-3 gap-y-8">
+              
+                    
+                                <div class="row-start-1 col-start-1 col-span-3" > 
+                                    <label  for=position_name class="block text-gray-900">
+                                        Position
+                                    </label>
+                                    <div class="mt-2">
+                                      <input class="w-full text-gray-900" type="text" value="Vice President" name="position[name]" id="position_name" />
+                                    </div>
+                                </div>
+
+                    
+                                <div class="row-start-2 col-start-1 col-span-3" > 
+                                    <label  for=position_person_id class="block text-gray-900">
+                                        Person
+                                    </label>
+                                    <select class="block w-full text-gray-900 " name="position[person_id]" id="position_person_id">
+                                        <option selected="selected" value="33cf7315-f145-4aba-8cb1-ab097fbeda07">Blow, Joe</option>
+                                        <option value="263846f0-bc8e-42d7-a1f4-0cbe0c5f3fa9">Blow, Joe</option>
+                                    </select>
+                                </div>
+              
+                    
+                                <div class="row-start-3 col-start-1 col-span-3" > 
+                                    <label  for=position_start class="block text-gray-900">
+                                        Start
+                                    </label>
+                                    <div class="mt-2">
+                                      <input class="block w-full text-gray-900" value="2021-01-01" type="date" name="position[start]" id="position_start" />
+                                    </div>
+                                </div>
+
+                    
+                                <div class="row-start-3 col-start-4 col-span-3" > 
+                                    <label  for=position_stop class="block text-gray-900">
+                                        End
+                                    </label>
+                                    <div class="mt-2">
+                                      <input class="block w-full text-gray-900" value="2021-02-28" type="date" name="position[stop]" id="position_stop" />
+                                    </div>
+                                </div>
+
+              
+                            </div>
+                        </div> 
+                        <!-- grid_container 2 -->
+
+                    </form>
+
+                </div>
+            </div>
+            <!-- grid_container 1 -->
+
+        </main>
+    </body>
+</html>
+ 
+
