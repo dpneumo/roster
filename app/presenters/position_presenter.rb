@@ -36,19 +36,16 @@ class PositionPresenter < ApplicationPresenter
       { elements: [:person_id] },
       { elements: [:start, :stop] },
       { elements: [:submit_cncl] },      
-      { elements: [:cola, :colb] },
     ]
   end
 
   def element_info 
     {
-      name:        { kind: :text,   rstart: 1, start: 1, span: 3, lblfor: 'position_name',    lbltxt: 'Position' },
-      person_id:   { kind: :select, rstart: 2, start: 1, span: 3, lblfor: 'position_person_id',  lbltxt: 'Person', collection: person_selectlist },
-      start:       { kind: :date,   rstart: 3, start: 1, span: 3, lblfor: 'position_start', lbltxt: 'Start' },
-      stop:        { kind: :date,   rstart: 3, start: 4, span: 3, lblfor: 'position_stop',  lbltxt: 'End'  },
-      submit_cncl: { kind: :submit_or_cncl, rstart: 4, start: 1, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
-      cola:        { kind: :col,   rstart: 5, start: 1, span: 3, bg: 'bg-red-100',   lbltxt: 'Col A' },
-      colb:        { kind: :col,   rstart: 5, start: 4, span: 3, bg: 'bg-green-200', lbltxt: 'Col B' },
+      name:        { kind: :text,   lblfor: 'position_name',      lbltxt: 'Position' },
+      person_id:   { kind: :select, lblfor: 'position_person_id', lbltxt: 'Person', collection: person_selectlist },
+      start:       { kind: :date,   lblfor: 'position_start',     lbltxt: 'Start Date' },
+      stop:        { kind: :date,   lblfor: 'position_stop',      lbltxt: 'End Date'  },
+      submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
     } 
   end
 end

@@ -1,17 +1,15 @@
-<div class="grid grid-cols-12 gap-x-6 gap-y-2">
-  <div class="col-start-1 col-span-12 lg:col-start-2 lg:col-span-10 xl:col-start-3 xl:col-span-8 2xl:col-start-4 2xl:col-span-6">
-    <h1 class="text-2xl font-extrabold mt-2">Positions</h1>
+<div class="mb-5">
+  <h1 class="text-2xl font-extrabold">Positions</h1>
 
-    <%= render "shared/table1", 
-            head: 'positions_head', 
-            item_row:  'positions_row', 
-            collection: @positions %>
-    <br>
-    <%== pagy_nav(@pagy) %>
+  <%= render "shared/table1", 
+          head: 'positions_head', 
+          item_row:  'positions_row', 
+          collection: @positions %>
+  <br>
+  <%== pagy_nav(@pagy) %>
 
-    <hr class="border-1 border-gray-700" />
-    <br>
+  <hr class="border-1 border-gray-700" />
+  <br>
 
-    <%= link_to 'New Position', new_position_path, class: "text-lg font-medium hover:font-extrabold" %> 
-  </div>
+  <%= link_to 'Positions List', positions_path, class: "text-lg font-medium hover:text-red-600" %>
 </div>

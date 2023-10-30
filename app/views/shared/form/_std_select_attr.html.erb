@@ -1,15 +1,13 @@
   <% info = mdl.element_info[elem] %>
-
-  <div class="row-start-<%= info[:rstart] %> 
-              col-start-<%= info[:start] %> 
-              col-span-<%= info[:span] %>" > 
-    <%= render 'shared/form/label', lblfor: info[:lblfor], lbltxt: info[:lbltxt] %>
-    
-    <%= mdl.form.select(  elem, info[:collection],
-          { include_blank: info[:blank], 
-            prompt: info[:prompt],
-            selected: mdl.send(elem) || info[:default] },                        
-          { class: "block leading-6 w-full mt-2 py-1.5 text-gray-900 rounded-md border-0 shadow ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600",
-            disabled: info[:disabled] }) 
-    %>
+  <div class="mx-4 mb-5 w-full">  
+    <label  for=<%= info[:lblfor] %> 
+            class="block pl-3 pt-1 text-gray-900 font-semibold leading-3">
+      <%= info[:lbltxt] %>
+      <%= mdl.form.select( elem, info[:collection],
+            { include_blank: info[:blank], 
+              prompt: info[:prompt],
+              selected: mdl.send(elem) || info[:default] },                        
+            { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600",
+              disabled: info[:disabled] } ) %>
+    </label>
   </div>
