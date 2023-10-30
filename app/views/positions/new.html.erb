@@ -1,13 +1,9 @@
-<div class="grid grid-cols-12 gap-x-6 gap-y-2 w-screen">
-  <div class="col-start-1 col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 2xl:col-start-5 2xl:col-span-4">
+    <div class="mb-5">
+      <h1 class="text-2xl font-extrabold">New Position</h1>
 
-    <h1 class="text-2xl font-extrabold">New Position</h1>
+      <%= render 'shared/form', mdl: @position %>
 
-    <%= render 'shared/form', mdl: @position %>
+      <hr class="border-1 border-gray-700" />
 
-    <hr class="border-1 border-gray-700" />
-
-    <%= link_to 'Positions List', positions_path, class: "text-lg text-bold" %>
-
-  </div>
-</div>
+      <%= link_to 'Positions List', positions_path, class: "text-lg" %>
+    </div>
