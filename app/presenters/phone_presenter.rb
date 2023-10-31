@@ -43,17 +43,16 @@ class PhonePresenter < ApplicationPresenter
 
   def element_info 
     {
-      person_id:   { kind: :select, span: 3, lblfor: 'phone_person_id', lbltxt: 'Person', 
-                      collection: persons_list, blank: true, prompt: true },
-      cc:          { kind: :text,   span: 1, lblfor: 'phone_cc',        lbltxt: 'Country Code' },
-      area:        { kind: :text,   span: 1, lblfor: 'phone_area',      lbltxt: 'Area Code' },
-      prefix:      { kind: :text,   span: 1, lblfor: 'phone_prefix',    lbltxt: 'Prefix' },
-      number:      { kind: :text,   span: 1, lblfor: 'phone_number',    lbltxt: 'Number' },
-      phone_type:  { kind: :select, span: 3, lblfor: 'phone_type',      lbltxt: 'Type', collection: types },
-      preferred:   { kind: :checkbox, span: 1, lblfor: 'phone_preferred', lbltxt: 'Preferred' },
-      txt_capable: { kind: :checkbox, span: 1, lblfor: 'phone_txt_capable', lbltxt: 'Text Capable' },
-      note:        { kind: :textarea, span: 3, lblfor: 'phone_note',      lbltxt: 'Note' },
-      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: phones_path },
+      person_id:   { kind: :select, lblfor: 'phone_person_id', lbltxt: 'Person', collection: persons_list, blank: true, prompt: true },
+      cc:          { kind: :text,   lblfor: 'phone_cc',        lbltxt: 'Country Code' },
+      area:        { kind: :text,   lblfor: 'phone_area',      lbltxt: 'Area Code' },
+      prefix:      { kind: :text,   lblfor: 'phone_prefix',    lbltxt: 'Prefix' },
+      number:      { kind: :text,   lblfor: 'phone_number',    lbltxt: 'Number' },
+      phone_type:  { kind: :select, lblfor: 'phone_type',      lbltxt: 'Type', collection: types },
+      preferred:   { kind: :checkbox, lblfor: 'phone_preferred',   lbltxt: 'Preferred' },
+      txt_capable: { kind: :checkbox, lblfor: 'phone_txt_capable', lbltxt: 'Text Capable' },
+      note:        { kind: :textarea, lblfor: 'phone_note',        lbltxt: 'Note' },
+      submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: phones_path },
     } 
   end
 end

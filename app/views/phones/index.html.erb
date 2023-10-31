@@ -1,5 +1,4 @@
-<div class="grid grid-cols-12 gap-x-6 gap-y-2">
-  <div class="col-start-2 col-span-9 bg-red-400">
+<div class="max-w-4xl mb-5">
     <h1 class="text-2xl font-extrabold">Phones</h1>
 
     <%= render "shared/table", 
@@ -12,6 +11,5 @@
     <hr class="border-1 border-gray-700" />
     <br>
 
-    <%= link_to 'New Phone', new_phone_path, class: "text-lg font-medium hover:font-extrabold" %> 
-  </div>
+    <%= link_to 'New Phone', new_phone_path, class: "text-lg font-medium underline hover:text-red-600" %> 
 </div>
