@@ -1,7 +1,7 @@
 <div class="max-w-3xl mb-5">
   <h1 class="text-2xl font-extrabold">Positions</h1>
 
-  <%= render "shared/table1", 
+  <%= render "shared/table", 
           head: 'positions_head', 
           item_row:  'positions_row', 
           collection: @positions %>
@@ -11,5 +11,5 @@
   <hr class="border-1 border-gray-700" />
   <br>
 
-  <%= link_to 'New Position', new_position_path, class: "text-lg font-medium underline hover:text-red-600" %> 
+  <%= link_to 'New Position', new_position_path, class: "text-lg font-medium link-hover" %> 
 </div>
