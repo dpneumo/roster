@@ -5,7 +5,7 @@
 
     <%= render 'shared/form', mdl: @contribution %>
 
-    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
+    <hr class="border-1 border-gray-700" />
 
     <% if @contribution.house_id %>
       <%= link_to 'House Detail', house_detail_path(@contribution.house_id) %> |
