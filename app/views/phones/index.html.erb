@@ -1,15 +1,15 @@
 <div class="max-w-4xl mb-5">
-    <h1 class="text-2xl font-extrabold">Phones</h1>
+  <h1 class="text-2xl font-extrabold">Phones</h1>
 
-    <%= render "shared/table", 
-            head: 'phones_head', 
-            item_row:  'phones_row', 
-            collection: @phones %>
-    <br>
-    <%== pagy_nav(@pagy) %>
+  <%= render "shared/table", 
+          head: 'phones_head', 
+          item_row:  'phones_row', 
+          collection: @phones %>
+  <br>
+  <%== pagy_nav(@pagy) %>
 
   <hr class="border-1 border-gray-700" />
   <br>
 
-    <%= link_to 'New Phone', new_phone_path, class: "text-lg font-medium link-hover" %> 
+  <%= link_to 'New Phone', new_phone_path, class: "text-lg font-medium link-hover" %> 
 </div>
