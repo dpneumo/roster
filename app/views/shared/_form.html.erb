@@ -1,27 +1,28 @@
 <%= form_with(model: mdl, local: true) do |form| %>
   <% present(mdl) do |m| %>
     <%  m.form = form %>
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full mt-4">
       
     <% m.form_rows.each do |row| %>
       <% if row[:elements].count > 1 %>
-      <div class="flex flex-1 flex-col md:flex-row w-full">
+      <div class="flex flex-col md:flex-row">
       <% end %>
         
       <% row[:elements].each do |elem|
           kind =  m.element_info[elem][:kind] %>
           <%= case kind
-              when :text           then render 'shared/form/text_attr',        elem: elem, mdl: m
-              when :password       then render 'shared/form/password_attr',    elem: elem, mdl: m
-              when :textarea       then render 'shared/form/textarea_attr',    elem: elem, mdl: m
-              when :checkbox       then render 'shared/form/checkbox_attr',    elem: elem, mdl: m
-              when :date           then render 'shared/form/date_attr',        elem: elem, mdl: m
-              when :select         then render 'shared/form/std_select_attr',  elem: elem, mdl: m
-              when :hidden         then render 'shared/form/hidden_attr',      elem: elem, mdl: m
-              when :submit         then render 'shared/form/submit',           elem: elem, mdl: m
-              when :button_to      then render 'shared/form/button_to',        elem: elem, mdl: m
-              when :submit_or_cncl then render 'shared/form/submit_cncl',      elem: elem, mdl: m
-              when :col            then render 'shared/form/col',              elem: elem, mdl: m
+              when :text           then render 'shared/form/text_attr',     elem: elem, mdl: m
+              when :password       then render 'shared/form/password_attr', elem: elem, mdl: m
+              when :textarea       then render 'shared/form/textarea_attr', elem: elem, mdl: m
+              when :checkbox       then render 'shared/form/checkbox_attr', elem: elem, mdl: m
+              when :date           then render 'shared/form/date_attr',     elem: elem, mdl: m
+              when :select         then render 'shared/form/select_attr',   elem: elem, mdl: m
+              when :hidden         then render 'shared/form/hidden_attr',   elem: elem, mdl: m
+              when :submit         then render 'shared/form/submit',        elem: elem, mdl: m
+              when :submit_or_cncl then render 'shared/form/submit_cncl',   elem: elem, mdl: m
+              when :submit_or_goto then render 'shared/form/submit_goto',   elem: elem, mdl: m
+              when :col            then render 'shared/form/z_col',         elem: elem, mdl: m
+              when :row            then render 'shared/form/z_row',         elem: elem, mdl: m
               else raise "Unknown kind #{kind}"
               end
           %>

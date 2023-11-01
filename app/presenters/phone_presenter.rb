@@ -34,7 +34,7 @@ class PhonePresenter < ApplicationPresenter
   def form_rows
     [ 
       { elements: [:person_id] },
-      { elements: [:cc, :area, :prefix, :number] },
+      { elements: [:area, :prefix, :number] },
       { elements: [:phone_type, :preferred, :txt_capable] },
       { elements: [:note] },
       { elements: [:submit_cncl] },
@@ -50,7 +50,7 @@ class PhonePresenter < ApplicationPresenter
       number:      { kind: :text,   lblfor: 'phone_number',    lbltxt: 'Number' },
       phone_type:  { kind: :select, lblfor: 'phone_type',      lbltxt: 'Type', collection: types },
       preferred:   { kind: :checkbox, lblfor: 'phone_preferred',   lbltxt: 'Preferred' },
-      txt_capable: { kind: :checkbox, lblfor: 'phone_txt_capable', lbltxt: 'Text Capable' },
+      txt_capable: { kind: :checkbox, lblfor: 'phone_txt_capable', lbltxt: 'Textable' },
       note:        { kind: :textarea, lblfor: 'phone_note',        lbltxt: 'Note' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: phones_path },
     } 
