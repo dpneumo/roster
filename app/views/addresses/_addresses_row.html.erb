@@ -1,10 +1,10 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.addressee %></td>
-    <td class='pl-6'><%= item.complete_address %></td>
-    <td class='pl-6'><%= item.address_type %></td>
-    <td class='pl-6'><%= item.primary %></td>
-    <td class='pl-6'><%= item.note_hint %></td>
-    <td><%= link_to 'Detail', address_path(item) %></td>
+    <td class='td-pad td-emphasized'><%= item.addressee %></td>
+    <td class='td-pad td-base'><%= item.complete_address_hint %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.address_type %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.primary %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.note_hint %></td>
+    <td class='td-pad'><%= link_to 'Detail', address_path(item), class: "text-sm font-medium link-hover" %></td>
   </tr>
 <% end %>

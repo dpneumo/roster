@@ -14,7 +14,12 @@ class AddressPresenter < ApplicationPresenter
   end
 
   def complete_address
-    "#{number} #{street}, #{city}, #{state} #{zip}"
+    ca = "#{number} #{street}, #{city}, #{state} #{zip}"
+  end
+
+  def complete_address_hint
+    ca = complete_address
+    ca.length > 20 ? ca.slice(0..19)+'...' : ca
   end
 
   def addressee
