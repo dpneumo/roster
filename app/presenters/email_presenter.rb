@@ -35,13 +35,13 @@ class EmailPresenter < ApplicationPresenter
 
   def element_info 
     {
-      person_id:   { kind: :select,    span: 3, lblfor: 'email_person_id', lbltxt: 'Person', 
+      person_id:   { kind: :select,   lblfor: 'email_person_id', lbltxt: 'Person', 
                       collection: persons_list, blank: true, prompt: true },
-      addr:        { kind: :text,      span: 3, lblfor: 'email_addr',      lbltxt: 'Email Address' },
-      email_type:  { kind: :select,    span: 3, lblfor: 'email_email_type',lbltxt: 'Email Type', collection: types },
-      preferred:   { kind: :checkbox,  span: 3, lblfor: 'email_preferred', lbltxt: 'Preferred', default: true },
-      note:        { kind: :textarea,  span: 3, lblfor: 'email_note',      lbltxt: 'Note' },
-      submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: emails_path },
+      addr:        { kind: :text,     lblfor: 'email_addr',      lbltxt: 'Email Address' },
+      email_type:  { kind: :select,   lblfor: 'email_email_type',lbltxt: 'Email Type', collection: types },
+      preferred:   { kind: :checkbox, lblfor: 'email_preferred', lbltxt: 'Preferred', default: true },
+      note:        { kind: :textarea, lblfor: 'email_note',      lbltxt: 'Note' },
+      submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: emails_path },
     } 
   end
 end
