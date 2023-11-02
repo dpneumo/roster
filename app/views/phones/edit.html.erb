@@ -6,6 +6,6 @@
       <hr class="border-1 border-gray-700" />
 
       <%= link_to 'Details', @phone, class: "text-lg link-hover" %> |
-      <%= link_to 'Person Detail', person_detail_path(@phone.person_id), class: "text-lg link-hover" %> |
+      <%= link_to 'Person Detail', person_path(@phone.person_id), class: "text-lg link-hover" %> |
       <%= link_to 'Phones List', phones_path, class: "text-lg link-hover" %>
     </div>
