@@ -1,17 +1,15 @@
-<div class="grid grid-cols-12 gap-x-6 gap-y-2">
-  <div class="col-start-2 col-span-9 bg-red-400">
-    <h1 class="text-2xl font-extrabold">Ownerships</h1>
+<div class="max-w-4xl mb-5">
+  <h1 class="text-2xl font-extrabold">Ownerships</h1>
 
-    <%= render "shared/table", 
-            head: 'ownerships_head', 
-            item_row:  'ownerships_row', 
-            collection: @ownerships %>
-    <br>
-    <%== pagy_nav(@pagy) %>
+  <%= render "shared/table", 
+          head: 'ownerships_head', 
+          item_row:  'ownerships_row', 
+          collection: @ownerships %>
+  <br>
+  <%== pagy_nav(@pagy) %>
 
-    <hr class="border-1 border-gray-700" />
-    <br>
+  <hr class="border-1 border-gray-700" />
+  <br>
 
-    <%= link_to 'New Ownership', new_ownership_path, class: "text-lg font-medium hover:font-extrabold" %> 
-  </div>
+  <%= link_to 'New Ownership', new_ownership_path, class: "text-lg font-medium link-hover" %> 
 </div>

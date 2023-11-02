@@ -1,14 +1,10 @@
-<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
-  <div class="col-start-1 col-end-6 sm:col-start-2">
+<div class="max-w-4xl mb-5">
+  <h1 class="text-2xl font-extrabold">Edit Ownership</h1>
 
-    <h1 class="text-2xl font-extrabold">Edit Ownership</h1>
+  <%= render 'shared/form', mdl: @ownership %>
 
-    <%= render 'shared/form', mdl: @ownership %>
+  <hr class="border-1 border-gray-700" />
 
-    <hr class="border-1 border-gray-700" />
-
-    <%= link_to 'Details', @ownership, class: "text-lg" %> |
-    <%= link_to 'Ownerships List', ownerships_path, class: "text-lg" %>
-
-  </div>
+  <%= link_to 'Details', @ownership, class: "text-lg link-hover" %> |
+  <%= link_to 'Ownerships List', ownerships_path, class: "text-lg link-hover" %>
 </div>
