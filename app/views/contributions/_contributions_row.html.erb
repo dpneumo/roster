@@ -1,8 +1,8 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.house_address %></td>
-    <td class='pl-6'><%= item.date_paid %></td>
-    <td class='pl-6'><%= item.amount %></td>
-    <td><%= link_to 'Detail', contribution_path(item.id) %></td>
+    <td class='td-pad td-emphasized'><%= item.house_address %></td>
+    <td class='td-pad td-base'><%= item.date_paid %></td>
+    <td class='td-pad td-base'><%= item.amount %></td>
+    <td class='td-pad'><%= link_to 'Detail', contribution_path(item.id), class: "text-sm font-medium link-hover" %></td>
   </tr>
 <% end %>
