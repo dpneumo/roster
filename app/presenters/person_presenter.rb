@@ -94,7 +94,7 @@ class PersonPresenter < ApplicationPresenter
       honorific: { kind: :text, lblfor: 'person_honorific', lbltxt: 'Honorific' },
       role:      { kind: :select, lblfor: 'person_role',      lbltxt: 'Role',
                    collection: roles,    blank: true, prompt: true },
-      status:    { kind: :select, lblfor: 'person_status',    lbltxt: 'Occupancy Status',
+      status:    { kind: :select, lblfor: 'person_status',    lbltxt: 'Occupy As',
                    collection: statuses, blank: true, prompt: true },
       house_id:  { kind: :select, lblfor: 'person_house_id',  lbltxt: 'House',
                    collection: houses_grouped_by_street, blank: true, prompt: true },

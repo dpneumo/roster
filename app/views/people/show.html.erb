@@ -1,67 +1,28 @@
 <% present(@person) do |person| %>
-	<div class="flow-root flex-auto w-full h-full p-3 bg-green-100">
-		<div class="w-full bg-green-400">
-	    <h1 class="text-2xl font-extrabold">Person Detail</h1>
-	  </div>
+  <div class="flex flex-col items-center justify-center h-full">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h1 class="text-2xl font-bold mb-4"><%= person.formal_name %></h1>
+      <p class="text-gray-700 text-base mb-4"><%= person.nickname %></p>
+      <p class="text-gray-700 text-base mb-4"><%= person.house_address %></p>
+      <p class="text-gray-700 text-base mb-4"><%= person.status %></p>
 
-	  <div class="w-full bg-green-200">
-		  <div class="flow-root grid grid-cols-8 grid-rows-7 gap-x-6 gap-y-2 bg-blue-100">
-		  	<h2 class="col-start-1 col-span-4 text-right font-bold">Person: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.formal_name %></div>
+      <%= render "shared/table", 
+          head: 'people/subtables/email_head', 
+          item_row: 'people/subtables/email_row', 
+          collection: person.emails       %>
 
-			  <h2 class="colstart-1 col-span-4 text-right font-bold">House: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.house_address %></div>
+      <%= render "shared/table", 
+          head: 'people/subtables/phone_head', 
+          item_row: 'people/subtables/phone_row', 
+          collection: person.phones       %>
 
-			  <h2 class="colstart-1 col-span-4 text-right font-bold">Nickname: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.nickname %></div>
+      <%= render "shared/table", 
+          head: 'people/subtables/address_head', 
+          item_row: 'people/subtables/address_row', 
+          collection: person.addresses    %>
 
-			  <h2 class="colstart-1 col-span-4 text-right font-bold">Occupancy Status: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.status %></div>
-
-			  <h2 class="colstart-1 col-span-4 text-right font-bold">Position: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.current_position %></div>
-
-			  <h2 class="colstart-1 col-span-4 text-right font-bold">Note: </h2>
-			  <div class="col-start-5 col-span-4 "><%= person.note %></div>
-			</div>
-		</div>
-
-	  <div class="flex flex-row flex-wrap gap-4 justify-center">
-			<div class="flex-initial w-fit bg-indigo-300">
-		      <%= 
-		        render "shared/table", 
-		            head: 'person_email_head', 
-		            item_row: 'person_email_row', 
-		            collection: person.emails       %>
-		  </div>
-			<div class="flex-initial w-fit bg-indigo-300">
-		      <%= 
-		        render "shared/table", 
-		            head: 'person_phone_head', 
-		            item_row: 'person_phone_row', 
-		            collection: person.phones       %>
-		  </div>
-			<div class="flex-initial w-fit bg-indigo-300">
-		      <%= 
-		        render "shared/table", 
-		            head: 'person_address_head', 
-		            item_row: 'person_address_row', 
-		            collection: person.addresses    %>
-		  </div>
-		</div>
-	</div>
-
-	<div class="flex flex-row">
-	  <hr  class="border-1 border-gray-700"> 
-	</div>
-
-	<div class='flex flex-row justify-center'>
-	<%= link_to 'Edit', edit_person_path(@person), 
-	      class: "text-lg font-medium link-hover" %> &nbsp|&nbsp
-   <%= link_to 'People List', people_path, 
-         class: "text-lg font-medium link-hover" %> &nbsp|&nbsp
-   <%= link_to "Destroy", @person, 
-         data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, 
-         class: "text-lg font-medium link-hover" %>
+      <a href="<%= edit_person_path(person) %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+      <%= link_to 'Back', people_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+    </div>
   </div>
 <% end %>

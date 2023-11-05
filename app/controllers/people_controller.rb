@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.create(person_params)
     if @person.save
-      redirect_to person_detail_path(@person), notice: 'Person was successfully created.'
+      redirect_to person_path(@person), notice: 'Person was successfully created.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   def update
     if @person.update(person_params)
-      redirect_to person_detail_path(@person), notice: 'Person was successfully updated.'
+      redirect_to person_path(@person), notice: 'Person was successfully updated.'
     else
       render :edit
     end

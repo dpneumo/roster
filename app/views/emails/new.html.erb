@@ -6,7 +6,7 @@
       <hr class="border-1 border-gray-700" />
 
       <% if @email.person_id %>
-        <%= link_to 'Person Detail', person_detail_path(@email.person_id), class: "text-lg link-hover" %> |
+        <%= link_to 'Person Detail', person_path(@email.person_id), class: "text-lg link-hover" %> |
        <% end %>
       <%= link_to 'Emails List', emails_path, class: "text-lg link-hover" %>
     </div>

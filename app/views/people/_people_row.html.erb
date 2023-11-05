@@ -1,13 +1,11 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.nickname %></td>
-    <td class='pl-6'><%= item.sortable_name %></td>
-    <td class='pl-6'><%= item.suffix %></td>
-    <td class='pl-6'><%= item.honorific %></td>
-    <td class='pl-6'><%= item.house_address %></td>
-    <td class='pl-6'><%= item.role %></td>
-    <td class='pl-6'><%= item.status %></td>
-    <td class='pl-6'><%= item.note_hint %></td>
-    <td><%= link_to 'Detail', person_detail_path(item) %></td>
+    <td class='td-pad td-emphasized'>
+      <%= link_to item.sortable_name, person_detail_path(item), class: "text-sm font-medium link-hover" %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.nickname %></td>
+    <td class='td-pad td-base                     '><%= item.house_address %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.status %></td>
+    <td class='td-pad td-base hidden xl:table-cell'><%= item.note_hint %></td>
+    <td class='td-pad'><%= link_to 'Detail', person_path(item.id), class: "text-sm font-medium link-hover" %></td>
 </tr>
 <% end %>

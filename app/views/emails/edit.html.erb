@@ -6,6 +6,6 @@
       <hr class="border-1 border-gray-700" />
 
       <%= link_to 'Detail', @email, class: "text-lg link-hover" %> |
-      <%= link_to 'Person Detail', person_detail_path(@email.person_id), class: "text-lg link-hover" %> |
+      <%= link_to 'Person Detail', person_path(@email.person_id), class: "text-lg link-hover" %> |
       <%= link_to 'Emails List', emails_path, class: "text-lg link-hover" %>
     </div>

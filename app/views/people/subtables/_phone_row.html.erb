@@ -1,0 +1,15 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='td-pad td-emphasized'>
+      <%= link_to item.ph_number, 
+            edit_phone_path(item),
+            class: "text-sm font-medium link-hover"
+      %>
+      
+    </td>
+    <td class='td-pad td-base'><%= item.phone_type %></td>
+    <td class='td-pad td-base'><%= item.primary %></td>
+    <td class='td-pad td-base'><%= item.txt_capable %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.note_hint %></td>
+  </tr>
+<% end %>

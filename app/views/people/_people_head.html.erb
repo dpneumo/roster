@@ -1,11 +1,8 @@
 <tr>
-	<th scope="col" class="px-6 py-4"><%= sort_link(@q,:nickname) %></th>
-	<th scope="col" class="px-6 py-4"><%= sort_link(@q,:sortable_name,'Name') %></th>
-	<th scope="col" class="px-6 py-4">Suffix</th>
-	<th scope="col" class="px-6 py-4">Honorific</th>
-	<th scope="col" class="px-6 py-4">House</th>
-	<th scope="col" class="px-6 py-4">Role</th>
-	<th scope="col" class="px-6 py-4">Status</th>
-	<th scope="col" class="px-6 py-4">Note</th>
-	<th colspan="3"></th>
+	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:sortable_name,'Name') %></th>
+	<th scope="col" class="th-pad th-base hidden lg:table-cell"><%= sort_link(@q,:nickname) %></th>
+	<th scope="col" class="th-pad th-base                     ">House</th>
+	<th scope="col" class="th-pad th-base hidden lg:table-cell">Occupy As</th>
+	<th scope="col" class="th-pad th-base hidden xl:table-cell">Note</th>
+  <th colspan="1"></th>
 </tr>

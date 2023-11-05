@@ -1,0 +1,14 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='td-pad td-emphasized'>
+      <%= link_to item.addr, 
+            edit_email_path(item),
+            class: "text-sm font-medium link-hover"
+      %>
+      
+    </td>
+    <td class='td-pad td-base'><%= item.email_type %></td>
+    <td class='td-pad td-base'><%= item.primary %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.note_hint %></td>
+  </tr>
+<% end %>
