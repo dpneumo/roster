@@ -8,6 +8,14 @@
               prompt: info[:prompt],
               selected: mdl.send(elem) || info[:default] },                        
             { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600",
-              disabled: info[:disabled] } ) %>
+              disabled: info[:disabled],
+              <% if data_target %>
+                data-group-target: <%= data_target %>
+              <% end %> 
+            
+            
+            } 
+          ) 
+      %>
     </label>
   </div>

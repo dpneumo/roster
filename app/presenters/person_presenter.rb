@@ -64,6 +64,10 @@ class PersonPresenter < ApplicationPresenter
     grouped_options_for_select(grouped_options,selected)
   end
 
+  def streets
+     HousePresenter.new(house, view_context).street_names
+  end
+
   def person_id
     id
   end
@@ -77,7 +81,7 @@ class PersonPresenter < ApplicationPresenter
     [ 
       { elements: [:first, :middle, :last] },
       { elements: [:nickname, :suffix, :honorific] },
-      { elements: [:house_id, :status, :role] },
+      { elements: [:streets, :house_id, :status, :role] },
       { elements: [:pref_email_id, :pref_phone_id, :pref_address_id] },
       { elements: [:note] },
       { elements: [:submit_cncl] },
@@ -97,7 +101,10 @@ class PersonPresenter < ApplicationPresenter
       status:    { kind: :select, lblfor: 'person_status',    lbltxt: 'Occupy As',
                    collection: statuses, blank: true, prompt: true },
       house_id:  { kind: :select, lblfor: 'person_house_id',  lbltxt: 'House',
+                   data_target: 'house_id', 
                    collection: houses_grouped_by_street, blank: true, prompt: true },
+      streets:   { kind: :group,  lblfor: 'person_streets',   lbltxt: 'Street',
+                   collection: streets, blank: false, prompt: true },
       pref_email_id:   { kind: :text, lblfor: 'person_pref_email_id',   lbltxt: 'Preferred Email' },
       pref_phone_id:   { kind: :text, lblfor: 'person_pref_phone_id',   lbltxt: 'Preferred Phone' },
       pref_address_id: { kind: :text, lblfor: 'person_pref_address_id', lbltxt: 'Preferred Address' },
