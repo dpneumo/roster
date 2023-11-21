@@ -1,48 +1,46 @@
 <% present(@house) do |house| %>
-  <div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-    <h1 class="mb-4 text-2xl font-extrabold">Address Detail</h1>
+  <div class="flex flex-col items-center justify-center h-full">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h1 class="text-2xl font-bold mb-4"><%= house.house_address %></h1>
 
-      
-    <div>House: <%= house.house_address %></div>
-    <div>Member Flag Group: <%= house.gets_flag %></div>
-    <div>Rental Property: <%= house.is_rented %></div>
-    <div>Listed For Sale: <%= house.is_listed %></div>
-    <div>Latitude: <%= house.lat %></div>
-    <div>Longitude: <%= house.lng %></div>
-    <div>Image Link: <%= house.image_link %></div>
-    <div>Status: <%= house.status %></div>
-    <div>Linked Lots: <%= house.linked_lot_addresses %></div>
-    <div>Note: <%= house.note %></div>
+      <div class="flex flex-row">
+        <p class="text-gray-700 text-base mb-4 mx-2">Status: <%= house.status %></p>
+        <p class="text-gray-700 text-base mb-4 mx-2">Flag Group: <%= house.gets_flag %></p>
+      </div>
 
-    <div>
-      <%= 
-        render "shared/table", 
+      <div class="flex flex-row">
+        <p class="text-gray-700 text-base mb-4 mx-2">Rental Property: <%= house.is_rented %></p>
+        <p class="text-gray-700 text-base mb-4 mx-2">Listed For Sale: <%= house.is_listed %></p>
+      </div>
+
+      <div class="flex flex-row">
+        <p class="text-gray-700 text-base mb-4 mx-2">Latitude: <%= house.lat %></p>
+        <p class="text-gray-700 text-base mb-4 mx-2">Longitude: <%= house.lng %></p>
+      </div>
+
+      <div>
+        <p class="text-gray-700 text-base mb-4 mx-2">Image Link: <%= house.image_link %></p>
+        <p class="text-gray-700 text-base mb-4 mx-2">Note: <%= house.note %></p>
+      </div>
+
+      <%= render "shared/table",
             head: 'house_owner_head', 
             item_row: 'house_owner_row', 
-            collection: house.owners 
-      %>
+            collection: house.owners %>
 
-      <%= 
-        render "shared/table", 
+      <%= render "shared/table",
             head: 'house_occupants_head', 
             item_row: 'house_occupants_row', 
-            collection: house.occupants 
-      %>
+            collection: house.occupants %>
 
-      <%= 
-        render "shared/table", 
+      <%= render "shared/table",
             head: 'house_contrib_head', 
             item_row: 'house_contrib_row', 
-            collection: house.yearly_contributions_for_house 
-      %>
-    </div>
-  
-    <div><br></div>
+            collection: house.yearly_contributions_for_house %>
 
-    <div>
-      <hr class="border-1 border-gray-700" />
-      <%= link_to 'Edit', edit_house_path(@house), class: "text-lg font-medium hover:font-extrabold" %> |
-      <%= link_to 'Houses List', houses_path, class: "text-lg font-medium hover:font-extrabold" %>
+      <a href="<%= edit_house_path(@house) %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+      <%= link_to 'Back', houses_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+
     </div>
   </div>
 <% end %>
