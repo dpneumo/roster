@@ -20,9 +20,27 @@ class PersonPresenter < ApplicationPresenter
     HousePresenter.new(house, view_context).house_address
   end
 
+  def house_street
+    return '' unless house
+    house.street
+  end
+
+  def house_number
+    return '' unless house 
+    house.number
+  end
+
   def current_position
     p = Positions::GetCurrentForPerson.call(person_id).last
     p ? p.name : ''
+  end
+
+  def current_street
+    Persons::GetStreet.call(house_id) || ''
+  end
+
+  def current_number
+    Persons::GetNumber.call(house_id) || ''
   end
 
   def preferred_email
@@ -63,6 +81,15 @@ class PersonPresenter < ApplicationPresenter
     grouped_options = Houses::GetForSelectOpts.call.group_by(&:shift)
     grouped_options_for_select(grouped_options,selected)
   end
+
+  def houses_on_street(street)
+    Houses::GetHousesOnStreet.new(street).call 
+  end
+
+  def house_options(street)
+    Houses::GetHousesOnStreet.new(street).call.to_h
+  end
+
 
   def streets
      HousePresenter.new(house, view_context).street_names

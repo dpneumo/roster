@@ -1,0 +1,5 @@
+<select name="house_id" id="person_house_id">
+  <% @house_numbers.each do |id, number| %>
+    <option value="<%= id %>"><%= number %></option>
+  <% end %>
+</select>

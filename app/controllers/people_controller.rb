@@ -60,6 +60,15 @@ class PeopleController < ApplicationController
     redirect_to people_url, notice: 'Person was successfully destroyed.'
   end
 
+  def houses
+    @target = params[:target]
+    @house_numbers = Houses::GetSortedNumbers.call(params[:street])
+
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
 
   def set_person

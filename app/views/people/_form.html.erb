@@ -1,0 +1,125 @@
+<%= form_with(model: mdl, local: true) do |form| %>
+    <% m = PersonPresenter.new(mdl, self) %>
+    <div class="flex flex-col w-full mt-4">
+
+      <div class="flex flex-col md:flex-row">
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_first' class="form-field-label">
+            First
+            <%= form.text_field( :first, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_middle' class="form-field-label">
+            Middle
+            <%= form.text_field( :middle, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_last' class="form-field-label">
+            Last
+            <%= form.text_field( :last, class: "base-field ring" ) %>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_nickname' class="form-field-label">
+            Nickname
+            <%= form.text_field( :nickname, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_suffix' class="form-field-label">
+            Suffix
+            <%= form.text_field( :suffix, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_honorific' class="form-field-label">
+            Honorific
+            <%= form.text_field( :honorific, class: "base-field ring" ) %>
+          </label>
+        </div>
+      </div>
+
+
+      <div class="flex flex-col md:flex-row" data-controller="street">
+
+              <div class="mx-4 mb-5 w-3/4 md:w-1/4">
+                <label  for='person_streets' class="form-field-label">
+                  Street
+                  <%= form.select :street, Houses::GetSortedStreets.call,
+                        { prompt: 'Select Street', selected: m.house_street },
+                        {class: "base-field ring", data: { action: "change->street#change" } } %>
+                </label>
+              </div>
+
+              <div class="mx-4 mb-5 w-3/4 md:w-1/4">
+                <label  for='person_house_id' class="form-field-label">
+                  House Number
+                  <%= form.select :house_id,
+                        options_for_select( Houses::GetSortedNumbers.call(m.house_street), m.house_id ),
+                        { prompt: 'Select House Number' },
+                        { class: "base-field ring", data: { street_target: 'houseSelect' } } %>
+                </label>
+              </div>
+
+        <div class="mx-4 mb-5 w-3/4 md:w-1/4">
+          <label  for='person_status' class="form-field-label">
+            Status
+            <%= form.select( :status, m.statuses, { include_blank: true, prompt: true, selected: mdl.send(:status) },
+                  class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 w-3/4 md:w-1/6">
+          <label  for='person_role' class="form-field-label">
+            Role
+            <%= form.select( :role, m.roles, { include_blank: true, prompt: true, selected: mdl.send(:role) },
+                  { class: "base-field ring" }) %>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_pref_email_id' class="form-field-label">
+            Preferred Email
+            <%= form.text_field( :pref_email_id, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_pref_phone_id' class="form-field-label">
+            Preferred Phone
+            <%= form.text_field( :pref_phone_id, class: "base-field ring" ) %>
+          </label>
+        </div>
+        <div class="mx-4 mb-5 min-w-0">
+          <label  for='person_pref_address_id' class="form-field-label">
+            Preferred Address
+            <%= form.text_field( :pref_address_id, class: "base-field ring" ) %>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+        <div class="mx-4 mb-5 w-full">
+          <label  for='person_note' class="form-field-label">
+            Note
+            <%= form.text_field( :note, class: "base-field ring" ) %>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+        <div class="mx-4 mb-5 w-full">
+          <%= form.submit( 'Submit', class: "mx-4 submit-button" ) %>
+
+          <%= link_to 'Cancel', people_path, 
+                class: "mx-4 text-gray-900 text-sm font-semibold leading-6 link-hover" %>  
+        </div>
+      </div>
+
+    </div>
+<% end %>
