@@ -1,21 +1,22 @@
-<div class="grid grid-cols-12 gap-x-6 gap-y-2">
-  <div class="col-start-2 col-span-9 bg-red-400">
+<div class='flex flex-col sm:flex-row items-center justify-center'>
+  <div class="mb-5 mx-2">
     <h1 class="text-2xl font-extrabold">Houses</h1>
 
     <%= render "shared/table", 
-            head: 'houses_head', 
+            head:      'houses_head',
             item_row:  'houses_row', 
             collection: @houses %>
+
     <br>
     <%== pagy_nav(@pagy) %>
 
     <hr class="border-1 border-gray-700" />
     <br>
 
-    <%= link_to 'New House', new_house_path, class: "text-lg font-medium hover:font-extrabold" %> 
+    <%= link_to 'New House', new_house_path, class: "text-lg font-medium link-hover" %>
   </div>
 
-  <div class="col-start-11 col-span-2" >
+  <div class="w-auto mb-5 px-1 order-first sm:order-last">
     <%= render "search_form" %>
   </div>
 </div>
