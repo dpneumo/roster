@@ -11,12 +11,12 @@
       <% row[:elements].each do |elem|
           kind =  m.element_info[elem][:kind] %>
           <%= case kind
-              when :text           then render 'shared/form/text_attr',     elem: elem, mdl: m
+              when :text           then render 'shared/form/text_attr',     elem: elem, mdl: m, editing: editing
               when :password       then render 'shared/form/password_attr', elem: elem, mdl: m
               when :textarea       then render 'shared/form/textarea_attr', elem: elem, mdl: m
               when :checkbox       then render 'shared/form/checkbox_attr', elem: elem, mdl: m
               when :date           then render 'shared/form/date_attr',     elem: elem, mdl: m
-              when :select         then render 'shared/form/select_attr',   elem: elem, mdl: m
+              when :select         then render 'shared/form/select_attr',   elem: elem, mdl: m, editing: editing
               when :group          then render 'shared/form/group_select',  elem: elem, mdl: m
               when :hidden         then render 'shared/form/hidden_attr',   elem: elem, mdl: m
               when :submit         then render 'shared/form/submit',        elem: elem, mdl: m

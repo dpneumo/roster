@@ -1,8 +1,13 @@
   <% info = mdl.element_info[elem] %>
+  <% disable = editing && info[:disable_edit] %>
   <div class="mx-4 mb-5 min-w-0">
     <label  for=<%= info[:lblfor] %>
             class="form-field-label">
       <%= info[:lbltxt] %>
-      <%= mdl.form.text_field( elem, class: "base-field ring" ) %>
+      <% if disable %>
+        <%= mdl.form.text_field( elem, { class: "text-red-500 base-field ring", disabled: true }) %>
+      <% else %>
+        <%= mdl.form.text_field( elem, { class: "text-red-500 base-field ring", disabled: false }) %>
+      <% end %>
     </label>
   </div>

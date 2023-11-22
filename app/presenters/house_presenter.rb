@@ -93,8 +93,10 @@ class HousePresenter < ApplicationPresenter
 
   def element_info 
     {
-      number:       { kind: :text,     span: 2, lblfor: 'house_number',     lbltxt: 'Number' },
-      street:       { kind: :text,     span: 2, lblfor: 'house_street',     lbltxt: 'Street' },
+      number:       { kind: :text,     span: 2, lblfor: 'house_number',     lbltxt: 'Number', 
+                      disable_edit: true },
+      street:       { kind: :select,     span: 2, lblfor: 'house_street',     lbltxt: 'Street',
+                      collection: Houses::GetSortedStreets.call, disable_edit: true },
       lat:          { kind: :text,     span: 2, lblfor: 'house_lat',        lbltxt: 'Latitude' },
       lng:          { kind: :text,     span: 2, lblfor: 'house_long',       lbltxt: 'Longitude' },
       image_link:   { kind: :text,     span: 2, lblfor: 'house_image_link', lbltxt: 'Image Link' },

@@ -1,14 +1,12 @@
-<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2 bg-gray-200">
-  <div class="col-start-1 col-end-6 sm:col-start-2 bg-red-200">
-
+<div class="max-w-4xl mb-5">
     <h1 class="text-2xl font-extrabold">Edit House</h1>
 
-    <%= render 'shared/form', mdl: @house %>
+    <%= render 'shared/form', mdl: @house, editing: true %>
 
     <hr class="border-1 border-gray-700" />
 
-    <%= link_to 'House Detail', house_detail_path(@house), class: "text-lg" %> |
-    <%= link_to 'Houses List', houses_path, class: "text-lg" %>
+    <%= link_to 'House Detail', house_detail_path(@house), class: "text-lg link-hover" %> |
+    <%= link_to 'Houses List', houses_path, class: "text-lg link-hover" %>
 
   </div>
 </div>
