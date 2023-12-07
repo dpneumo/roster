@@ -10,8 +10,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "ckbox_rbtn_cloak", "data-turbo-track": "reload" %>
@@ -21,7 +20,7 @@
 
   <body class="antialiased sans-serif bg-green-200">
     <header class="flex-row flex-grow w-full ">        
-      <%= render "layouts/topnav" %>        
+      <%= render "layouts/navbar" %>
     </header>
 
     <main class="flex flex-col mx-auto px-2 py-4 items-center">

@@ -1,3 +1,4 @@
+// app/javasctipt/controllers/street_controller.js
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@rails/request.js"
 

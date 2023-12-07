@@ -1,7 +1,7 @@
 <tr>
-  <th scope="col" class="px-6 py-4">Nickname</th>
-  <th scope="col" class="px-6 py-4">Name</th>
-  <th scope="col" class="px-6 py-4">Role</th>
-  <th scope="col" class="px-6 py-4">Status</th>
+  <th scope="col" class="th-pad th-base"><%= sort_link(@q,:sortable_name,'Name') %></th>
+  <th scope="col" class="th-pad th-base hidden lg:table-cell"><%= sort_link(@q,:nickname) %></th>
+  <th scope="col" class="th-pad th-base hidden lg:table-cell">Role</th>
+  <th scope="col" class="th-pad th-base hidden lg:table-cell">Status</th>
   <th colspan="1"></th>
 </tr>

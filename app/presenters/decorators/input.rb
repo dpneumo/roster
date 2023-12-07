@@ -113,7 +113,7 @@ module Decorators
         h.content_tag(:label, for: lblfor(f), class: "block text-sm font-medium leading-6 text-gray-900") { lbltxt(f) } +
         @form.select( f[:attribute], f[:collection],
                       { include_blank: f[:blank], selected: f[:selected] },
-                      { class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6",
+                      { class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring sm:max-w-xs sm:text-sm sm:leading-6",
                       multiple: f[:multiple], hidden: f[:hidden_mirror], disabled: f[:disabled] })
       end
       hdn = f[:disabled] ? hidden(f) : ''
