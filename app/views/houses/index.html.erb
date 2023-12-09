@@ -1,6 +1,14 @@
 <div class='flex flex-col sm:flex-row items-center justify-center'>
   <div class="mb-5 mx-2">
-    <h1 class="text-2xl font-sans font-bold">Houses</h1>
+    <div class="flex flex-row justify-between">
+      <h1 class="text-2xl font-sans font-bold">Houses</h1>
+      <div class="group inline-block hover:block relative">
+        <button class="p-4 text-1xl text-black bg-gray-100 rounded-md border-none">Filter</button>
+        <div class="hidden group-hover:block absolute min-w-full right-0 z-10 rounded-xl">
+          <%= render "filter" %>
+        </div>
+      </div>
+    </div>
 
     <%= render "shared/table", 
             head:      'houses_head',
@@ -10,13 +18,9 @@
     <br>
     <%== pagy_nav(@pagy) %>
 
-    <hr class="border-1 border-gray-700" />
+    <hr class="mt-1 border-1 border-gray-700" />
     <br>
 
-    <%= link_to 'New House', new_house_path, class: "text-lg font-medium link-hover" %>
-  </div>
-
-  <div class="w-auto mb-8 px-1 order-first sm:order-last">
-    <%= render "filter" %>
+    <%= link_to 'New House', new_house_path, class: "text-lg font-sans font-medium link-hover" %>
   </div>
 </div>
