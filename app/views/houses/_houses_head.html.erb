@@ -1,10 +1,24 @@
 <tr>
-	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:house_address, [:street, :number], 'Address') %></th>
-	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:flag) %></th>
-	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:rental) %></th>
-	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:listed) %></th>
-	<th scope="col" class="th-pad th-base"><%= sort_link(@q,:status) %></th>
-	<th scope="col" class="th-pad th-base">Linked Lots</th>
-	<th scope="col" class="th-pad th-base">Notes</th>
-	<th colspan="1"></th>
+	<th scope="col" class="th-pad">
+	  <%= sort_link(@q,:house_address, [:street, :number], 'Address', class: 'font-sans') %>
+	</th>
+
+	<th scope="col" class="th-pad hidden md:table-cell">
+	  <%= sort_link(@q,:flag, class: 'font-sans') %>
+	</th>
+
+	<th scope="col" class="th-pad hidden lg:table-cell">
+	  <%= sort_link(@q,:rental, class: 'font-sans') %>
+	</th>
+
+	<th scope="col" class="th-pad hidden lg:table-cell">
+	  <%= sort_link(@q,:listed, class: 'font-sans') %>
+	</th>
+
+	<th scope="col" class="th-pad hidden lg:table-cell">
+	  <%= sort_link(@q,:status, class: 'font-sans') %>
+	</th>
+
+	<th scope="col" class="th-pad font-sans hidden xl:table-cell">Linked Lots</th>
+	<th scope="col" class="th-pad font-sans hidden md:table-cell">Notes</th>
 </tr>

@@ -1,13 +1,15 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
-    <td class='td-pad td-base'><%= item.house_address %></td>
-    <td class='td-pad td-base'><%= item.gets_flag %></td>
-    <td class='td-pad td-base'><%= item.is_rented %></td>
-    <td class='td-pad td-base'><%= item.is_listed %></td>
-    <td class='td-pad td-base'><%= item.status %></td>
-    <td class='td-pad td-base'><%= item.linked_lot_addresses %></td>
-    <td class='td-pad td-base'><%= item.note_hint %></td>
-    <td class='td-pad'><%= link_to 'Detail', house_detail_path(item.id), class: "text-sm font-medium link-hover" %></td>
+    <td class='td-pad'>
+      <%= link_to item.house_address, house_detail_path(item), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.gets_flag %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.is_rented %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.is_listed %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.status %></td>
+    <td class='td-pad td-base hidden xl:table-cell'><%= item.linked_lot_addresses %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.note_hint %></td>
+
   </tr>
 <% end %>
 
