@@ -1,7 +1,7 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
     <td class='td-pad'>
-      <%= link_to item.house_address, house_detail_path(item), class: "td-emphasized link-hover" %>
+      <%= link_to item.house_address, house_path(item), class: "td-emphasized link-hover" %>
     </td>
     <td class='td-pad td-base hidden md:table-cell'><%= item.gets_flag %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= item.is_rented %></td>

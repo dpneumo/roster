@@ -24,18 +24,18 @@
       </div>
 
       <%= render "shared/table",
-            head: 'house_owner_head', 
-            item_row: 'house_owner_row', 
+            head: 'houses/owner/head', 
+            item_row: 'houses/owner/row', 
             collection: house.owners %>
 
       <%= render "shared/table",
-            head: 'house_occupants_head', 
-            item_row: 'house_occupants_row', 
+            head: 'houses/occupants/head', 
+            item_row: 'houses/occupants/row', 
             collection: house.occupants %>
 
       <%= render "shared/table",
-            head: 'house_contrib_head', 
-            item_row: 'house_contrib_row', 
+            head: 'houses/contrib/head', 
+            item_row: 'houses/contrib/row', 
             collection: house.yearly_contributions_for_house %>
 
       <a href="<%= edit_house_path(@house) %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
