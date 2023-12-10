@@ -1,8 +1,10 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
+  
     <td class='td-pad'>
       <%= link_to item.name, position_path(item), class: "td-emphasized link-hover" %>
     </td>
+
     <td class='td-pad td-base'><%= item.person_name %></td>
     <td class='td-pad td-base hidden md:table-cell'><%= item.date_range %></td>
   </tr>

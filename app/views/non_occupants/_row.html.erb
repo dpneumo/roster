@@ -1,10 +1,17 @@
 <% present(item) do |item| %>
   <tr class='<%= background %>' >
+
     <td class='td-pad td-emphasized'>
-      <%= link_to item.sortable_name, person_detail_path(item), class: "text-sm font-medium link-hover" %></td>
+      <%= link_to item.sortable_name, person_detail_path(item), class: "td-emphasized link-hover" %>
+    </td>
+
     <td class='td-pad td-base hidden lg:table-cell'><%= item.nickname %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= item.role %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= item.status %></td>
-    <td><%= link_to 'Add to House', update_non_occupant_path(item.id, {house_id: @house_id}), method: :patch %></td>
+
+    <td class='td-pad td-emphasized'>
+      <%= link_to 'Add to a House', edit_person_path(item), class: "font-sans font-medium link-hover" %>
+    </td>
+
   </tr>
 <% end %>
