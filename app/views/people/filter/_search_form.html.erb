@@ -1,0 +1,14 @@
+<%= search_form_for @q, class: "mx-auto p-2 rounded-xl bg-blue-200" do |f| %>
+  <div class="mb-4 mx-4">
+    <%= render 'shared/search/field', f: f, label: 'Last Name: ', field_matcher: :last_eq, width: 'w-full' %>
+  </div>
+
+  <div class="flex flex-row sm:flex-col md:flex-row mb-4 mx-4 md:space-x-4">
+    <%= render 'shared/search/field', f: f,  label: 'Nickname: ', field_matcher: :nickname_eq, width: 'w-10/12' %>
+    <%= render 'shared/search/select', f: f, label: 'Status: ',   field_matcher: :status_eq, collection: Person.statuses, width: 'w-auto' %>
+  </div>
+
+  <div class="mb-4 mx-4">
+    <%= render "shared/search/submit_or_cancel", f: f %>
+  </div>
+<% end %>
