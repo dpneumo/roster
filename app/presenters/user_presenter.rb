@@ -5,6 +5,10 @@ class UserPresenter < ApplicationPresenter
     Enums.user_roles
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 # For New & Edit forms
   def form_rows
     [ 

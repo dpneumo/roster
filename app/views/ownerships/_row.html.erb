@@ -1,0 +1,10 @@
+  <% present(item) do |item| %>
+  <tr class='<%= background %>' >
+  
+    <td class='td-pad'>
+      <%= link_to item.house_address, ownership_path(item), class: "td-emphasized link-hover" %>
+    </td>
+
+    <td class='td-pad td-base'><%= item.owner_name %></td>
+  </tr>
+<% end %>

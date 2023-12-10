@@ -1,15 +1,21 @@
-<div class="max-w-4xl mb-5">
-  <h1 class="text-2xl font-extrabold">Email Addresses</h1>
+<div class='flex flex-col sm:flex-row items-center justify-center'>
+  <div class='mb-5 mx-2'>
+    <div class="flex flex-row justify-between">
+      <h1 class="font-sans font-bold text-2xl">Email Addresses</h1>
+    </div>
 
-  <%= render "shared/table", 
-          head: 'emails_head', 
-          item_row:  'emails_row', 
-          collection: @emails %>
-  <br>
-  <%== pagy_nav(@pagy) %>
+    <%= render "shared/table", 
+            head: 'head', 
+            item_row:  'row', 
+            collection: @emails 
+    %>
 
-  <hr class="border-1 border-gray-700" />
-  <br>
+    <br>
+    <%== pagy_nav(@pagy) %>
 
-  <%= link_to 'New Email', new_email_path, class: "text-lg font-medium link-hover" %> 
+    <hr class="mt-1 border-1 border-gray-700" />
+    <br>
+
+    <%= link_to 'New Email', new_email_path, class: "text-lg font-sans font-medium link-hover" %> 
+  </div>
 </div>
