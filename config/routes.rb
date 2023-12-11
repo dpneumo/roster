@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :streets
   devise_for :users, controllers: { sessions: 'users/sessions' }   
 
   authenticate :user do
