@@ -4,18 +4,18 @@
     <h1 class="mb-4 text-2xl font-extrabold">User Detail</h1>
 
 		<% present(@user) do |user| %>
-		  <div class="border-b border-gray-900/10 pb-11"> <!-- grid_container -->
+		  <div class="border-b border-gray-900/10 pb-11">
 		  	<%= user.notice(notice) %>
 
-			<%= user.show(:email) %>
-			<%= user.show(:first_name) %>
-			<%= user.show(:last_name) %>
-			<%= user.show(:role) %>
-			<%= user.show(:approved) %>
-			<%= user.show(:sign_in_count) %>
-			<%= user.show(:current_sign_in_at) %>
-			<%= user.show(:current_sign_in_ip) %>
-			<%= user.show(:created_at) %>
+				<%= user.show(:email) %>
+				<%= user.show(:first_name) %>
+				<%= user.show(:last_name) %>
+				<%= user.show(:role) %>
+				<%= user.show(:approved) %>
+				<%= user.show(:sign_in_count) %>
+				<%= user.show(:current_sign_in_at) %>
+				<%= user.show(:current_sign_in_ip) %>
+				<%= user.show(:created_at) %>
 		  </div>
 		<% end %>
 
