@@ -1,26 +1,31 @@
 <% present(@house) do |house| %>
   <div class="flex flex-col items-center justify-center h-full">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 class="text-2xl font-bold mb-4"><%= house.house_address %></h1>
+    <div class="px-8 pt-6 pb-8 mb-4 bg-white shadow-md rounded">
+      <h1 class="mb-4 text-2xl font-sans font-bold"><%= house.house_address %></h1>
 
-      <div class="flex flex-row">
-        <p class="text-gray-700 text-base mb-4 mx-2">Status: <%= house.status %></p>
-        <p class="text-gray-700 text-base mb-4 mx-2">Flag Group: <%= house.gets_flag %></p>
+      <div class='grid grid-cols-4'>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Status:</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.status %></div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Flag:</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.gets_flag %></div>
+
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Rental</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.is_rented %></div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Listed</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.is_listed %></div>
+
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Latitude:</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.lat %></div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Longitude:</div>
+        <div class="mb-4 mx-2 col-auto text-gray-7se text-base font-sans"><%= house.lng %></div>
+
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Image</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.image_link %></div>
       </div>
 
-      <div class="flex flex-row">
-        <p class="text-gray-700 text-base mb-4 mx-2">Rental Property: <%= house.is_rented %></p>
-        <p class="text-gray-700 text-base mb-4 mx-2">Listed For Sale: <%= house.is_listed %></p>
-      </div>
-
-      <div class="flex flex-row">
-        <p class="text-gray-700 text-base mb-4 mx-2">Latitude: <%= house.lat %></p>
-        <p class="text-gray-700 text-base mb-4 mx-2">Longitude: <%= house.lng %></p>
-      </div>
-
-      <div>
-        <p class="text-gray-700 text-base mb-4 mx-2">Image Link: <%= house.image_link %></p>
-        <p class="text-gray-700 text-base mb-4 mx-2">Note: <%= house.note %></p>
+      <div class='grid grid-cols-2'>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Note:</div>
+        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.note %></div>
       </div>
 
       <%= render "shared/table",

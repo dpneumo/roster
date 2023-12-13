@@ -1,12 +1,12 @@
-<div class="max-w-4xl mb-5">
-    <h1 class="text-2xl font-extrabold">Edit House</h1>
+<div class="max-w-4xl mb-5 font-semibold">
+    <h1 class="text-2xl font-sans font-extrabold">Edit House</h1>
 
     <%= render 'shared/form', mdl: @house, editing: true %>
 
     <hr class="border-1 border-gray-700" />
 
-    <%= link_to 'House Detail', house_path(@house), class: "text-lg link-hover" %> |
-    <%= link_to 'Houses List', houses_path, class: "text-lg link-hover" %>
+    <%= link_to 'House Detail', house_path(@house), class: "text-lg font-sans link-hover" %> |
+    <%= link_to 'Houses List', houses_path, class: "text-lg font-sans link-hover" %>
 
   </div>
 </div>
