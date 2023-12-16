@@ -1,51 +1,64 @@
 <% present(@house) do |house| %>
-  <div class="flex flex-col items-center justify-center h-full">
-    <div class="px-8 pt-6 pb-8 mb-4 bg-white shadow-md rounded">
-      <h1 class="mb-4 text-2xl font-sans font-bold"><%= house.house_address %></h1>
+  <div class="flex flex-col items-center justify-center">
 
-      <div class='grid grid-cols-4'>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Status:</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.status %></div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Flag:</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.gets_flag %></div>
+      <div class='grid grid-rows-auto'>
+        <div class='row-start-1 max-h-fit'>
 
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Rental</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.is_rented %></div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Listed</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.is_listed %></div>
+          <div class='grid auto-rows-min grid-rows-auto'>
+            <header class='row-start-1'>
+              <h1 class="mb-2 text-2xl font-sans font-bold"><%= house.house_address %></h1>
+            </header>
 
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Latitude:</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.lat %></div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Longitude:</div>
-        <div class="mb-4 mx-2 col-auto text-gray-7se text-base font-sans"><%= house.lng %></div>
+            <div class='row-start-2 h-fit mb-3'>
+                <%= render "shared/show/attrib",
+                      attributes: [
+                        {attribute: house.status, label: 'Status'},
+                        {attribute: house.gets_flag, label: 'Flag'},
+                        {attribute: house.is_rented, label: 'Rental'},
+                        {attribute: house.is_listed, label: 'Listed'}
+                      ]
+                %>
+            </div>
 
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Image</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.image_link %></div>
+            <div class='row-start-3 h-fit mb-3'>
+                <%= render "shared/show/attrib",
+                      attributes: [
+                        {attribute: '100.00', label: "Contrib '22"},
+                        {attribute: '200.00', label: "Contrib '23"}
+                      ]
+                %>
+            </div>
+
+            <div class='row-start-4 h-fit mb-3'>
+                <%= render "shared/show/attrib",
+                      attributes: [
+                        {attribute: house.lat, label: 'Latitude'},
+                        {attribute: house.lng, label: 'Longitude'},
+                        {attribute: house.image_link, label: 'Image'}
+                      ]
+                %>
+            </div>
+
+            <div class='row-start-5 h-fit mb-3'>
+                <%= render "shared/show/note", attribute: house.note, label: 'Note' %>
+            </div>
+          </div>
+        </div>
+
+        <div class='row-start-2 h-fit my-4'>
+          <%= link_to 'Contributions', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+
+          <%= link_to 'Occupants', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+
+          <%= link_to 'Owners', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+        </div>
+
+        <div class='row-start-3 h-fit my-3'>
+          <%= render "shared/show/edit_btn", path: edit_house_path(@house) %>
+          <%= render "shared/show/back_btn", path: houses_path %>
+        </div>
       </div>
 
-      <div class='grid grid-cols-2'>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans font-bold">Note:</div>
-        <div class="mb-4 mx-2 col-auto text-gray-700 text-base font-sans"><%= house.note %></div>
-      </div>
 
-      <%= render "shared/table",
-            head: 'houses/owner/head', 
-            item_row: 'houses/owner/row', 
-            collection: house.owners %>
-
-      <%= render "shared/table",
-            head: 'houses/occupants/head', 
-            item_row: 'houses/occupants/row', 
-            collection: house.occupants %>
-
-      <%= render "shared/table",
-            head: 'houses/contrib/head', 
-            item_row: 'houses/contrib/row', 
-            collection: house.yearly_contributions_for_house %>
-
-      <a href="<%= edit_house_path(@house) %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-      <%= link_to 'Back', houses_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
-
-    </div>
   </div>
 <% end %>
