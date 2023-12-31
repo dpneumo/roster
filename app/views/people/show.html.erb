@@ -1,28 +1,59 @@
 <% present(@person) do |person| %>
-  <div class="flex flex-col items-center justify-center h-full">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 class="text-2xl font-bold mb-4"><%= person.formal_name %></h1>
-      <p class="text-gray-700 text-base mb-4"><%= person.nickname %></p>
-      <p class="text-gray-700 text-base mb-4"><%= person.house_address %></p>
-      <p class="text-gray-700 text-base mb-4"><%= person.status %></p>
+<div class="flex flex-col items-center justify-center">
 
-      <%= render "shared/table", 
-          head: 'people/subtables/email_head', 
-          item_row: 'people/subtables/email_row', 
-          collection: person.emails       %>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
 
-      <%= render "shared/table", 
-          head: 'people/subtables/phone_head', 
-          item_row: 'people/subtables/phone_row', 
-          collection: person.phones       %>
+      <div class='grid auto-rows-min grid-rows-auto'>
+        <header class='row-start-1'>
+          <h1 class="mb-2 text-2xl font-sans font-bold"><%= person.formal_name %></h1>
+        </header>
 
-      <%= render "shared/table", 
-          head: 'people/subtables/address_head', 
-          item_row: 'people/subtables/address_row', 
-          collection: person.addresses    %>
+        <div class='row-start-2 h-fit mb-3'>
+          <%= render "shared/show/attrib",
+            attributes: [
+              {attribute: person.first, label: 'First'},
+              {attribute: person.middle, label: 'Middle'},
+              {attribute: person.last, label: 'Last'},
+              {attribute: person.nickname, label: 'Nick'},
+              {attribute: person.suffix, label: 'Suffix'},
+              {attribute: person.honorific, label: 'Honorific'},
+              {attribute: person.status, label: 'Status'},
+              {attribute: person.role, label: 'Role'},
+            ]
+          %>
+        </div>
 
-      <a href="<%= edit_person_path(person) %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-      <%= link_to 'Back', people_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded' %>
+        <div class='row-start-3 h-fit mb-3'>
+          <%= render "shared/show/address",
+            attribute: person.house_address, label: 'House Address'
+          %>
+        </div>
+
+        <div class='row-start-4 h-fit mb-3'>
+          <%= render "shared/show/note",
+            attribute: person.note, label: 'Note'
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-start-2 h-fit my-4' data-controller='modal'>
+      <%= link_to 'Email Addrs', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold", data: { action: "click->modal#open", turbo_stream: "" } %>
+
+      <%= link_to 'Phone Numbers', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+
+      <%= link_to 'Addresses', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+    </div>
+
+    <div class='row-start-3 h-fit my-4' id='contribs'>
+    </div>
+
+    <div class='row-start-4 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_person_path(@person) %>
+      <%= render "shared/show/back_btn", path: people_path %>
     </div>
   </div>
+
+</div>
 <% end %>
