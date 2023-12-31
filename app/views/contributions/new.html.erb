@@ -1,12 +1,4 @@
     <div class="max-w-4xl mb-5">
-      <h1 class="text-2xl font-extrabold">New Contribution</h1>
-
-      <%= render 'shared/form', mdl: @contribution %>
-
-      <hr class="border-1 border-gray-700" />
-
-      <% if @contribution.house_id %>
-        <%= link_to 'House Detail', house_detail_path(@contribution.house_id), class: "text-lg link-hover" %> |
-      <% end %>
-      <%= link_to 'Contributions List', contributions_path, class: "text-lg link-hover" %>
+      <h1 class="text-2xl font-sans font-extrabold">New Contribution</h1>
+      <%= render 'shared/form', mdl: @contribution, editing: false %>
     </div>

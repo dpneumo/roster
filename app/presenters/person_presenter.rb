@@ -111,7 +111,7 @@ class PersonPresenter < ApplicationPresenter
       { elements: [:streets, :house_id, :status, :role] },
       { elements: [:pref_email_id, :pref_phone_id, :pref_address_id] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit] },
     ]
   end
 
@@ -136,6 +136,7 @@ class PersonPresenter < ApplicationPresenter
       pref_phone_id:   { kind: :text, lblfor: 'person_pref_phone_id',   lbltxt: 'Preferred Phone' },
       pref_address_id: { kind: :text, lblfor: 'person_pref_address_id', lbltxt: 'Preferred Address' },
       note:        { kind: :textarea, lblfor: 'person_note',  lbltxt: 'Note' },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: people_path },
     } 
   end

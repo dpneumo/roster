@@ -22,7 +22,7 @@ class OwnershipPresenter < ApplicationPresenter
     [ 
       { elements: [:house_id] },
       { elements: [:person_id] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit] },
     ]
   end
 
@@ -30,6 +30,7 @@ class OwnershipPresenter < ApplicationPresenter
     {
       house_id:    { kind: :select, lblfor: 'ownership_house_id', lbltxt: 'House', collection: house_list },
       person_id:   { kind: :select, lblfor: 'ownership_person_id', lbltxt: 'Person', collection: people_list },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: ownerships_path },
     } 
   end

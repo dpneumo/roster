@@ -37,7 +37,8 @@ class HousePresenter < ApplicationPresenter
 
   def my_contributions(year: Date.current.year)
     contribs = Contributions::GetForHouseAndYear.call(house_id, year)
-    contribs.reduce(0) { |sum, c| sum + c.amount_cents }
+    total = contribs.reduce(0.00) { |sum, c| sum + c.amount_cents }
+    humanized_money_with_symbol(total/100).rjust(14)
   end
 
   def yearly_contributions_for_house
@@ -45,6 +46,22 @@ class HousePresenter < ApplicationPresenter
       .group_by(&:shift)
       .transform_values(&:flatten)
       .map {|k,v| [k.year, Money.new(v.inject(:+))] }
+  end
+
+  def this_year
+    Date.current.year.to_s
+  end
+
+  def last_year
+    (Date.current.year-1).to_s
+  end
+
+  def this_yr_contrib
+    my_contributions
+  end
+
+  def last_yr_contrib
+    my_contributions(year: Date.current.year-1)
   end
 
   def occupants
@@ -87,7 +104,7 @@ class HousePresenter < ApplicationPresenter
       { elements: [:flag, :rental, :listed] },
       { elements: [:lat, :lng, :image_link] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit] },
     ]
   end
 
@@ -106,6 +123,7 @@ class HousePresenter < ApplicationPresenter
       status:       { kind: :select,   span: 2, lblfor: 'house_status',     lbltxt: 'Status',
                       collection: statuses },
       note:         { kind: :textarea, span: 4, lblfor: 'house_note',       lbltxt: 'Note' },
+      submit:       { kind: :submit,         subtxt: 'Submit' },
       submit_cncl:  { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: houses_path },
     } 
   end

@@ -30,6 +30,26 @@ class PhonePresenter < ApplicationPresenter
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
+  def assoc_name
+    person_name
+  end
+
+  def instance_path
+    id ? phone_path(self) : nil
+  end
+
+  def collection_path
+    phones_path
+  end
+
+  def belongs_to_path
+    person_id ? person_path(person_id) : nil
+  end
+
+  def belongs_to_name
+    'Person'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
@@ -37,13 +57,14 @@ class PhonePresenter < ApplicationPresenter
       { elements: [:area, :prefix, :number] },
       { elements: [:phone_type, :preferred, :txt_capable] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
   def element_info 
     {
-      person_id:   { kind: :select, lblfor: 'phone_person_id', lbltxt: 'Person', collection: persons_list, blank: true, prompt: true },
+      person_id:   { kind: :select, lblfor: 'phone_person_id', lbltxt: 'Person', 
+                     collection: persons_list, blank: true, prompt: true, disable_edit: true },
       cc:          { kind: :text,   lblfor: 'phone_cc',        lbltxt: 'Country Code' },
       area:        { kind: :text,   lblfor: 'phone_area',      lbltxt: 'Area Code' },
       prefix:      { kind: :text,   lblfor: 'phone_prefix',    lbltxt: 'Prefix' },
@@ -52,7 +73,9 @@ class PhonePresenter < ApplicationPresenter
       preferred:   { kind: :checkbox, lblfor: 'phone_preferred',   lbltxt: 'Preferred' },
       txt_capable: { kind: :checkbox, lblfor: 'phone_txt_capable', lbltxt: 'Textable' },
       note:        { kind: :textarea, lblfor: 'phone_note',        lbltxt: 'Note' },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: phones_path },
+      navlinks:    { kind: :navlinks },
     } 
   end
 end

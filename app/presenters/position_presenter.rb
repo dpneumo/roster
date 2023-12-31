@@ -35,7 +35,7 @@ class PositionPresenter < ApplicationPresenter
       { elements: [:name] },      
       { elements: [:person_id] },
       { elements: [:start, :stop] },
-      { elements: [:submit_cncl] },      
+      { elements: [:submit] },      
     ]
   end
 
@@ -45,6 +45,7 @@ class PositionPresenter < ApplicationPresenter
       person_id:   { kind: :select, lblfor: 'position_person_id', lbltxt: 'Person', collection: person_selectlist },
       start:       { kind: :date,   lblfor: 'position_start',     lbltxt: 'Start Date' },
       stop:        { kind: :date,   lblfor: 'position_stop',      lbltxt: 'End Date'  },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: positions_path },
     } 
   end
