@@ -103,6 +103,26 @@ class PersonPresenter < ApplicationPresenter
     note.length > 15 ? note.slice(0..14)+'...' : note
   end
 
+  def assoc_name
+    house_address
+  end
+
+  def instance_path
+    id ? person_path(self) : nil
+  end
+
+  def collection_path
+    people_path
+  end
+
+  def belongs_to_path
+    house_id ? house_path(house_id) : nil
+  end
+
+  def belongs_to_name
+    'House'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
@@ -111,7 +131,7 @@ class PersonPresenter < ApplicationPresenter
       { elements: [:streets, :house_id, :status, :role] },
       { elements: [:pref_email_id, :pref_phone_id, :pref_address_id] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
@@ -136,7 +156,9 @@ class PersonPresenter < ApplicationPresenter
       pref_phone_id:   { kind: :text, lblfor: 'person_pref_phone_id',   lbltxt: 'Preferred Phone' },
       pref_address_id: { kind: :text, lblfor: 'person_pref_address_id', lbltxt: 'Preferred Address' },
       note:        { kind: :textarea, lblfor: 'person_note',  lbltxt: 'Note' },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: people_path },
+      navlinks:     { kind: :navlinks_sla },
     } 
   end
 end

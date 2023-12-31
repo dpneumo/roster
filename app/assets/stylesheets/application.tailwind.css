@@ -42,8 +42,12 @@
   @apply block w-full min-w-full mt-2 p-3 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
 }
 
-.disabled-field {
-  @apply block w-full min-w-full mt-2 p-3 text-gray-500 font-sans font-medium rounded-md border-0 shadow;
+.disabled-sel-field {
+  @apply base-field px-3 py-4 bg-gray-200;
+}
+
+.disabled-txt-field {
+  @apply base-field px-3 py-4 bg-gray-200;
 }
 
 .form-field-label {

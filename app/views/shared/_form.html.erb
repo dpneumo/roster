@@ -4,34 +4,33 @@
     <div class="flex flex-col w-full mt-4">
       
     <% m.form_rows.each do |row| %>
-      <% if row[:elements].count > 1 %>
-      <div class="flex flex-col md:flex-row">
-      <% end %>
+      <% re_cnt_gt_1 = (row[:elements].count > 1) %>
+      <% if re_cnt_gt_1 %> <div class="flex flex-col md:flex-row"> <% end %>
         
       <% row[:elements].each do |elem|
           kind =  m.element_info[elem][:kind] %>
           <%= case kind
-              when :text           then render 'shared/form/text_attr',     elem: elem, mdl: m, editing: editing
-              when :password       then render 'shared/form/password_attr', elem: elem, mdl: m, editing: editing
-              when :textarea       then render 'shared/form/textarea_attr', elem: elem, mdl: m, editing: editing
-              when :checkbox       then render 'shared/form/checkbox_attr', elem: elem, mdl: m, editing: editing
-              when :date           then render 'shared/form/date_attr',     elem: elem, mdl: m, editing: editing
-              when :select         then render 'shared/form/select_attr',   elem: elem, mdl: m, editing: editing
-              when :group          then render 'shared/form/group_select',  elem: elem, mdl: m, editing: editing
-              when :hidden         then render 'shared/form/hidden_attr',   elem: elem, mdl: m, editing: editing
-              when :submit         then render 'shared/form/submit',        elem: elem, mdl: m, editing: editing
-              when :submit_or_cncl then render 'shared/form/submit_cncl',   elem: elem, mdl: m, editing: editing
-              when :submit_or_goto then render 'shared/form/submit_goto',   elem: elem, mdl: m, editing: editing
-              when :col            then render 'shared/form/z_col',         elem: elem, mdl: m, editing: editing
-              when :row            then render 'shared/form/z_row',         elem: elem, mdl: m, editing: editing
+              when :text           then render 'shared/form/text_attr',        elem: elem, mdl: m, editing: editing
+              when :password       then render 'shared/form/password_attr',    elem: elem, mdl: m, editing: editing
+              when :textarea       then render 'shared/form/textarea_attr',    elem: elem, mdl: m, editing: editing
+              when :checkbox       then render 'shared/form/checkbox_attr',    elem: elem, mdl: m, editing: editing
+              when :date           then render 'shared/form/date_attr',        elem: elem, mdl: m, editing: editing
+              when :select         then render 'shared/form/select_attr',      elem: elem, mdl: m, editing: editing
+              when :group          then render 'shared/form/group_select',     elem: elem, mdl: m, editing: editing
+              when :hidden         then render 'shared/form/hidden_attr',      elem: elem, mdl: m, editing: editing
+              when :submit         then render 'shared/form/submit',           elem: elem, mdl: m, editing: editing
+              when :submit_or_cncl then render 'shared/form/submit_cncl',      elem: elem, mdl: m, editing: editing
+              when :submit_or_goto then render 'shared/form/submit_goto',      elem: elem, mdl: m, editing: editing
+              when :navlinks_sla   then render 'shared/new_edit/navlinks_sla', elem: elem, mdl: m, editing: editing
+              when :navlinks_sl    then render 'shared/new_edit/navlinks_sl',  elem: elem, mdl: m, editing: editing
+              when :col            then render 'shared/form/z_col',            elem: elem, mdl: m, editing: editing
+              when :row            then render 'shared/form/z_row',            elem: elem, mdl: m, editing: editing
               else raise "Unknown kind #{kind}"
               end
           %>
       <% end %>
-        
-      <% if row[:elements].count > 1 %>
-      </div>
-      <% end %>
+
+      <% if re_cnt_gt_1 %> </div> <% end %>
     <% end %> <!-- form_rows -->
       
     </div>

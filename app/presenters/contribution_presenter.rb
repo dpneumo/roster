@@ -23,6 +23,26 @@ class ContributionPresenter < ApplicationPresenter
     "#{yr}-01-01".."#{yr}-12-31"
   end
 
+  def assoc_name
+    house_address
+  end
+
+  def instance_path
+    id ? contribution_path(self) : nil
+  end
+
+  def collection_path
+    contributions_path
+  end
+
+  def belongs_to_path
+    house_id ? house_path(house_id) : nil
+  end
+
+  def belongs_to_name
+    'House'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
@@ -30,18 +50,20 @@ class ContributionPresenter < ApplicationPresenter
       { elements: [:date_paid] },
       { elements: [:amount] },
       { elements: [:amount_currency] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
   def element_info 
     {
       house_id:        { kind: :select, lblfor: 'contributions_house_id',        lbltxt: 'House', 
-                         collection: house_list, blank: true, prompt: true },
+                         collection: house_list, blank: true, prompt: true, disable_edit: true },
       date_paid:       { kind: :date,   lblfor: 'contributions_date_paid',       lbltxt: 'Date Paid' },
       amount:          { kind: :text,   lblfor: 'contributions_amount',          lbltxt: 'Amount' },
       amount_currency: { kind: :text,   lblfor: 'contributions_amount_currency', lbltxt: 'Currency' },
-      submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: contributions_path },
+      submit:       { kind: :submit,         subtxt: 'Submit' },
+      submit_cncl:  { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: contributions_path },
+      navlinks:     { kind: :navlinks_sla },
     } 
   end
 end

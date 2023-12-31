@@ -31,6 +31,26 @@ class AddressPresenter < ApplicationPresenter
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
+  def assoc_name
+    addressee
+  end
+
+  def instance_path
+    id ? address_path(self) : nil
+  end
+
+  def collection_path
+    addresses_path
+  end
+
+  def belongs_to_path
+    person_id ? person_path(person_id) : nil
+  end
+
+  def belongs_to_name
+    'Person'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
@@ -39,14 +59,14 @@ class AddressPresenter < ApplicationPresenter
       { elements: [:city, :state, :zip] },
       { elements: [:address_type, :preferred] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
   def element_info 
     {
-      person_id:    { kind: :select, lblfor: 'address_person_id', lbltxt: 'Addressee', 
-                      collection: persons_list, blank: true, prompt: true },
+      person_id:    { kind: :select, lblfor: 'address_person_id', lbltxt: 'Person', 
+                      collection: persons_list, blank: true, prompt: true, disable_edit: true },
       number:       { kind: :text,   lblfor: 'address_number',  lbltxt: 'Number' },
       street:       { kind: :text,   lblfor: 'address_street',  lbltxt: 'Street' },
       city:         { kind: :text,   lblfor: 'address_city',    lbltxt: 'City' },
@@ -55,7 +75,9 @@ class AddressPresenter < ApplicationPresenter
       address_type: { kind: :select, lblfor: 'address_address_type',    lbltxt: 'Type', collection: types },
       preferred:    { kind: :checkbox, lblfor: 'address_preferred', lbltxt: 'Preferred' },
       note:         { kind: :textarea, lblfor: 'address_note',      lbltxt: 'Note' },
+      submit:       { kind: :submit,         subtxt: 'Submit' },
       submit_cncl:  { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: addresses_path },
+      navlinks:     { kind: :navlinks_sla },
     } 
   end
 end

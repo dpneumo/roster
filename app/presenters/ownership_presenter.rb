@@ -17,20 +17,44 @@ class OwnershipPresenter < ApplicationPresenter
     owner.fullname
   end
 
+  def assoc_name
+    house_address
+  end
+
+  def instance_path
+    id ? ownership_path(self) : nil
+  end
+
+  def collection_path
+    ownerships_path
+  end
+
+  def belongs_to_path
+    person_id ? person_path(person_id) : nil
+  end
+
+  def belongs_to_name
+    'Person'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
       { elements: [:house_id] },
       { elements: [:person_id] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
   def element_info 
     {
-      house_id:    { kind: :select, lblfor: 'ownership_house_id', lbltxt: 'House', collection: house_list },
-      person_id:   { kind: :select, lblfor: 'ownership_person_id', lbltxt: 'Person', collection: people_list },
+      house_id:    { kind: :select, lblfor: 'ownership_house_id', lbltxt: 'House', collection: house_list, 
+                     blank: true, prompt: true, disable_edit: true },
+      person_id:   { kind: :select, lblfor: 'ownership_person_id', lbltxt: 'Person', collection: people_list, 
+                     blank: true, prompt: true, disable_edit: false },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: ownerships_path },
+      navlinks:    { kind: :navlinks_sl },
     } 
   end
 end

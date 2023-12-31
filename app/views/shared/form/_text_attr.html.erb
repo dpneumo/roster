@@ -4,10 +4,12 @@
     <label  for=<%= info[:lblfor] %>
             class="form-field-label">
       <%= info[:lbltxt] %>
+
       <% if disable %>
-        <%= mdl.form.text_field( elem, { class: "text-red-500 base-field ring", disabled: true }) %>
+        <%= mdl.form.text_field( elem, { class: 'disabled-txt-field py-3 ring', disabled: true }) %>
       <% else %>
-        <%= mdl.form.text_field( elem, { class: "text-red-500 base-field ring", disabled: false }) %>
+        <%= mdl.form.text_field( elem, { class: 'base-field ring', disabled: false }) %>
       <% end %>
+
     </label>
   </div>

@@ -1,9 +1,4 @@
-<div class="w-full mb-5 rounded-lg bg-red-200">
-  <h1 class="mx-2 text-2xl font-extrabold">New Person</h1>
-
-  <%= render 'form', mdl: @person %>
-
-  <hr class="border-1 border-gray-700" />
-
-  <%= link_to 'Persons List', people_path, class: "mx-2 text-lg link-hover" %>
+<div class='w-full mb-5 rounded-lg'>
+  <h1 class="mx-2 text-2xl font-sans font-extrabold">New Person</h1>
+  <%= render 'form', mdl: @person, editing: false %>
 </div>

@@ -13,9 +13,9 @@ class UserPresenter < ApplicationPresenter
   def form_rows
     [ 
       { elements: [:email, :role] },
-      { elements: [:password, :first_name] },
-      { elements: [:password_confirmation, :last_name] },
-      { elements: [:submit_cncl] }
+      { elements: [:password, :password_confirmation] },
+      { elements: [:first_name, :last_name] },
+      { elements: [:submit] }
     ]
   end
 
@@ -27,6 +27,7 @@ class UserPresenter < ApplicationPresenter
       role:        { kind: :select,    span: 3, lblfor: 'user_role',       lbltxt: 'Role', collection: roles, default: 'user' },
       password:    { kind: :password,  span: 3, lblfor: 'user_password',   lbltxt: 'Password'   },
       password_confirmation: { kind: :password, span: 3, lblfor: 'user_password_confirmation', lbltxt: 'Password Confirmation' },
+      submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: users_path },
     } 
   end
