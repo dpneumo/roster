@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HousesController < ApplicationController
-  before_action :set_house, only: %i[show detail edit update destroy]
+  before_action :set_house, only: %i[show detail edit update destroy contribs]
 
   # GET /houses
   def index
@@ -47,6 +47,10 @@ class HousesController < ApplicationController
   def destroy
     @house.destroy
     redirect_to houses_url, notice: 'House was successfully destroyed.'
+  end
+
+  def contribs
+    respond_to {|format| format.turbo_stream }
   end
 
   private
