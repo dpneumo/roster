@@ -65,8 +65,9 @@
     </div>
 
     <div class='row-start-4 h-fit my-3'>
-      <%= render "shared/show/edit_btn", path: edit_house_path(@house) %>
+      <%= render "shared/show/edit_btn", path: edit_house_path(house) %>
       <%= render "shared/show/back_btn", path: houses_path %>
+      <%= render "shared/show/delete_btn", path: house_path(house) %>
     </div>
   </div>
 
