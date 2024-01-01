@@ -1,17 +1,6 @@
 <div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
   <div class="col-start-1 col-end-6 sm:col-start-2">
-
     <h1 class="text-2xl font-sans font-extrabold">Edit User</h1>
-
     <%= render 'shared/form', mdl: @user, editing: true %>
-
-    <hr class="border-1 border-gray-700" />
-
-    <div class='row-start-2 h-fit my-3'>
-      <%= render "shared/new_edit/show_btn", path: user_path(@user) %>
-      <%= render "shared/new_edit/back_btn", path: users_path %>
-    </div>
-  </div>
-
   </div>
 </div>
