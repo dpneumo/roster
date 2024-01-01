@@ -28,8 +28,8 @@
 
     <div class='row-start-2 h-fit my-3'>
       <%= render "shared/show/edit_btn", path: edit_contribution_path(contribution) %>
-      <%= render "shared/show/house_btn", path: house_detail_path(contribution.house_id) %>
       <%= render "shared/show/back_btn", path: contributions_path %>
+      <%= render "shared/show/delete_btn", path: contribution_path(contribution) %>
     </div>
   </div>
 
