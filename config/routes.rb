@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     get    '/users/reg/signup',       to: 'registrations#new',      as: 'register_new_user'
     post   '/users/reg/:id',          to: 'registrations#create',   as: 'create_user_registration'
 
-    get    '/houses/:id/detail',     to: 'houses#detail',           as: 'house_detail'
-    get    '/people/:id/detail',     to: 'people#detail',           as: 'person_detail'
     post   '/houses_filter',         to: 'houses_filter#index',     as: 'houses_filter'
 
     get    '/people/occupant/:house_id', to: 'people#new_occupant', as: 'new_occupant'
