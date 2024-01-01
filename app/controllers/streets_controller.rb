@@ -52,7 +52,7 @@ class StreetsController < ApplicationController
     @street.destroy
 
     respond_to do |format|
-      format.html { redirect_to streets_url, notice: "Street was successfully destroyed." }
+      format.html { redirect_to streets_url, status: :see_other, notice: "Street was successfully destroyed." }
       format.json { head :no_content }
     end
   end

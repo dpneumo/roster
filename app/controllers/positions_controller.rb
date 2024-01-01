@@ -41,7 +41,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1
   def destroy
     @position.destroy
-    redirect_to positions_url, notice: 'Position was successfully destroyed.'
+    redirect_to positions_url, status: :see_other, notice: 'Position was successfully destroyed.'
   end
 
   private

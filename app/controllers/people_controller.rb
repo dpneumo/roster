@@ -57,7 +57,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   def destroy
     @person.destroy
-    redirect_to people_url, notice: 'Person was successfully destroyed.'
+    redirect_to people_url, status: :see_other, notice: 'Person was successfully destroyed.'
   end
 
   def houses

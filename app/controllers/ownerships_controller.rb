@@ -42,7 +42,7 @@ class OwnershipsController < ApplicationController
   # DELETE /ownerships/1
   def destroy
     @ownership.destroy
-    redirect_to ownerships_url, notice: 'Ownership was successfully destroyed.'
+    redirect_to ownerships_url, status: :see_other, notice: 'Ownership was successfully destroyed.'
   end
 
   private

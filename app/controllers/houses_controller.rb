@@ -46,7 +46,7 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   def destroy
     @house.destroy
-    redirect_to houses_url, notice: 'House was successfully destroyed.'
+    redirect_to houses_url, status: :see_other, notice: 'House was successfully destroyed.'
   end
 
   def contribs

@@ -20,7 +20,7 @@ class RegistrationsController < ApplicationController
   def destroy
     @registration = Registration.find(params[:id])
     @registration.destroy
-    redirect_to users_path, notice: 'User registration was successfully destroyed.'
+    redirect_to users_path, status: :see_other, notice: 'User registration was successfully destroyed.'
   end
 
   private

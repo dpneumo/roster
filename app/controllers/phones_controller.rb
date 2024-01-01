@@ -44,7 +44,7 @@ class PhonesController < ApplicationController
   # DELETE /phones/1
   def destroy
     @phone.destroy
-    redirect_to phones_url, notice: 'Phone was successfully destroyed.'
+    redirect_to phones_url, status: :see_other, notice: 'Phone was successfully destroyed.'
   end
 
   private
