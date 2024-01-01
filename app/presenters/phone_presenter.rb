@@ -75,7 +75,7 @@ class PhonePresenter < ApplicationPresenter
       note:        { kind: :textarea, lblfor: 'phone_note',        lbltxt: 'Note' },
       submit:      { kind: :submit,         subtxt: 'Submit' },
       submit_cncl: { kind: :submit_or_cncl, subtxt: 'Submit', cncltxt: 'Cancel', path: phones_path },
-      navlinks:    { kind: :navlinks },
+      navlinks:    { kind: :navlinks_sl },
     } 
   end
 end
