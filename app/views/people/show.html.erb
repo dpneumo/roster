@@ -39,11 +39,11 @@
     </div>
 
     <div class='row-start-2 h-fit my-4' data-controller='modal'>
-      <%= link_to 'Email Addrs', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold", data: { action: "click->modal#open", turbo_stream: "" } %>
+      <%= link_to 'Email Addrs', person_email_addrs_path, class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
 
-      <%= link_to 'Phone Numbers', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+      <%= link_to 'Phone Numbers', person_phone_numbers_path, class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
 
-      <%= link_to 'Addresses', '#', class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
+      <%= link_to 'Addresses', person_addresses_path, class: "mx-1 py-2 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold" %>
     </div>
 
     <div class='row-start-3 h-fit my-4' id='contribs'>
