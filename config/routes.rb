@@ -23,8 +23,10 @@ Rails.application.routes.draw do
     get    '/non_occupants',         to: 'non_occupants#index',     as: 'list_non_occupants'
     patch  '/non_occupant/:id',      to: 'non_occupants#update',    as: 'update_non_occupant'
 
-    get    'house_contribs/:id',     to: 'houses#contribs',         as: 'house_contribs'
-
+    get    'house_annual_contribs/:id', to: 'house_contribs#annual',      as: 'house_annual_contribs'
+    get    'house_occupants/:id',       to: 'house_occupants#occupants',  as: 'house_occupants'
+    get    'house_owners/:id',          to: 'house_owners#owners',        as: 'house_owners'
+ 
     resources :people do
       collection do
         get 'houses'

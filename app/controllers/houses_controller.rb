@@ -47,7 +47,7 @@ class HousesController < ApplicationController
   end
 
   def contribs
-    respond_to {|format| format.turbo_stream }
+    render 'houses/contrib/by_year'
   end
 
   private
@@ -60,4 +60,5 @@ class HousesController < ApplicationController
     params.require(:house).permit(:number, :street, :lat, :lng, :image_link,
                                   :flag, :rental, :listed, :status, :note, lot_ids: [])
   end
+
 end
