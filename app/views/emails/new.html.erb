@@ -1,12 +1,4 @@
-    <div class="max-w-4xl mb-5">
-      <h1 class="text-2xl font-sans font-extrabold">New Email</h1>
-
-      <%= render 'shared/form', mdl: @email, editing: false %>
-
-      <hr class="border-1 border-gray-700" />
-
-      <% if @email.person_id %>
-        <%= link_to 'Person Detail', person_path(@email.person_id), class: "text-lg link-hover" %> |
-       <% end %>
-      <%= link_to 'Emails List', emails_path, class: "text-lg link-hover" %>
-    </div>
+<div class="max-w-4xl mb-5">
+  <h1 class="text-2xl font-sans font-extrabold">New Email</h1>
+  <%= render 'shared/form', mdl: @email, editing: false %>
+</div>
