@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h1 class="text-2xl font-extrabold">Log In</h1>
+  <h1 class="text-2xl font-sans font-extrabold">Log In</h1>
 
   <%= render 'users/shared/form_field', 
         f: f, label: 'Email', item: :email,  
