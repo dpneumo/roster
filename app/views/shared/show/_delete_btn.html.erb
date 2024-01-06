@@ -1,5 +1,8 @@
-<%= link_to (label || 'Delete'), path,
-			class: 'py-2 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold',
-			data: { turbo_method: :delete,
-							turbo_confirm: "This will delete #{target || 'this record'}!\nAre you sure?" }
+<%= link_to( 'Delete',
+					    path,
+							class: 'py-2 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold',
+							data: { turbo_method: :delete,
+											turbo_confirm: "Are you sure?"
+										}
+		)
 %>
