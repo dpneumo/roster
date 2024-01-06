@@ -1,0 +1,68 @@
+<%= form_with(model: [ :admin, user], local: true) do |form| %>
+  <% present(user) do |usr| %>
+  <div class="flex flex-col w-full mt-4">
+
+    <div class="flex flex-col md:flex-row">
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for='user_email' class="form-field-label">
+          Email
+          <%= form.text_field :email, {class: 'base-field ring'} %>
+        </label>
+      </div>
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for=user_role class="form-field-label">
+          Role
+          <%= form.select :role, usr.roles,
+                  { include_blank: false, selected: user.send(:role) || 'user' },
+                  { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring"} %>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row">
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for='user_password' class="form-field-label">
+          Password
+          <%= form.password_field :password, id: 'user_password', class: "base-field ring"  %>
+        </label>
+      </div>
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for='user_password_confirmation' class="form-field-label">
+          Password Confirmation
+          <%= form.password_field :password_confirmation, id: 'user_password_confirmation', class: "base-field ring" %>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row">
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for='user_first_name' class="form-field-label">
+          First Name
+          <%= form.text_field :first_name, {class: 'base-field ring'} %>
+        </label>
+      </div>
+      <div class="mx-4 mb-5 min-w-0">
+        <label  for='user_last_name' class="form-field-label">
+          Last Name
+          <%= form.text_field :last_name, {class: 'base-field ring'} %>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row">
+      <div class="mx-4 mb-5 w-fit">
+        <%= form.submit 'Submit', class: "mx-4 submit-button font-sans" %>
+      </div>
+      <div class='flex flex-row flex-nowrap justify-end w-full mb-3 mt-1 py-1'>
+        <div class=''>
+          <% if usr.instance_path %>
+            <%= render "shared/new_edit/show_btn", path: usr.instance_path %>
+          <% end %>
+          <%= render "shared/new_edit/back_btn", path: usr.collection_path %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+<% end %>

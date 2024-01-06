@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h1 class="text-2xl font-sans font-extrabold">Log In</h1>
+  <h1 class="font-sans font-bold text-lg">Log In</h1>
 
   <%= render 'users/shared/form_field', 
         f: f, label: 'Email', item: :email,  
         autofocus: true, autocomplete: 'email' %>
 
-  <%= render 'users/shared/form_field', 
+  <%= render 'users/shared/password_field',
         f: f, label: 'Password', item: :password,  
         autofocus: false, autocomplete: 'password' %>
 
