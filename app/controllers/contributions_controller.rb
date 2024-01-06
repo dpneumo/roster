@@ -42,7 +42,7 @@ class ContributionsController < ApplicationController
   # DELETE /contributions/1
   def destroy
     @contribution.destroy
-    redirect_to contributions_url, notice: 'Contribution was successfully destroyed.'
+    redirect_to contributions_url, status: :see_other, notice: 'Contribution was successfully destroyed.'
   end
 
   private

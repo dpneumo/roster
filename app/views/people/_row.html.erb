@@ -1,0 +1,11 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+    <td class='td-pad'>
+      <%= link_to item.sortable_name, person_path(item), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base hidden sm:table-cell'><%= item.nickname %></td>
+    <td class='td-pad td-base                     '><%= item.house_address %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.status %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.note_hint %></td>
+</tr>
+<% end %>

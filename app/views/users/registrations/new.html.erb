@@ -1,0 +1,31 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 w-full">
+
+	<div class='mx-6 mb-6 mt-2'>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			<%= render "users/shared/error_messages", resource: resource %>
+
+			<h1 class='font-sans font-bold text-lg'>Sign Up</h1>
+
+		  <%= render 'users/shared/form_field',
+		        f: f, label: 'Email', item: :email,
+		        autofocus: true, autocomplete: 'email' %>
+
+		  <%= render 'users/shared/password_field',
+		        f: f, label: 'Password', item: :password,
+		        autocomplete: 'new-password' %>
+
+		  <%= render 'users/shared/password_field',
+		        f: f, label: 'Confirm Password', item: :password_confirmation,
+		        autocomplete: 'new-password' %>
+
+		  <%= render 'users/shared/submit',
+		        f: f, label: 'Sign up' %>
+
+		<% end %>
+  </div>
+
+	<div class='mx-6 mb-6 mt-2'>
+		<%= render "users/shared/links" %>
+	</div>
+
+</div>

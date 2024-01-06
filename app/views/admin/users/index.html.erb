@@ -1,0 +1,18 @@
+<div class='flex flex-col sm:flex-row items-center justify-center'>
+  <div class='mb-5 mx-2'>
+    <div class="flex flex-row justify-between">
+      <h1 class="font-sans font-bold text-2xl">Users</h1>
+    </div>
+
+    <%= render "shared/table", 
+            head: 'head', 
+            item_row:  'row', 
+            collection: @users 
+    %>
+
+    <hr class="border-1 border-gray-700" />
+    <br>
+
+    <%= link_to 'New User', new_admin_user_path, class: "text-lg font-sans font-medium link-hover" %>
+  </div>
+</div>

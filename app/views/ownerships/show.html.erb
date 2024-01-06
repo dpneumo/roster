@@ -1,17 +1,34 @@
 <% present(@ownership) do |ownership| %>
-	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-    <h1 class="mb-4 text-2xl font-extrabold">Ownership Detail</h1>
+<div class="flex flex-col items-center justify-center">
 
-		  
-		<div>Owner: <%= ownership.owner_name %></div>
-		<div>House: <%= ownership.house_address %></div>
-		
-		<div><br></div>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
 
-		<div>
-			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-	    <%= link_to 'Edit', edit_ownership_path(@ownership), class: "text-lg font-medium hover:font-extrabold" %> |
-	    <%= link_to 'Ownerships List', ownerships_path, class: "text-lg font-medium hover:font-extrabold" %>
-	  </div>
+      <div class='grid auto-rows-min grid-rows-auto'>
+        <header class='row-start-1'>
+          <h1 class="mb-2 text-2xl font-sans font-bold">Ownership Detail</h1>
+        </header>
+
+        <div class='row-start-2 h-fit mb-3'>
+          <%= render "shared/show/attrib_wide",
+            attribute: ownership.owner_name, label: 'Owner'
+          %>
+        </div>
+
+        <div class='row-start-3 h-fit mb-3'>
+          <%= render "shared/show/attrib_wide",
+            attribute: ownership.house_address, label: 'House'
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_ownership_path(ownership) %>
+      <%= render "shared/show/back_btn", path: ownerships_path %>
+      <%= render "shared/show/delete_btn", path: ownership_path(ownership) %>
+    </div>
   </div>
+
+</div>
 <% end %>

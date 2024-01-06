@@ -1,0 +1,24 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h1 class="font-sans font-bold text-lg">Log In</h1>
+
+  <%= render 'users/shared/form_field', 
+        f: f, label: 'Email', item: :email,  
+        autofocus: true, autocomplete: 'email' %>
+
+  <%= render 'users/shared/password_field',
+        f: f, label: 'Password', item: :password,  
+        autofocus: false, autocomplete: 'password' %>
+
+
+  <% if devise_mapping.rememberable? %>
+    <%= render 'users/shared/check_box', 
+          f: f, label: 'Remember me', item: :remember_me %>
+  <% end %>
+
+  <%= render 'users/shared/submit', 
+        f: f, label: 'Log in' %>
+
+  <%= render "users/shared/links" %>
+
+<% end %>
+

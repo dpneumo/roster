@@ -1,0 +1,11 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+
+    <td class='td-pad'>
+      <%= link_to item.house_address, contribution_path(item), class: "td-emphasized link-hover" %>
+    </td>
+
+    <td class='td-pad td-base'><%= item.date_paid %></td>
+    <td class='td-pad td-base'><%= item.amount %></td>
+  </tr>
+<% end %>

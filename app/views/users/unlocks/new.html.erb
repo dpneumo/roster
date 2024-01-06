@@ -1,0 +1,20 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 w-full">
+
+	<div class='mx-6 mb-6 mt-2'>
+		<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :put }) do |f| %>
+			<%= render "users/shared/error_messages", resource: resource %>
+
+			<h1 class='font-sans font-bold text-lg'>Resend Unlock Instructions</h1>
+
+		  <%= render 'users/shared/form_field',
+		        f: f, label: 'Email', item: :email,
+		        autofocus: true, autocomplete: 'email' %>
+
+		  <%= render 'users/shared/submit',
+		        f: f, label: 'Resend unlock instructions' %>
+		<% end %>
+  </div>
+
+  <%= render "users/shared/links" %>
+
+</div>

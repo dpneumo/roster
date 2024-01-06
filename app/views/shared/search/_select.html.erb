@@ -1,4 +1,4 @@
 <div class='mt-2'>
-  <%= f.label field_matcher, label %>
-  <%= f.select field_matcher, options_for_select(collection, params[field_matcher]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" %>
+  <%= f.label field_matcher, label, class: "font-sans" %>
+  <%= f.select field_matcher, options_for_select(collection, params[field_matcher]), {}, class: "block w-full rounded-md border-0 py-1 text-gray-900 font-sans shadow-sm ring sm:max-w-xs sm:text-sm sm:leading-6" %>
 </div>

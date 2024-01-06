@@ -1,0 +1,9 @@
+  <div class='flex flex-row flex-nowrap justify-end w-full mb-3 mt-1 py-1'>
+    <div class=''>
+      <% if mdl.instance_path %>
+        <%= render "shared/new_edit/show_btn", path: mdl.instance_path %>
+      <% end %>
+
+      <%= render "shared/new_edit/back_btn", path: mdl.collection_path %>
+    </div>
+  </div>

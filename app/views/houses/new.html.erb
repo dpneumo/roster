@@ -1,20 +1,4 @@
-<h1>New House</h1>
-
-<%= render 'form', house: @house %>
-
-<%= link_to 'List', houses_path %>
-
-
-<div class="grid grid-cols-1 sm:grid-cols-6 mt-2 gap-x-6 gap-y-2">
-  <div class="col-start-1 col-end-6 sm:col-start-2">
-
-    <h1 class="text-2xl font-extrabold">New House</h1>
-
-    <%= render 'shared/form', mdl: @house %>
-
-    <hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-
-    <%= link_to 'Houses List', houses_path, class: "text-lg text-bold" %>
-
-  </div>
+<div class="max-w-4xl mb-5">
+    <h1 class="text-2xl font-sans font-extrabold">New House</h1>
+    <%= render 'shared/form', mdl: @house, editing: false %>
 </div>

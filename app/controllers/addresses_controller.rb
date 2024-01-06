@@ -44,7 +44,7 @@ class AddressesController < ApplicationController
   # DELETE /addresses/1
   def destroy
     @address.destroy
-    redirect_to addresses_url, notice: 'Address was successfully destroyed.'
+    redirect_to addresses_url, status: :see_other, notice: 'Address was successfully destroyed.'
   end
 
   private

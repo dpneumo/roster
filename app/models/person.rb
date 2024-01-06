@@ -20,6 +20,10 @@ class Person < ApplicationRecord
   end
 
   # Should this move to PersonPresenter?
+  def self.statuses
+    Enums.person_statuses.unshift('')
+  end
+
   def person_name
     PersonName.new(first, middle, last, nickname, suffix, honorific)
   end

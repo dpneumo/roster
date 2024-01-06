@@ -1,0 +1,10 @@
+  <div class='col-span-2 mt-4'>
+    <%= render 'shared/form/label', lblfor: item, lbltxt: label %>    
+    <div class='mt-2'>
+      <%= f.text_field(item, 
+            id: item,
+            class: 'base-field py-1.5 sm:text-sm sm:leading-6 placeholder:text-gray-400 ring',
+            autofocus: autofocus,
+            autocomplete: autocomplete) %>
+    </div>
+  </div>

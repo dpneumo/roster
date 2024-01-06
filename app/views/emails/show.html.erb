@@ -1,19 +1,49 @@
 <% present(@email) do |email| %>
-	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-    <h1 class="mb-4 text-2xl font-extrabold">Email Detail</h1>
+<div class="flex flex-col items-center justify-center">
 
-		<div>Addressee: <%= email.addressee %></div>
-		<div>Address: <%= email.addr %></div>
-		<div>Type: <%= email.email_type %></div>
-		<div>Preferred: <%= email.primary %></div>
-		<div>Note: <%= email.note %></div>
-	
-		<div><br></div>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
 
-		<div>
-			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-	    <%= link_to 'Edit', edit_email_path(@email), class: "text-lg font-medium hover:font-extrabold" %> |
-	    <%= link_to 'Emails List', emails_path, class: "text-lg font-medium hover:font-extrabold" %>
-	  </div>
+      <div class='grid auto-rows-min grid-rows-auto'>
+        <header class='row-start-1'>
+          <h1 class="mb-2 text-2xl font-sans font-bold">Address Detail</h1>
+        </header>
+
+        <div class='row-start-2 h-fit mb-3'>
+          <%= render "shared/show/attrib_wide",
+            attribute: email.addressee, label: 'Addressee'
+          %>
+        </div>
+
+        <div class='row-start-3 h-fit mb-3'>
+          <%= render "shared/show/attrib_wide",
+            attribute: email.addr, label: 'Address'
+          %>
+        </div>
+
+        <div class='row-start-4 h-fit mb-3'>
+          <%= render "shared/show/attrib",
+            attributes: [
+              {attribute: email.email_type, label: 'Type'},
+              {attribute: email.primary, label: 'Preferred'},
+            ]
+          %>
+        </div>
+
+        <div class='row-start-5 h-fit mb-3'>
+          <%= render "shared/show/note",
+            attribute: email.note, label: 'Note'
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-start-4 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_email_path(email) %>
+      <%= render "shared/show/back_btn", path: emails_path %>
+      <%= render "shared/show/delete_btn", path: email_path(email) %>
+    </div>
   </div>
+
+</div>
 <% end %>

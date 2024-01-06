@@ -1,0 +1,14 @@
+<% present(item) do |item| %>
+  <tr class='<%= background %>' >
+
+  
+    <td class='td-pad'>
+      <%= link_to item.addressee, address_path(item), class: "td-emphasized link-hover" %>
+    </td>
+  
+    <td class='td-pad td-base'><%= item.complete_address_hint %></td>
+    <td class='td-pad td-base hidden sm:table-cell'><%= item.address_type %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.primary %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.note_hint %></td>
+  </tr>
+<% end %>

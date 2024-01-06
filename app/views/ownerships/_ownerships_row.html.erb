@@ -1,7 +1,0 @@
-  <% present(item) do |item| %>
-  <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.house_address %></td>
-    <td class='pl-6'><%= item.owner_name %></td>
-    <td><%= link_to 'Detail', ownership_path(item.id) %></td>
-  </tr>
-<% end %>

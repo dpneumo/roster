@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HousesController < ApplicationController
-  before_action :set_house, only: %i[show detail edit update destroy]
+  before_action :set_house, only: %i[show detail edit update destroy contribs]
 
   # GET /houses
   def index
@@ -12,9 +12,6 @@ class HousesController < ApplicationController
 
   # GET /houses/1
   def show; end
-
-  # GET /houses/1/detail
-  def detail; end
 
   # GET /houses/new
   def new
@@ -46,7 +43,11 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   def destroy
     @house.destroy
-    redirect_to houses_url, notice: 'House was successfully destroyed.'
+    redirect_to houses_url, status: :see_other, notice: 'House was successfully destroyed.'
+  end
+
+  def contribs
+    render 'houses/contrib/by_year'
   end
 
   private
@@ -59,4 +60,5 @@ class HousesController < ApplicationController
     params.require(:house).permit(:number, :street, :lat, :lng, :image_link,
                                   :flag, :rental, :listed, :status, :note, lot_ids: [])
   end
+
 end

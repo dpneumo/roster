@@ -14,9 +14,6 @@ class PeopleController < ApplicationController
   # GET /people/1
   def show; end
 
-  # GET /people/1/detail
-  def detail; end
-
   # GET /people/new
   def new
     @person = Person.new
@@ -39,7 +36,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.create(person_params)
     if @person.save
-      redirect_to @person, notice: 'Person was successfully created.'
+      redirect_to person_path(@person), notice: 'Person was successfully created.'
     else
       render :new
     end
@@ -48,7 +45,7 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   def update
     if @person.update(person_params)
-      redirect_to @person, notice: 'Person was successfully updated.'
+      redirect_to person_path(@person), notice: 'Person was successfully updated.'
     else
       render :edit
     end
@@ -57,7 +54,16 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   def destroy
     @person.destroy
-    redirect_to people_url, notice: 'Person was successfully destroyed.'
+    redirect_to people_url, status: :see_other, notice: 'Person was successfully destroyed.'
+  end
+
+  def houses
+    @target = params[:target]
+    @house_numbers = Houses::GetSortedNumbers.call(params[:street])
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private

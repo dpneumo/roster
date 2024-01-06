@@ -1,0 +1,36 @@
+<% user_name = User.find(current_user.id).std_name if current_user %>
+<div data-navbar-target="menu" class="hidden w-full md:flex md:items-center md:w-auto z-20">
+  <ul class="pt-4 text-lg text-gray-700 md:flex md:justify-between md:pt-0">
+    <li><%= render "layouts/navbar/link", link: {path: houses_path, label: 'Houses'} %></li>
+    <li><%= render "layouts/navbar/link", link: {path: people_path, label: 'People'} %></li>
+    <li><%= render "layouts/navbar/link", link: {path: positions_path, label: 'Positions'} %></li>
+
+    <li><%= render "layouts/navbar/dropdown",
+              btn_label: 'Property Admin',
+              items: [
+                {type: :link, path: ownerships_path,    label: 'Ownerships'},
+                {type: :link, path: contributions_path, label: 'Contributions'}
+              ] %></li>
+
+    <li><%= render "layouts/navbar/dropdown",
+              btn_label: 'Person Admin',
+              items: [
+                {type: :link, path: addresses_path, label: 'Addresses'},
+                {type: :link, path: emails_path,    label: 'Emails'},
+                {type: :link, path: phones_path,    label: 'Phones'},
+                {type: :divider},
+                {type: :link, path: list_non_occupants_path, label: 'Non-Occupants'}
+              ] %></li>
+
+
+    <li><%= render "layouts/navbar/link", link: {path: admin_users_path, label: 'Users'} %></li>
+
+    <li><%= render "layouts/navbar/dropdown",
+              btn_label: user_name,
+              items: [
+                {type: :deleter, path: destroy_user_session_path, label: 'Log out'},
+                {type: :divider},
+                {type: :link, path: edit_user_registration_path, label: 'Edit Profile'}
+              ] %></li>
+  </ul>
+</div>

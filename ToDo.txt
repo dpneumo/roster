@@ -1,0 +1,45 @@
+To Do:
+
+	Build:
+
+		Clean up presenters: Duplicated methods, unused methods untested methods, ...
+
+		Testing!!!
+
+		Clean up shared view partials
+
+		Authorization: Apply at all levels. New roles? Test!
+
+		Unify Design Elements. eg font size, style, weight
+
+		Push to production server.
+
+		Security checks!!!
+
+
+
+	Appearance:
+
+		Add name entry to registration process and to user profile update.
+
+		Add WWNA Logo.
+
+
+
+	Functionality:
+
+		End user reports. eg flag lists, dues status, occupancy report, renter report, responsible party report, ...
+
+			New neighbors
+
+			Neighbor notebook
+
+		Printable reports.
+
+		Maps? 
+
+		House images? 
+
+		Person images?
+
+		User Manual

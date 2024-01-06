@@ -1,0 +1,38 @@
+<%= search_form_for @q, class: "mx-auto p-2 rounded-xl bg-blue-200" do |f| %>
+    <div class="grid-rows-8">
+
+      <%= render 'shared/search/field', f: f,
+                                        label: 'Number: ',
+                                        field_matcher: :number_eq %>
+
+      <%= render 'shared/search/select',  f: f,
+                                          label: 'Street: ',
+                                          field_matcher: :street_eq,
+                                          collection: House.sorted_streets.unshift('') %>
+
+      <%= render 'shared/search/select',  f: f,
+                                          label: 'Status: ',
+                                          field_matcher: :status_eq,
+                                          collection: House.statuses.unshift('') %>
+
+      <%= render 'shared/search/select',  f: f,
+                                          label: 'Flag: ',
+                                          field_matcher: :flag_eq,
+                                          collection: ['All', 'Yes', 'No'] %>
+
+      <%= render 'shared/search/select',  f: f,
+                                          label: 'Rental: ',
+                                          field_matcher: :rental_eq,
+                                          collection: ['All', 'Yes', 'No'] %>
+
+      <%= render 'shared/search/select',  f: f,
+                                          label: 'Listed: ',
+                                          field_matcher: :listed_eq,
+                                          collection: ['All', 'Yes', 'No'] %>
+
+      <br>
+
+      <%= render "shared/search/submit_or_cancel", f: f %>
+
+    </div>
+<% end %>

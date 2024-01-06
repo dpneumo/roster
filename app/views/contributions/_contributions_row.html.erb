@@ -1,8 +1,0 @@
-<% present(item) do |item| %>
-  <tr class='<%= background %>' >
-    <td class='pl-6'><%= item.house_address %></td>
-    <td class='pl-6'><%= item.date_paid %></td>
-    <td class='pl-6'><%= item.amount %></td>
-    <td><%= link_to 'Detail', contribution_path(item.id) %></td>
-  </tr>
-<% end %>

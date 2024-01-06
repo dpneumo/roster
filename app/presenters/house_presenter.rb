@@ -37,7 +37,8 @@ class HousePresenter < ApplicationPresenter
 
   def my_contributions(year: Date.current.year)
     contribs = Contributions::GetForHouseAndYear.call(house_id, year)
-    contribs.reduce(0) { |sum, c| sum + c.amount_cents }
+    total = contribs.reduce(0.00) { |sum, c| sum + c.amount_cents }
+    humanized_money_with_symbol(total/100).rjust(14)
   end
 
   def yearly_contributions_for_house
@@ -45,6 +46,22 @@ class HousePresenter < ApplicationPresenter
       .group_by(&:shift)
       .transform_values(&:flatten)
       .map {|k,v| [k.year, Money.new(v.inject(:+))] }
+  end
+
+  def this_year
+    Date.current.year.to_s
+  end
+
+  def last_year
+    (Date.current.year-1).to_s
+  end
+
+  def this_yr_contrib
+    my_contributions
+  end
+
+  def last_yr_contrib
+    my_contributions(year: Date.current.year-1)
   end
 
   def occupants
@@ -72,8 +89,6 @@ class HousePresenter < ApplicationPresenter
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
-  private
-
   def addr(house)
     "#{house.number} #{house.street}"
   end
@@ -82,34 +97,55 @@ class HousePresenter < ApplicationPresenter
     id
   end
 
+  def assoc_name
+    street
+  end
+
+  def instance_path
+    id ? house_path(self) : nil
+  end
+
+  def collection_path
+    houses_path
+  end
+
+  def belongs_to_path
+    nil
+  end
+
+  def belongs_to_name
+    'None'
+  end
+
 # For New & Edit forms
   def form_rows
     [ 
-      { elements: [:number, :street] },
+      { elements: [:number, :street, :status] },
+      { elements: [:flag, :rental, :listed] },
       { elements: [:lat, :lng, :image_link] },
-      { elements: [:flag, :rental] },
-      { elements: [:listed, :status] },
-      { elements: [:current_dues] },
       { elements: [:note] },
-      { elements: [:submit_cncl] },
+      { elements: [:submit, :navlinks] },
     ]
   end
 
   def element_info 
     {
-      number:       { kind: :text,     span: 1, lblfor: 'house_number',     lbltxt: 'Number' },
-      street:       { kind: :text,     span: 1, lblfor: 'house_street',     lbltxt: 'Street' },
-      lat:          { kind: :text,     span: 1, lblfor: 'house_lat',        lbltxt: 'Latitude' },
-      lng:          { kind: :text,     span: 1, lblfor: 'house_long',       lbltxt: 'Longitude' },
-      image_link:   { kind: :text,     span: 1, lblfor: 'house_image_link', lbltxt: 'Image Link' },
+      number:       { kind: :text,     span: 2, lblfor: 'house_number',     lbltxt: 'Number', 
+                      disable_edit: true },
+      street:       { kind: :select,     span: 2, lblfor: 'house_street',     lbltxt: 'Street',
+                      collection: Houses::GetSortedStreets.call, disable_edit: true },
+      lat:          { kind: :text,     span: 2, lblfor: 'house_lat',        lbltxt: 'Latitude' },
+      lng:          { kind: :text,     span: 2, lblfor: 'house_long',       lbltxt: 'Longitude' },
+      image_link:   { kind: :text,     span: 2, lblfor: 'house_image_link', lbltxt: 'Image Link' },
       flag:         { kind: :checkbox, span: 1, lblfor: 'house_flag',       lbltxt: 'Flag' },
       rental:       { kind: :checkbox, span: 1, lblfor: 'house_rental',     lbltxt: 'Rental' },
-      listed:       { kind: :checkbox, span: 3, lblfor: 'house_listed',     lbltxt: 'Listed' },
-      status:       { kind: :select,   span: 1, lblfor: 'house_status',     lbltxt: 'Status',
+      listed:       { kind: :checkbox, span: 1, lblfor: 'house_listed',     lbltxt: 'Listed' },
+      status:       { kind: :select,   span: 2, lblfor: 'house_status',     lbltxt: 'Status',
                       collection: statuses },
-      current_dues: { kind: :text,     span: 1, lblfor: 'house_current_dues', lbltxt: 'Current Dues' },
-      note:         { kind: :textarea, span: 3, lblfor: 'house_note',       lbltxt: 'Note' },
+      note:         { kind: :textarea, span: 4, lblfor: 'house_note',       lbltxt: 'Note' },
+      submit:       { kind: :submit,         subtxt: 'Submit' },
       submit_cncl:  { kind: :submit_or_cncl, span: 3, subtxt: 'Submit', cncltxt: 'Cancel', path: houses_path },
+      navlinks:     { kind: :navlinks_sl },
     } 
   end
 end

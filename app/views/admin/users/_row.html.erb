@@ -1,0 +1,11 @@
+<% present(item) do |item| %>
+  <tr class=<%= background %> >
+    <td class='td-pad'>
+      <%= link_to item.email, admin_user_path(item), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base'><%= item.full_name %></td>
+    <td class='td-pad td-base'><%= item.role %></td>
+  </tr>
+<% end %>
+
+

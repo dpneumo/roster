@@ -44,7 +44,7 @@ class EmailsController < ApplicationController
   # DELETE /emails/1
   def destroy
     @email.destroy
-    redirect_to emails_url, notice: 'Email was successfully destroyed.'
+    redirect_to emails_url, status: :see_other, notice: 'Email was successfully destroyed.'
   end
 
   private

@@ -1,0 +1,23 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 w-full">
+
+	<div class='mx-6 mb-6 mt-2'>
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+			<%= render "users/shared/error_messages", resource: resource %>
+
+			<h1 class='font-sans font-bold text-lg'>Forgot Your Password?</h1>
+
+		  <%= render 'users/shared/form_field',
+		        f: f, label: 'Email', item: :email,
+		        autofocus: true, autocomplete: 'email' %>
+
+		  <%= render 'users/shared/submit',
+		        f: f, label: 'Send me reset password instructions' %>
+
+		<% end %>
+  </div>
+
+	<div class='mx-6 mb-6 mt-2'>
+		<%= render "users/shared/links" %>
+	</div>
+
+</div>

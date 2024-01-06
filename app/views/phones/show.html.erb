@@ -1,22 +1,56 @@
 <% present(@phone) do |phone| %>
-	<div class="grid grid-rows-8 my-2 gap-x-6 gap-y-2 justify-items-center border-b border-gray-900/10 pb-11">
-    <h1 class="mb-4 text-2xl font-extrabold">Phone Detail</h1>
+<div class="flex flex-col items-center justify-center">
 
-		  
-		<div>Person: <%= phone.person_name %></div>
-		<div>Country Code: <%= phone.cc %></div>
-		<div>Phone Number: <%= phone.ph_number %></div>
-		<div>Phone Type: <%= phone.phone_type %></div>
-		<div>Preferred: <%= phone.primary %></div>
-		<div>Textable: <%= phone.textable %></div>
-		<div>Note: <%= phone.note %></div>
-	
-		<div><br></div>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
 
-		<div>
-			<hr class="border-1 border-gray-700 cursor-pointer hover:border-red-500" />
-	    <%= link_to 'Edit', edit_phone_path(@phone), class: "text-lg font-medium hover:font-extrabold" %> |
-	    <%= link_to 'Phones List', phones_path, class: "text-lg font-medium hover:font-extrabold" %>
-	  </div>
+      <div class='grid auto-rows-min grid-rows-auto'>
+        <header class='row-start-1'>
+          <h1 class="mb-2 text-2xl font-sans font-bold">Phone Number Detail</h1>
+        </header>
+
+        <div class='row-start-2 h-fit mb-3'>
+          <%= render "shared/show/address",
+            attribute: phone.person_name, label: 'Person'
+          %>
+        </div>
+
+        <div class='row-start-3 h-fit mb-3'>
+          <%= render "shared/show/address",
+            attribute: phone.cc, label: 'Country Code'
+          %>
+        </div>
+
+        <div class='row-start-4 h-fit mb-3'>
+          <%= render "shared/show/address",
+            attribute: phone.ph_number, label: 'Phone Number'
+          %>
+        </div>
+
+        <div class='row-start-5 h-fit mb-3'>
+          <%= render "shared/show/attrib",
+            attributes: [
+              {attribute: phone.phone_type, label: 'Type'},
+              {attribute: phone.textable, label: 'Textable'},
+              {attribute: phone.primary, label: 'Preferred'},
+            ]
+          %>
+        </div>
+
+        <div class='row-start-6 h-fit mb-3'>
+          <%= render "shared/show/note",
+            attribute: phone.note, label: 'Note'
+          %>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_phone_path(phone) %>
+      <%= render "shared/show/back_btn", path: phones_path %>
+      <%= render "shared/show/delete_btn", path: phone_path(phone) %>
+    </div>
   </div>
+
+</div>
 <% end %>

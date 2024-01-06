@@ -1,19 +1,17 @@
-<div class="flex flex-col max-w-7xl mx-auto">
-  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-      <div class="overflow-hidden">
-        <table class="min-w-full text-left text-sm font-medium">
-          <thead class="border-b bg-white font-medium dark:border-neutral-800 dark:bg-neutral-300">
-            <%= render head %>
-          </thead>
-          <tbody>
-            <% collection.each_with_index do |item, i| %>
-              <% background = i.even? ? 'bg-white' : 'bg-gray-300' %>
-              <%= render item_row, item: item, background: background %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div class="flex flex-col max-w-full mx-auto">
+  <div class="inline-block relative py-2 overflow-x-auto">
+     
+    <table class="w-full text-left text-xl font-medium bg-blue-600">
+      <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
+        <%= render head %>
+      </thead>
+      <tbody>
+        <% collection.each_with_index do |item, i| %>
+          <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
+          <%= render item_row, item: item, background: background %>
+        <% end %>
+      </tbody>
+    </table>
+
   </div>
 </div>
