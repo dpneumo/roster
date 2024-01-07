@@ -20,6 +20,8 @@ To Do:
 
 		Editing Person the Preferred_X inputs should be selects 
 
+		Add appropriate links (buttons) to House and Person subtables  - DONE
+
 
 
 	Appearance:
