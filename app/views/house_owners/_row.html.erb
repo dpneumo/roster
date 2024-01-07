@@ -1,3 +1,5 @@
 <tr class='<%= background %>' >
-  <td class='pl-6 font-sans'><%= item.person_name.fullname %></td>
+  <td class='td-pad'>
+    <%= link_to item.fullname, edit_person_path(item), class: "td-emphasized link-hover" %>
+  </td>
 </tr>
