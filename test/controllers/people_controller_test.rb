@@ -26,20 +26,15 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   test 'should create person' do
     assert_difference('Person.count') do
       post people_url,
-           params: { person: { first: @person.first, honorific: @person.honorific, last: @person.last, middle: @person.middle,
-                               nickname: @person.nickname, note: @person.note, suffix: @person.suffix } }
+           params: { person: { first: 'Frank', honorific: 'Sir', last: 'Jackson', middle: 'D',
+                               nickname: 'Sam', note: 'adsadsf asfdkpowet', suffix: 'DDS' } }
     end
-
-    assert_redirected_to person_url(Person.last)
+    pers = Person.where(last: 'Jackson').first
+    assert_redirected_to person_url(pers.id)
   end
 
   test 'should show person' do
     get person_url(@person)
-    assert_response :success
-  end
-
-  test 'should return person detail' do
-    get person_detail_url(@person)
     assert_response :success
   end
 

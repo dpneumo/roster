@@ -6,4 +6,4 @@ one:
 
 two:
   property: two
-  owner: two 
+  owner: one 

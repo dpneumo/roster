@@ -60,13 +60,16 @@
 
 
       <div class="flex flex-col md:flex-row" data-controller="street">
+        <% select_field_style = @disable_house_select ? 'disabled-sel-field' : 'base-field' %>
 
         <div class="mx-4 mb-5 md:w-1/4">
           <label  for='person_streets' class="form-field-label">
             Street
-            <%= form.select :street, Houses::GetSortedStreets.call,
+            <%= form.select :street, m.streets,
                   { prompt: 'Select Street', selected: m.house_street },
-                  {class: "base-field ring", data: { action: "change->street#change" } } %>
+                  { disabled: @disable_house_select,
+                    class: "#{ select_field_style } ring",
+                    data: { action: "change->street#change" } } %>
           </label>
         </div>
 
@@ -74,9 +77,11 @@
           <label  for='person_house_id' class="form-field-label">
             House Number
             <%= form.select :house_id,
-                  options_for_select( Houses::GetSortedNumbers.call(m.house_street), m.house_id ),
+                  options_for_select( m.houses_on_street(m.house_street), m.house_id ),
                   { prompt: 'Select Number' },
-                  { class: "base-field ring", data: { street_target: 'houseSelect' } } %>
+                  { disabled: @disable_house_select,
+                    class: "#{ select_field_style } ring",
+                    data: { street_target: 'houseSelect' } } %>
           </label>
         </div>
 

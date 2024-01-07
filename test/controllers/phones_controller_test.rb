@@ -22,13 +22,13 @@ class PhonesControllerTest < ActionDispatch::IntegrationTest
   test 'should create phone' do
     @person = people(:one)
     assert_difference('Phone.count') do
-      post phones_url, params: { phone: { person_id: @person.id, cc: @phone.cc,
-                                          area: @phone.area, prefix: @phone.prefix, number: @phone.number,
-                                          phone_type: @phone.phone_type, preferred: @phone.preferred,
-                                          txt_capable: @phone.txt_capable } }
+      post phones_url, params: { phone: { person_id: @person.id, cc: '1',
+                                          area: '234', prefix: '567', number: '8901',
+                                          phone_type: 'cell', preferred: 'no',
+                                          txt_capable: 'yes' } }
     end
-
-    assert_redirected_to phone_url(Phone.last)
+    ph = Phone.where(number: '8901').first
+    assert_redirected_to phone_url(ph.id)
   end
 
   test 'should show phone' do

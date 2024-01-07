@@ -92,7 +92,7 @@ class PersonPresenter < ApplicationPresenter
 
 
   def streets
-     HousePresenter.new(house, view_context).street_names
+      Houses::GetSortedStreets.call
   end
 
   def person_id
@@ -100,6 +100,7 @@ class PersonPresenter < ApplicationPresenter
   end
 
   def note_hint  
+    return '' unless note  
     note.length > 15 ? note.slice(0..14)+'...' : note
   end
 

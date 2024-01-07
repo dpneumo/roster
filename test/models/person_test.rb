@@ -32,6 +32,6 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test 'accesses owned houses via properties association' do
-    assert_equal 'Oak Dr', @per.properties.first.street
+    assert_equal ['Oak Dr', 'aaa'], @per.properties.map {|h| h.street }.sort
   end
 end

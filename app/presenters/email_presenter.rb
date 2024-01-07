@@ -19,6 +19,7 @@ class EmailPresenter < ApplicationPresenter
   end
 
   def note_hint  
+    return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 

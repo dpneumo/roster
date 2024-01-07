@@ -60,5 +60,4 @@ class HousesController < ApplicationController
     params.require(:house).permit(:number, :street, :lat, :lng, :image_link,
                                   :flag, :rental, :listed, :status, :note, lot_ids: [])
   end
-
 end

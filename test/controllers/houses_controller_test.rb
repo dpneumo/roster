@@ -28,8 +28,8 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to house_url(house_id)
   end
 
-  test 'should return house detail' do
-    get house_detail_url(@house)
+  test 'should show house' do
+    get house_url(@house)
     assert_response :success
   end
 

@@ -25,6 +25,7 @@ class PeopleController < ApplicationController
     redirect_to houses_path and return unless house_id
     @person = Person.new(house_id: house_id)
     @disable_house_select = true
+    render :new
   end
 
   # GET /people/1/edit

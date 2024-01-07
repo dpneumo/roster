@@ -20,11 +20,12 @@ class OwnershipsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create ownership' do
+    per2 = people(:two)
     assert_difference('Ownership.count') do
-      post ownerships_url, params: { ownership: { house_id: @ownership.house_id, person_id: @ownership.person_id } }
+      post ownerships_url, params: { ownership: { house_id: @ownership.house_id, person_id: per2.id } }
     end
-
-    assert_redirected_to ownership_url(Ownership.last)
+    onrshp = Ownership.where(person_id: per2.id).first
+    assert_redirected_to ownership_url(onrshp.id)
   end
 
   test 'should show ownership' do
