@@ -16,6 +16,10 @@ To Do:
 
 		Security checks!!!
 
+		All notices and errors should be displayed
+
+		Editing Person the Preferred_X inputs should be selects 
+
 
 
 	Appearance:
@@ -27,6 +31,10 @@ To Do:
 
 
 	Functionality:
+
+		Add filters to Positions, Contributions, & Ownerships lists
+
+		Keep filters visible until Search or Clear are clicked or an element outside the filter dialog is clicked.
 
 		End user reports. eg flag lists, dues status, occupancy report, renter report, responsible party report, ...
 
