@@ -19,7 +19,7 @@ class PersonPresenter < ApplicationPresenter
     return '' unless house
     HousePresenter.new(house, view_context).house_address
   end
-
+=begin
   def house_street
     return '' unless house
     house.street
@@ -29,7 +29,7 @@ class PersonPresenter < ApplicationPresenter
     return '' unless house 
     house.number
   end
-
+=end
   def current_position
     p = Positions::GetCurrentForPerson.call(person_id).last
     p ? p.name : ''

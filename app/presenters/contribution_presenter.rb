@@ -56,8 +56,7 @@ class ContributionPresenter < ApplicationPresenter
 
   def element_info 
     {
-      house_id:        { kind: :select, lblfor: 'contributions_house_id',        lbltxt: 'House', 
-                         collection: house_list, blank: true, prompt: true, disable_edit: true },
+      house_id:        { kind: :address, blank: true, prompt: true, disable_edit: true },
       date_paid:       { kind: :date,   lblfor: 'contributions_date_paid',       lbltxt: 'Date Paid' },
       amount:          { kind: :text,   lblfor: 'contributions_amount',          lbltxt: 'Amount' },
       amount_currency: { kind: :text,   lblfor: 'contributions_amount_currency', lbltxt: 'Currency' },

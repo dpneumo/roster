@@ -48,8 +48,7 @@ class OwnershipPresenter < ApplicationPresenter
 
   def element_info 
     {
-      house_id:    { kind: :select, lblfor: 'ownership_house_id', lbltxt: 'House', collection: house_list, 
-                     blank: true, prompt: true, disable_edit: true },
+      house_id:    { kind: :address, blank: true, prompt: true, disable_edit: true },
       person_id:   { kind: :select, lblfor: 'ownership_person_id', lbltxt: 'Person', collection: people_list, 
                      blank: true, prompt: true, disable_edit: false },
       submit:      { kind: :submit,         subtxt: 'Submit' },

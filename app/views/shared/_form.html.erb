@@ -18,6 +18,8 @@
               when :select         then render 'shared/form/select_attr',      elem: elem, mdl: m, editing: editing
               when :group          then render 'shared/form/group_select',     elem: elem, mdl: m, editing: editing
               when :hidden         then render 'shared/form/hidden_attr',      elem: elem, mdl: m, editing: editing
+
+              when :address        then render 'shared/form/address',                      mdl: m, editing: editing
               when :submit         then render 'shared/form/submit',           elem: elem, mdl: m, editing: editing
               when :submit_or_cncl then render 'shared/form/submit_cncl',      elem: elem, mdl: m, editing: editing
               when :submit_or_goto then render 'shared/form/submit_goto',      elem: elem, mdl: m, editing: editing

@@ -34,4 +34,28 @@ class ApplicationPresenter < SimpleDelegator
       end
     end.html_safe
   end
+
+  # Common Presenter methods
+  def house_addr
+    "#{house_number} #{house_street}"
+  end
+
+  def house_street
+    return '' unless house_id
+    House.find(house_id).street
+  end
+
+  def house_number
+    return '' unless house_id
+    House.find(house_id).number 
+  end
+
+  def street_names
+    Houses::GetSortedStreets.call
+  end
+
+  def street_numbers(street=nil)
+    Houses::GetSortedNumbers.new(street).call
+  end
+
 end
