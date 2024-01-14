@@ -5,16 +5,14 @@ class HouseContribsController < ApplicationController
 
   def annual
     @contribs = Contributions::GetForHouse.call(@house.id)
+      .map {|itm| [ itm[1].year, itm[2] ] }
       .group_by(&:shift)
       .transform_values(&:flatten)
-      .map {|k,v| [k.year, Money.new(v.inject(:+))] }
+      .transform_values {|v| Money.new(v.inject(:+)) }
   end
 
-  # Not Used Yet
   def detail
-    @contribs = Contributions::GetForHouse.call(@house.id)
-      .group_by(&:shift)
-      .transform_values(&:flatten)
+    @contribs = Contributions::GetForHouseAndYear.call(@house.id, params[:year])
   end
 
 private

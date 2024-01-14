@@ -8,6 +8,6 @@ class Contributions::GetForHouse < ApplicationQuery
 
   def call
     Contribution.where(house_id: @house_id)
-                .pluck(:date_paid, :amount_cents)                
+                .pluck(:id, :date_paid, :amount_cents)                
   end
 end

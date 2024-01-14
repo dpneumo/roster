@@ -10,8 +10,8 @@
     </div>
 
     <%= render "shared/table",
-            head: 'head',
-            item_row:  'row',
+            head: 'annual_head',
+            item_row:  'annual_row',
             collection: @contribs
     %>
 
@@ -20,7 +20,7 @@
 
     <div class="flex flex-row justify-between">
       <%= render 'shared/new_edit/link_btn', label: 'House', path: house_path(@house), color: 'gray' %>
-      <%= render 'shared/new_edit/link_btn', label: 'New contribution', path: new_contribution_path(@house), color: 'red' %>
+      <%= render 'shared/new_edit/link_btn', label: 'New contribution', path: new_contrib_for_house_path(@house), color: 'red' %>
     </div>
   </div>
 </div>

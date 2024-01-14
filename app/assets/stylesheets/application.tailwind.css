@@ -19,7 +19,7 @@
 }
 
 .td-base {
-  @apply text-left text-base text-gray-500 font-sans whitespace-nowrap;
+  @apply text-base text-gray-500 font-sans whitespace-nowrap;
 }
 
 .td-emphasized {

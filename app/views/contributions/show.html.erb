@@ -30,6 +30,7 @@
       <%= render "shared/show/edit_btn", path: edit_contribution_path(contribution) %>
       <%= render "shared/show/back_btn", path: contributions_path %>
       <%= render "shared/show/delete_btn", path: contribution_path(contribution) %>
+      <%= render "shared/show/house_btn", path: house_path(contribution.house_id) %>
     </div>
   </div>
 

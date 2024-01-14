@@ -1,0 +1,12 @@
+<tr class='<%= background %>'>
+
+  <td class='td-pad' style="text-align:center">
+    <%= link_to item.date_paid, edit_contrib_for_house_path(item.id),
+                class: "td-emphasized link-hover" %>
+  </td>
+
+  <td class='td-pad td-base' style="text-align:right">
+      <%= humanized_money_with_symbol(item.amount_cents/100.0) %>
+  </td>
+
+</tr>

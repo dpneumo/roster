@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ContributionsController < ApplicationController
-  before_action :set_contribution, only: %i[show edit update destroy]
+  before_action :set_contribution, only: %i[show edit edit_for_house update destroy]
 
   # GET /contributions
   def index
@@ -14,11 +14,19 @@ class ContributionsController < ApplicationController
   # GET /contributions/new
   def new
     @contribution = Contribution.new
+  end
+
+  # GET /contributions/new_for_house/:house_id
+  def new_for_house
+    @contribution = Contribution.new
     @contribution.house_id = params[:house_id]
   end
 
   # GET /contributions/1/edit
   def edit; end
+
+  # GET /contributions/:id/edit_for_house
+  def edit_for_house; end
 
   # POST /contributions
   def create
