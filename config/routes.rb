@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     get   '/non_occupants',         to: 'non_occupants#index',     as: 'list_non_occupants'
     patch '/non_occupant/:id',      to: 'non_occupants#update',    as: 'update_non_occupant'
 
+    get 'download', to: 'pages#download'
+    get 'preview', to: 'pages#preview'
+
     resources :people do
       collection do
         get 'houses'

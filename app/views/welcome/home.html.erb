@@ -12,12 +12,15 @@
 		<div class="text-2xl font-mono font-semibold"><%= w.board_title %></div>
 
 		<div>
-			<%= 
-        render "shared/table", 
-            head: 'current_positions_head', 
-            item_row: 'current_positions_row', 
-            collection: w.current_positions 
-      %>
+			<%= render "shared/table",
+	            head: 'current_positions_head',
+	            item_row: 'current_positions_row',
+	            collection: w.current_positions %>
+		</div>
+
+		<div>
+			<%= link_to 'Download', download_path %> &nbsp;
+			<%= link_to 'Preview',  preview_path %>
 		</div>
 		
 	</div>
