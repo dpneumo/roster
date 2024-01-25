@@ -13,7 +13,7 @@
       <%= render 'shared/search/select',  f: f,
                                           label: 'Status: ',
                                           field_matcher: :status_eq,
-                                          collection: House.statuses.unshift('') %>
+                                          collection: Enums.house_statuses.unshift('') %>
 
       <%= render 'shared/search/select',  f: f,
                                           label: 'Flag: ',

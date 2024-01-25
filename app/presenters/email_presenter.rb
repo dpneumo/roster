@@ -13,6 +13,10 @@ class EmailPresenter < ApplicationPresenter
     PersonPresenter.new(nil, nil).select_list
   end
 
+  def person_fullname
+    person.fullname
+  end
+
   def addressee
     return 'Unknown' unless person
     person.fullname

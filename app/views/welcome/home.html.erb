@@ -2,7 +2,7 @@
 	<div class="gap-y-2 py-6 place-content-center border-b border-gray-900/10">
 	  <h1 class="mb-4 text-2xl font-sans font-extrabold"><%= w.welcome %></h1>
 
-		<div class="max-w-full justify-items-center">
+	  <div class="max-w-full justify-items-center">
 		  <h3><pre class="text-lg font-mono font-semibold"><%= w.total_dues_current %></pre></h3>
 		  <h3><pre class="text-lg font-mono font-semibold"><%= w.total_dues_last_year %></pre></h3>	    
 	  </div>
@@ -12,13 +12,13 @@
 		<div class="text-2xl font-mono font-semibold"><%= w.board_title %></div>
 
 		<div>
-			<%= 
-        render "shared/table", 
-            head: 'current_positions_head', 
-            item_row: 'current_positions_row', 
-            collection: w.current_positions 
-      %>
+			<%= render "shared/table",
+	            head: 'current_positions_head',
+	            item_row: 'current_positions_row',
+	            collection: w.current_positions %>
 		</div>
+
+		<div><%= link_to 'Roster', roster_path %></div>
 		
 	</div>
 <% end %>

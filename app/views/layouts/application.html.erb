@@ -20,6 +20,10 @@
 
   <body class="antialiased font-sans">
     <%= render "layouts/navbar/header" %>
-    <%= render "layouts/main/main" %>
+    <% if @report %>
+      <%= yield %>
+    <% else %>
+      <%= render "layouts/main/main" %>
+    <% end %>
   </body>
 </html>
