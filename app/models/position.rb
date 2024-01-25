@@ -12,11 +12,6 @@ class Position < ApplicationRecord
     DateRange.new(start, stop)
   end
 
-  def date_range=(date_range)
-    self.start = date_range.start
-    self.stop  = date_range.stop
-  end
-
   def self.current_active_posns
     Position.where("start <= '#{Date.current}' AND stop >= '#{Date.current}'")
   end

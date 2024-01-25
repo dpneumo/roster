@@ -26,10 +26,6 @@ class House < ApplicationRecord
     Houses::GetSortedStreets.call
   end
 
-  def self.statuses
-    Enums.house_statuses
-  end
-
   def <=>(other)
     return -1 if street < other.street
     return +1 if street > other.street
