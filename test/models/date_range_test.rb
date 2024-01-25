@@ -26,6 +26,11 @@ class DateRangeTest < ActiveSupport::TestCase
     assert @daterange.includes_date_range?(daterange2)
   end
 
+  test 'includes_date_range? is false for daterange outside this daterange' do
+    daterange2 = DateRange.new(@start - 10, @start - 1)
+    refute @daterange.includes_date_range?(daterange2)
+  end
+
   test 'includes_date_range? is true for self' do
     assert @daterange.includes_date_range?(@daterange)
   end
@@ -33,6 +38,11 @@ class DateRangeTest < ActiveSupport::TestCase
   test 'overlaps_date_range? is true for overlapping daterange' do
     daterange2 = DateRange.new(@start - 1, @stop - 1)
     assert @daterange.overlaps_date_range?(daterange2)
+  end
+
+  test 'overlaps_date_range? is false for non-overlapping daterange' do
+    daterange2 = DateRange.new(@start - 10, @start - 1)
+    refute @daterange.overlaps_date_range?(daterange2)
   end
 
   test 'overlaps_date_range? is false for self' do

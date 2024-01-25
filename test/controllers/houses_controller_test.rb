@@ -4,7 +4,7 @@ require 'test_helper'
 
 class HousesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @house = houses(:one)
+    @house = houses(:valid)
     sign_in users(:one)
   end
 

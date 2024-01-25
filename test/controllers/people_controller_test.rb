@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @person = people(:one)
+    @person = people(:valid)
     login_as(users(:one))
   end
 
@@ -19,7 +19,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new occupant' do
-    get new_occupant_url(houses(:one).id)
+    get new_occupant_url(houses(:valid).id)
     assert_response :success
   end
 

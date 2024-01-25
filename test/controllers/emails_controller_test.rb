@@ -4,7 +4,7 @@ require 'test_helper'
 
 class EmailsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @email = emails(:one)
+    @email = emails(:valid)
     sign_in users(:one)
   end
 
@@ -14,13 +14,13 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    @person = people(:one)
+    @person = people(:valid)
     get new_email_url(person_id: @person.id)
     assert_response :success
   end
 
   test 'should create email' do
-    @person = people(:one)
+    @person = people(:valid)
     assert_difference('Email.count') do
       post emails_url, params: { email: { person_id: @person.id, addr: 'q@r.s', note: '' } }
     end

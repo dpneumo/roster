@@ -4,7 +4,7 @@ require 'test_helper'
 
 class OwnershipsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @ownership = ownerships(:one)
+    @ownership = ownerships(:valid)
     login_as(users(:one))
   end
 
@@ -14,13 +14,13 @@ class OwnershipsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    @house = houses(:one)
+    @house = houses(:valid)
     get new_ownership_url(house_id: @house.id)
     assert_response :success
   end
 
   test 'should create ownership' do
-    per2 = people(:two)
+    per2 = people(:valid2)
     assert_difference('Ownership.count') do
       post ownerships_url, params: { ownership: { house_id: @ownership.house_id, person_id: per2.id } }
     end

@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
+  name: State
+  city: Arlington
+  state: Tx
+  zip: 76017
 
 two:
-  name: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
+  name: Main
+  city: Denver
+  state: Co
+  zip: 78901

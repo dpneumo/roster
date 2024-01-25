@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PhonesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @phone = phones(:one)
+    @phone = phones(:valid)
     login_as(users(:one))
   end
 
@@ -14,13 +14,13 @@ class PhonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    @person = people(:one)
+    @person = people(:valid)
     get new_phone_url(person_id: @person.id)
     assert_response :success
   end
 
   test 'should create phone' do
-    @person = people(:one)
+    @person = people(:valid)
     assert_difference('Phone.count') do
       post phones_url, params: { phone: { person_id: @person.id, cc: '1',
                                           area: '234', prefix: '567', number: '8901',

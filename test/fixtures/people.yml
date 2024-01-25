@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+valid:
   nickname: Bob
   first: Robert
   middle: A
@@ -8,14 +8,14 @@ one:
   suffix: Sr.
   honorific: Sir
   note: "A Fake"
-  house: one
+  house: valid
   role: MyString
   status: MyString
   pref_email_id: 
   pref_phone_id: 
   pref_address_id: 
 
-two:
+valid2:
   nickname: Mike
   first: Michael
   middle: B
@@ -23,14 +23,14 @@ two:
   suffix: Jr.
   honorific: Dr.
   note: MyText
-  house: two
+  house: valid2
   role: MyString
   status: MyString
   pref_email_id: 
   pref_phone_id: 
   pref_address_id: 
 
-three:
+valid3:
   nickname: Geoff
   first: Geoffry
   middle: K
@@ -38,7 +38,7 @@ three:
   suffix: 
   honorific: 
   note: MyText
-  house: 
+  house: valid2
   role: MyString
   status: MyString
   pref_email_id: 

@@ -1,9 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  house: one
-  lot: two
+valid:
+  house: valid
+  lot: valid2
 
-two:
-  house: two
-  lot: one

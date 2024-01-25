@@ -1,25 +1,31 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+valid:
   number: '123A'
   street: 'Oak Dr'
   lat: 45.123456
   lng: 120.123456
-  image_link: Img-1
+  image_link: Img1
   flag: false
   rental: false
   listed: false
   status: Occupied
   note: MyText1
 
-two:
+valid2:
+  number: '789A'
+  street: 'Pine Dr'
+  lat: 34.123456
+  lng: 114.123456
+  image_link: Img1
+  flag: false
+  rental: false
+  listed: false
+  status: Occupied
+  note: MyText1
+
+no_defaults:
   number: zzz
   street: aaa
   lat: -15.123456
   lng: -100.123456
-  image_link: Img-2
-  flag: false
-  rental: false
-  listed: false
-  status: Vacant
-  note: MyText2

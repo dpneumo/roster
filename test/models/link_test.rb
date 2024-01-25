@@ -4,20 +4,20 @@ require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
   setup do
-    @lnk = links(:one)
+    @valid_lnk = links(:valid)
   end
 
   test 'a valid link succeeds' do
-    assert @lnk.save
+    assert @valid_lnk.save
   end
 
   test 'house_id must be present' do
-    @lnk.house_id = nil
-    refute @lnk.save, 'Saved link without house_id'
+    @valid_lnk.house_id = nil
+    refute @valid_lnk.save, 'Saved link without house_id'
   end
 
   test 'lot_id must be present' do
-    @lnk.lot_id = nil
-    refute @lnk.save, 'Saved link without lot_id'
+    @valid_lnk.lot_id = nil
+    refute @valid_lnk.save, 'Saved link without lot_id'
   end
 end

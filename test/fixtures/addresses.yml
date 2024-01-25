@@ -1,18 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  person: one
+valid:
+  person: valid
   number: '123A'
   street: 'Oak Dr'
   city: Arlington
   state: TX
   zip: '76016'
-  address_type: Other
-  preferred: 'Yes'
-  note: 'Addr note'
 
-two:
-  person: two
+invalid:
+  person: valid2
   number: zzz
   street: aaa
   city: Ghost

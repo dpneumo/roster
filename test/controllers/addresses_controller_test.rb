@@ -4,7 +4,7 @@ require 'test_helper'
 
 class AddressesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @address = addresses(:one)
+    @address = addresses(:valid)
     sign_in users(:one)
   end
 
@@ -14,13 +14,13 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    @person = people(:one)
+    @person = people(:valid)
     get new_address_url(person_id: @person.id)
     assert_response :success
   end
 
   test 'should create address' do
-    @person = people(:one)
+    @person = people(:valid)
     assert_difference('Address.count') do
       post addresses_url,
            params: { address: { person_id: @person.id, number: '789', street: 'Elm Street', city: 'Yahoo City',
