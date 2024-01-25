@@ -1,0 +1,16 @@
+<div class='grid grid-rows-auto'>
+	<div class='row-start-1'>
+	  <h1 class='font-sans font-bold text-2xl text-center'>WWNA House Roster</h1>
+	</div>
+	<div class='row-start-2'>
+		<h2 class='font-sans text-center'>
+			<%= Date.today %>
+		</h2>
+	</div>
+</div>
+
+<% @houses.each do |house| %>
+	<%= render 'house', house: house %>
+<% end %>
+
+<%== pagy_nav(@pagy) %>

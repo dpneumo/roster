@@ -1,0 +1,32 @@
+<div class="grid grid-rows-auto grid-cols-3 grid-flow-col gap-x-2 px-4 py-2">
+
+  <div class="row-start-1 col-start-1 col-span-2 text-left text-base font-sans">
+    <%= "#{house.number} #{house.street}" %>
+  </div>
+  <div class="row-start-1 col-start-2 col-span-1 text-left text-base font-sans">
+    <%= "#{ house.flag ? 'Flag' : ' '}" %>
+  </div>
+
+  <% [0, 1].each do |i| %>
+    <% occupant = house.occupants[i] %>
+    <% row = (i + 2).to_s %>
+    <% if occupant %>
+      <% present(occupant) do |o| %>
+
+        <div class='row-start-<%= row %> col-start-1 text-left text-base font-sans p-0 ml-6'>
+          <%= "#{o.first} #{o.last}" %>
+        </div>
+        <div class='row-start-<%= row %> col-start-2 text-left text-base font-sans p-0'>
+          <%= o.preferred_email %>
+        </div>
+        <div class='row-start-<%= row %> col-start-3 text-left texbaselg font-sans p-0'>
+          <%= o.preferred_phone %>
+        </div>
+      <% end %>
+
+    <% else %>
+      <div class='row-start-<%= row %> col-start-1'>&nbsp;</div>
+    <% end %>
+  <% end %>
+
+</div>
