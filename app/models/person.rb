@@ -27,13 +27,4 @@ class Person < ApplicationRecord
   def person_name
     PersonName.new(first, middle, last, nickname, suffix, honorific)
   end
-
-  def person_name=(person_name)
-    self.nickname = person_name.nickname
-    self.first = person_name.first
-    self.middle = person_name.middle
-    self.last = person_name.last
-    self.suffix = person_name.suffix
-    self.honorific = person_name.honorific
-  end
 end
