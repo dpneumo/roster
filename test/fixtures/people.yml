@@ -44,3 +44,18 @@ valid3:
   pref_email_id: 
   pref_phone_id: 
   pref_address_id: 
+
+nonoccupant:
+  nickname: Billy
+  first: Bob
+  middle: K
+  last: Smith
+  suffix: 
+  honorific: 
+  note: MyText
+  house: 
+  role: MyString
+  status: MyString
+  pref_email_id: 
+  pref_phone_id: 
+  pref_address_id: 

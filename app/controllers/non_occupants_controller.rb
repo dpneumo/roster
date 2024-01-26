@@ -11,7 +11,7 @@ class NonOccupantsController < ApplicationController
     redirect_to houses_path and return unless house_id
     non_occupant = Person.find(params[:id])
     if non_occupant.update(house_id: house_id)
-      redirect_to house_detail_path(id: house_id), notice: 'An occupant was added.'
+      redirect_to house_path(id: house_id), notice: 'An occupant was added.'
     else
       render :index
     end

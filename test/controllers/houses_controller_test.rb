@@ -48,7 +48,6 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('House.count', -1) do
       delete house_url(@house)
     end
-
     assert_redirected_to houses_url
   end
 end

@@ -46,10 +46,6 @@ class HousesController < ApplicationController
     redirect_to houses_url, status: :see_other, notice: 'House was successfully destroyed.'
   end
 
-  def contribs
-    render 'houses/contrib/by_year'
-  end
-
   private
 
   def set_house
