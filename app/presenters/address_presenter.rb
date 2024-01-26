@@ -9,12 +9,8 @@ class AddressPresenter < ApplicationPresenter
     preferred ? 'Yes' : ''
   end
 
-  def persons_list
-    PersonPresenter.new(nil, nil).select_list
-  end
-
   def complete_address
-    ca = "#{number} #{street}, #{city}, #{state} #{zip}"
+    "#{number} #{street}, #{city}, #{state} #{zip}"
   end
 
   def complete_address_hint
@@ -22,19 +18,19 @@ class AddressPresenter < ApplicationPresenter
     ca.length > 20 ? ca.slice(0..19)+'...' : ca
   end
 
-  def addressee
-    return 'Unknown' unless person
-    person.fullname
-  end
-
   def note_hint
     return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
-  def assoc_name
-    addressee
+  def persons_list
+    PersonPresenter.new(nil, nil).select_list
   end
+
+  def addressee
+    person.fullname
+  end
+  alias assoc_name addressee
 
   def instance_path
     id ? address_path(self) : nil
