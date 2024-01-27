@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class NonOccupantsPresenter < ApplicationPresenter
+class NonOccupantPresenter < ApplicationPresenter
   def topic_house(house_id)
     house = House.find(house_id)
     HousePresenter.new(house, nil).house_address

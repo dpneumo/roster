@@ -7,25 +7,22 @@ class ContributionPresenter < ApplicationPresenter
   end
 
   def total_for(year: Date.current.year)
-    contribs = Contributions::GetForYear.call(year)
-    contribs.reduce(0) { |sum, c| sum + c.amount_cents }
-  end
-
-  def house_list
-    House.all.map { |h| [HousePresenter.new(h, nil).house_address, h.id] }
-  end
-
-  def house_address
-    house ? HousePresenter.new(house, nil).house_address : ''
+    Contributions::GetForYear.call(year)
+                             .reduce(0) { |sum, c| sum + c.amount_cents }
   end
 
   def year_range(yr)
     "#{yr}-01-01".."#{yr}-12-31"
   end
 
-  def assoc_name
-    house_address
+  def house_list
+    HousePresenter.new(nil, nil).select_list
   end
+
+  def house_address
+    house ? HousePresenter.new(house, nil).house_address : ''
+  end
+  alias assoc_name house_address
 
   def instance_path
     id ? contribution_path(self) : nil

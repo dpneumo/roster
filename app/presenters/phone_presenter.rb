@@ -13,23 +13,24 @@ class PhonePresenter < ApplicationPresenter
     txt_capable ? 'Yes' : ''
   end
 
-  def persons_list
-    PersonPresenter.new(nil, nil).select_list
-  end
-
   def ph_number
     "(#{area}) #{prefix}-#{number}"
-  end
-
-  def person_name
-    return 'Unknown' unless person
-    person.fullname
   end
 
   def note_hint  
     return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
+
+  def person_list
+    PersonPresenter.new(nil, nil).select_list
+  end
+
+  def person_name
+    person.fullname
+  end
+  alias assoc_name person_name
+  alias person_fullname person_name
 
   def assoc_name
     person_name
@@ -65,7 +66,7 @@ class PhonePresenter < ApplicationPresenter
   def element_info 
     {
       person_id:   { kind: :select, lblfor: 'phone_person_id', lbltxt: 'Person', 
-                     collection: persons_list, blank: true, prompt: true, disable_edit: true },
+                     collection: person_list, blank: true, prompt: true, disable_edit: true },
       cc:          { kind: :text,   lblfor: 'phone_cc',        lbltxt: 'Country Code' },
       area:        { kind: :text,   lblfor: 'phone_area',      lbltxt: 'Area Code' },
       prefix:      { kind: :text,   lblfor: 'phone_prefix',    lbltxt: 'Prefix' },

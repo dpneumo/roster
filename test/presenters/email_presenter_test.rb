@@ -2,38 +2,28 @@
 
 require 'test_helper'
 
-class AddressPresenterTest < ActiveSupport::TestCase
+class EmailPresenterTest < ActiveSupport::TestCase
   setup do
-    @addr = addresses(:valid)
-    @presenter = AddressPresenter.new(@addr, nil)
+    @email = emails(:valid)
+    @presenter = EmailPresenter.new(@email, nil)
   end
 
-  test 'types returns an array of address types' do
-    addr_types = @presenter.types
-    assert_instance_of(Array, addr_types)
-    assert_includes(addr_types, 'Home')
+  test 'types returns an array of email types' do
+    email_types = @presenter.types
+    assert_instance_of(Array, email_types)
+    assert_includes(email_types, 'Home')
   end
 
   test 'primary returns preferred status as Yes or No' do
-    @addr.preferred = false
+    @email.preferred = false
     assert_equal  '', @presenter.primary
-    @addr.preferred = true
+    @email.preferred = true
     assert_equal  'Yes', @presenter.primary
   end
 
-  test 'returns a formatted complete address' do
-    ca = '123A Oak Dr, Arlington, TX 76016'
-    assert_equal ca, @presenter.complete_address
-  end
-
-  test 'returns a formatted complete address hint' do
-    ca = '123A Oak Dr, Arlingt...'
-    assert_equal ca, @presenter.complete_address_hint
-  end
-
   test 'returns a note hint' do 
-    @addr.note = 'a very long note does not fit in the index table'
-    note_hint =  'a very long note doe...'
+    @email.note = 'a very long note does not fit in the index table'
+    note_hint =   'a very long note doe...'
     assert_equal note_hint, @presenter.note_hint    
   end
 
@@ -51,22 +41,22 @@ class AddressPresenterTest < ActiveSupport::TestCase
   end
 
   test 'returns <model>_path if model has an id assigned' do
-    addr_path = "/addresses/#{ @addr.id }"
-    assert_equal addr_path, @presenter.instance_path
+    email_path = "/emails/#{ @email.id }"
+    assert_equal email_path, @presenter.instance_path
   end
 
   test 'returns nil if model id is not assigned' do  
-    @addr.id = nil
+    @email.id = nil
     assert_nil @presenter.instance_path
   end
 
-  test 'collection_path returns the addresses_path' do
-    path = '/addresses'
+  test 'collection_path returns the emails_path' do
+    path = '/emails'
     assert_equal path, @presenter.collection_path
   end
 
   test 'returns belongs_to_path if <assoc>_id assigned' do
-    path = "/people/#{ @addr.person_id }"
+    path = "/people/#{ @email.person_id }"
     assert_equal path, @presenter.belongs_to_path
   end
 

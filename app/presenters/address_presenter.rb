@@ -23,7 +23,7 @@ class AddressPresenter < ApplicationPresenter
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
-  def persons_list
+  def person_list
     PersonPresenter.new(nil, nil).select_list
   end
 
@@ -31,7 +31,8 @@ class AddressPresenter < ApplicationPresenter
     person.fullname
   end
   alias assoc_name addressee
-
+  alias person_fullname addressee
+  
   def instance_path
     id ? address_path(self) : nil
   end
@@ -63,7 +64,7 @@ class AddressPresenter < ApplicationPresenter
   def element_info 
     {
       person_id:    { kind: :select, lblfor: 'address_person_id', lbltxt: 'Person', 
-                      collection: persons_list, blank: true, prompt: true, disable_edit: true },
+                      collection: person_list, blank: true, prompt: true, disable_edit: true },
       number:       { kind: :text,   lblfor: 'address_number',  lbltxt: 'Number' },
       street:       { kind: :text,   lblfor: 'address_street',  lbltxt: 'Street' },
       city:         { kind: :text,   lblfor: 'address_city',    lbltxt: 'City' },

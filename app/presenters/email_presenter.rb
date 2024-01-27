@@ -9,27 +9,20 @@ class EmailPresenter < ApplicationPresenter
     preferred ? 'Yes' : ''
   end
 
-  def persons_list
-    PersonPresenter.new(nil, nil).select_list
-  end
-
-  def person_fullname
-    person.fullname
-  end
-
-  def addressee
-    return 'Unknown' unless person
-    person.fullname
-  end
-
   def note_hint  
     return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
 
-  def assoc_name
-    addressee
+  def person_list
+    PersonPresenter.new(nil, nil).select_list
   end
+
+  def addressee
+    person.fullname
+  end
+  alias assoc_name addressee
+  alias person_fullname addressee
 
   def instance_path
     id ? email_path(self) : nil
@@ -61,7 +54,7 @@ class EmailPresenter < ApplicationPresenter
   def element_info 
     {
       person_id:   { kind: :select,   lblfor: 'email_person_id', lbltxt: 'Person', 
-                      collection: persons_list, blank: true, prompt: true, disable_edit: true },
+                      collection: person_list, blank: true, prompt: true, disable_edit: true },
       addr:        { kind: :text,     lblfor: 'email_addr',      lbltxt: 'Email Address' },
       email_type:  { kind: :select,   lblfor: 'email_email_type',lbltxt: 'Email Type', collection: types },
       preferred:   { kind: :checkbox, lblfor: 'email_preferred', lbltxt: 'Preferred', default: true },

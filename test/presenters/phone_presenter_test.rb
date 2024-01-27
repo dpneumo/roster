@@ -2,38 +2,39 @@
 
 require 'test_helper'
 
-class AddressPresenterTest < ActiveSupport::TestCase
+class PhonePresenterTest < ActiveSupport::TestCase
   setup do
-    @addr = addresses(:valid)
-    @presenter = AddressPresenter.new(@addr, nil)
+    @phone = phones(:valid)
+    @presenter = PhonePresenter.new(@phone, nil)
   end
 
-  test 'types returns an array of address types' do
-    addr_types = @presenter.types
-    assert_instance_of(Array, addr_types)
-    assert_includes(addr_types, 'Home')
+  test 'types returns an array of phone types' do
+    phone_types = @presenter.types
+    assert_instance_of(Array, phone_types)
+    assert_includes(phone_types, 'Home')
   end
 
   test 'primary returns preferred status as Yes or No' do
-    @addr.preferred = false
+    @phone.preferred = false
     assert_equal  '', @presenter.primary
-    @addr.preferred = true
+    @phone.preferred = true
     assert_equal  'Yes', @presenter.primary
   end
 
-  test 'returns a formatted complete address' do
-    ca = '123A Oak Dr, Arlington, TX 76016'
-    assert_equal ca, @presenter.complete_address
+  test 'textable returns txt_capable status as Yes or No' do
+    @phone.txt_capable = false
+    assert_equal  '', @presenter.textable
+    @phone.txt_capable = true
+    assert_equal  'Yes', @presenter.textable
   end
 
-  test 'returns a formatted complete address hint' do
-    ca = '123A Oak Dr, Arlingt...'
-    assert_equal ca, @presenter.complete_address_hint
+  test 'ph_number returns a formated phone number' do  
+    assert_equal '(817) 123-4567', @presenter.ph_number
   end
 
   test 'returns a note hint' do 
-    @addr.note = 'a very long note does not fit in the index table'
-    note_hint =  'a very long note doe...'
+    @phone.note = 'a very long note does not fit in the index table'
+    note_hint =   'a very long note doe...'
     assert_equal note_hint, @presenter.note_hint    
   end
 
@@ -43,30 +44,30 @@ class AddressPresenterTest < ActiveSupport::TestCase
     assert_instance_of(Array, person_list.first)
   end
 
-  test 'returns the fullname of the associated addressee' do
+  test 'returns the fullname of the associated person' do
     fullname = 'Robert A Heinlin'
-    assert_equal fullname, @presenter.addressee
+    assert_equal fullname, @presenter.person_name
     assert_equal fullname, @presenter.assoc_name  
     assert_equal fullname, @presenter.person_fullname  
   end
 
   test 'returns <model>_path if model has an id assigned' do
-    addr_path = "/addresses/#{ @addr.id }"
-    assert_equal addr_path, @presenter.instance_path
+    phone_path = "/phones/#{ @phone.id }"
+    assert_equal phone_path, @presenter.instance_path
   end
 
   test 'returns nil if model id is not assigned' do  
-    @addr.id = nil
+    @phone.id = nil
     assert_nil @presenter.instance_path
   end
 
-  test 'collection_path returns the addresses_path' do
-    path = '/addresses'
+  test 'collection_path returns the phones_path' do
+    path = '/phones'
     assert_equal path, @presenter.collection_path
   end
 
   test 'returns belongs_to_path if <assoc>_id assigned' do
-    path = "/people/#{ @addr.person_id }"
+    path = "/people/#{ @phone.person_id }"
     assert_equal path, @presenter.belongs_to_path
   end
 
