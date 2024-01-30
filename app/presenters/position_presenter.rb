@@ -1,22 +1,12 @@
 # frozen_string_literal: true
 
 class PositionPresenter < ApplicationPresenter
-  def person_selectlist
-    PersonPresenter.new(nil, nil).select_list
-  end
-
   def position_names
     [['Officers', Enums.officers], ['Committee Chairs', Enums.chairs]]
   end
 
-  def person_name
-    return 'UnAssigned' unless person
-
-    PersonPresenter.new(person, nil).informal_name
-  end
-
   def currently_active?
-    position.date_range.includes_date? Date.current
+    date_range.includes_date? Date.current
   end
 
   def person_pref_phone
@@ -29,9 +19,15 @@ class PositionPresenter < ApplicationPresenter
     em.nil? ? '' : EmailPresenter.new(em, nil).addr
   end
 
-  def assoc_name
-    person_name
+  def person_selectlist
+    PersonPresenter.new(nil, nil).select_list
   end
+
+  def person_name
+    return 'UnAssigned' unless person
+    PersonPresenter.new(person, nil).informal_name
+  end
+  alias assoc_name person_name
 
   def instance_path
     id ? position_path(self) : nil

@@ -7,6 +7,16 @@ valid:
   city: Arlington
   state: TX
   zip: '76016'
+  preferred: true
+
+valid2:
+  person: valid
+  number: '765'
+  street: 'Ivy Dr'
+  city: Arlington
+  state: TX
+  zip: '76017'
+  preferred: false
 
 invalid:
   person: valid2

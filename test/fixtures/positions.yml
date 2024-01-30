@@ -12,13 +12,13 @@ valid2:
   start: <%= Date.current %>
   stop: <%= Date.tomorrow %>
 
-valid3:
-  person: valid2
+active:
+  person: valid
   name: Treasurer
   start: <%= Date.current.beginning_of_year %>
   stop: <%= Date.current.end_of_year %>
 
-valid4:
+inactive:
   person: valid2
   name: Vice
   start: <%= Date.current.next_year.at_beginning_of_year %>

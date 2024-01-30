@@ -7,7 +7,18 @@ valid:
   prefix: '123'
   number: '4567'
   phone_type: 'home'
-  preferred: 'Yes'
+  preferred: true
+  txt_capable: true
+  note: "A note"
+
+valid2:
+  person: valid
+  cc: '1'
+  area: '817'
+  prefix: '789'
+  number: '2345'
+  phone_type: 'cell'
+  preferred: false
   txt_capable: true
   note: "A note"
 

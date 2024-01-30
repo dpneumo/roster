@@ -56,7 +56,12 @@ class ContributionPresenterTest < ActiveSupport::TestCase
     assert_equal address, @presenter.assoc_name  
   end
 
-  test 'returns nil if model id is not assigned' do  
+  test 'returns show_path if contribution id assigned' do  
+    path = "/contributions/#{@contrib.id}"
+    assert_equal path, @presenter.instance_path
+  end
+
+  test 'returns nil if contribution id is not assigned' do  
     @contrib.id = nil
     assert_nil @presenter.instance_path
   end

@@ -5,6 +5,10 @@ class WelcomePresenter < ApplicationPresenter
     "Welcome to the WWNA Roster!"
   end
 
+  def board_title
+    "WWNA Board"
+  end
+
   def current_year
     Date.current.year
   end
@@ -14,22 +18,27 @@ class WelcomePresenter < ApplicationPresenter
   end
 
   def total_dues_current
-    contribs = Contributions::GetForYear.call(current_year)
-    total = contribs.reduce(0) { |sum, c| sum + c.amount }
-    "Total Dues Paid #{current_year}:" + humanized_money_with_symbol(total).rjust(14)
+    "Total Dues Paid #{current_year}:" + 
+      humanized_money_with_symbol(current_contribs).rjust(14)
   end
 
   def total_dues_last_year
-    contribs = Contributions::GetForYear.call(last_year)
-    total = contribs.reduce(0) { |sum, c| sum + c.amount_cents }
-    "Total Dues Paid #{last_year}:" + humanized_money_with_symbol(total).rjust(14)
-  end
-
-  def board_title
-    "WWNA Board"
+    "Total Dues Paid #{last_year}:" + 
+      humanized_money_with_symbol(last_yr_contribs).rjust(14)
   end
 
   def current_positions
-    Position.current_active_posns.all.map { |p| PositionPresenter.new(p, view_context) }
+    Position.current_active_posns
+            .all
+            .map { |p| PositionPresenter.new(p, view_context) }
+  end
+
+  private
+  def current_contribs
+    ContributionPresenter.new(nil,nil).total_for(year: current_year)
+  end
+
+  def last_yr_contribs
+    ContributionPresenter.new(nil,nil).total_for(year: last_year)
   end
 end

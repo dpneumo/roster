@@ -4,7 +4,14 @@ valid:
   person: valid
   addr: "aaa@bbb.ccc"
   email_type: work
-  preferred: Yes
+  preferred: true
+  note: This is a note
+
+valid2:
+  person: valid
+  addr: "xxx@yyy.zzz"
+  email_type: home
+  preferred: false
   note: This is a note
 
 no_preferred:
