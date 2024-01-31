@@ -27,10 +27,9 @@ class PositionPresenterTest < ActiveSupport::TestCase
   end
 
   test 'returns nil if no prefered phone for the associated person' do  
-    person = people(:valid)
-    person.pref_phone_id = nil
-    person.save
-    assert_nil @presenter.person_pref_phone
+    posn_inact = positions(:inactive)
+    presenter = PositionPresenter.new(posn_inact, nil)
+    assert_equal '', presenter.person_pref_phone
   end
 
   test 'returns the prefered email for the associated person' do  
@@ -41,11 +40,10 @@ class PositionPresenterTest < ActiveSupport::TestCase
     assert_equal 'aaa@bbb.ccc', @presenter.person_pref_email
   end
 
-  test 'returns nil if no prefered email for the associated person' do  
-    person = people(:valid)
-    person.pref_email_id = nil
-    person.save
-    assert_nil @presenter.person_pref_email
+  test 'returns empty string if no prefered email for the associated person' do  
+    posn_inact = positions(:inactive)
+    presenter = PositionPresenter.new(posn_inact, nil)
+    assert_equal '', presenter.person_pref_email
   end
 
   test 'returns a sorted array of arrays: persons for selection' do

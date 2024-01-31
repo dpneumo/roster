@@ -3,12 +3,10 @@
 require 'test_helper'
 
 class NonOccupentPresenterTest < ActiveSupport::TestCase
-  setup do
-    @nonoccupant = people(:nonoccupant)
-    @presenter = NonOccupantPresenter.new(@nonoccupant, nil)
-  end
-
-  test 'the truth is out there' do  
-    assert true
+  test 'topic_house returns house address given house_id' do 
+    nonoccupant = people(:nonoccupant)
+    presenter = NonOccupantPresenter.new(nonoccupant, nil)
+    house = houses(:valid)
+    assert_equal '123A Oak Dr', presenter.topic_house(house.id)
   end
 end
