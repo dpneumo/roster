@@ -4,8 +4,8 @@ require 'test_helper'
 
 class HousesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @house = houses(:valid)
-    sign_in users(:one)
+    @house = houses(:hs_valid)
+    sign_in users(:user_one)
   end
 
   test 'should get index' do

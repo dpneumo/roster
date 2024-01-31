@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PositionTest < ActiveSupport::TestCase
   setup do
-    @psn = positions(:valid)
-    @per = people(:valid)
+    @psn = positions(:posn_valid)
+    @per = people(:pers_valid)
   end
 
   test 'Can save a valid position' do

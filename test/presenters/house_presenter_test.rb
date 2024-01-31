@@ -4,7 +4,7 @@ require 'test_helper'
 
 class HousePresenterTest < ActiveSupport::TestCase
   setup do
-    @house = houses(:valid)
+    @house = houses(:hs_valid)
     @presenter = HousePresenter.new(@house, nil)
   end
 

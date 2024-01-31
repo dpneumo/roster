@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PersonAddressesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:one)
-    @person = people(:valid)
+    sign_in users(:user_one)
+    @person = people(:pers_valid)
   end
 
   test 'should get addresses of a person' do  

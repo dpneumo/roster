@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
+hs_valid:
   number: '123A'
   street: 'Oak Dr'
   lat: 45.123456
@@ -12,7 +12,7 @@ valid:
   status: Occupied
   note: MyText1
 
-valid2:
+hs_valid2:
   number: '789A'
   street: 'Pine Dr'
   lat: 34.123456
@@ -24,7 +24,7 @@ valid2:
   status: Occupied
   note: MyText1
 
-no_defaults:
+hs_no_deflts:
   number: zzz
   street: aaa
   lat: -15.123456

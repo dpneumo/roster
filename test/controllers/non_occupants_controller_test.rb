@@ -4,9 +4,9 @@ require 'test_helper'
 
 class NonOccupantsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:one)
-    @non_occup = people(:nonoccupant)
-    @house = houses(:valid)
+    sign_in users(:user_one)
+    @non_occup = people(:pers_nonoccup)
+    @house = houses(:hs_valid)
   end
 
   test 'should get index' do

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PhonePresenterTest < ActiveSupport::TestCase
   setup do
-    @phone = phones(:valid)
+    @phone = phones(:ph_valid)
     @presenter = PhonePresenter.new(@phone, nil)
   end
 

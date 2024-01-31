@@ -4,9 +4,9 @@ require 'test_helper'
 
 class ContributionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @contribution = contributions(:valid)
-    @house = houses(:valid)
-    sign_in users(:one)
+    @contribution = contributions(:cntr_valid)
+    @house = houses(:hs_valid)
+    sign_in users(:user_one)
   end
 
   test 'should get index' do
@@ -20,7 +20,7 @@ class ContributionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create contribution' do
-    @house = houses(:valid)
+    #@house = houses(:valid)
     assert_difference('Contribution.count') do
       post contributions_url,
            params: { contribution: { amount: '123.45', date_paid: Date.today,

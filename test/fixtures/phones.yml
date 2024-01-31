@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  person: valid
+ph_valid:
+  person: pers_valid
   cc: '1'
   area: '817'
   prefix: '123'
@@ -11,8 +11,8 @@ valid:
   txt_capable: true
   note: "A note"
 
-valid2:
-  person: valid
+ph_valid2:
+  person: pers_valid
   cc: '1'
   area: '817'
   prefix: '789'
@@ -22,8 +22,8 @@ valid2:
   txt_capable: true
   note: "A note"
 
-no_defaults:
-  person: valid2
+ph_no_deflts:
+  person: pers_valid2
   area: '214'
   prefix: '789'
   number: '1234'

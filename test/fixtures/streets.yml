@@ -1,12 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+street1:
   name: State
   city: Arlington
   state: Tx
   zip: 76017
 
-two:
+street2:
   name: Main
   city: Denver
   state: Co

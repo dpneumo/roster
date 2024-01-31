@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  house: valid
-  lot: valid2
+lnk_valid:
+  house: hs_valid
+  lot: hs_valid2
 

@@ -4,8 +4,8 @@ require 'test_helper'
 
 class AddressTest < ActiveSupport::TestCase
   setup do
-    @valid_addr = addresses(:valid)
-    @invalid_addr = addresses(:invalid)
+    @valid_addr = addresses(:addr_valid)
+    @invalid_addr = addresses(:addr_invalid)
   end
 
   test 'a valid address succeeds' do

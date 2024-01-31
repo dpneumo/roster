@@ -4,7 +4,7 @@ require 'test_helper'
 
 class RosterControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:one)
+    sign_in users(:user_one)
   end
 
   test 'should get roster' do

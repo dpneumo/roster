@@ -4,7 +4,7 @@ require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
   setup do
-    @valid_lnk = links(:valid)
+    @valid_lnk = links(:lnk_valid)
   end
 
   test 'a valid link succeeds' do

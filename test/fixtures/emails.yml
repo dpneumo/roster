@@ -1,20 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  person: valid
+em_valid:
+  person: pers_valid
   addr: "aaa@bbb.ccc"
   email_type: work
   preferred: true
   note: This is a note
 
-valid2:
-  person: valid
+em_valid2:
+  person: pers_valid
   addr: "xxx@yyy.zzz"
   email_type: home
   preferred: false
   note: This is a note
 
-no_preferred:
-  person: valid2
+em_not_pref:
+  person: pers_valid2
   addr: "mmm@nnn.ooo"
   email_type: work

@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  person: valid
+addr_valid:
+  person: pers_valid
   number: '123A'
   street: 'Oak Dr'
   city: Arlington
@@ -9,8 +9,8 @@ valid:
   zip: '76016'
   preferred: true
 
-valid2:
-  person: valid
+addr_valid2:
+  person: pers_valid
   number: '765'
   street: 'Ivy Dr'
   city: Arlington
@@ -18,8 +18,8 @@ valid2:
   zip: '76017'
   preferred: false
 
-invalid:
-  person: valid2
+addr_invalid:
+  person: pers_valid2
   number: zzz
   street: aaa
   city: Ghost

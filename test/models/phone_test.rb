@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PhoneTest < ActiveSupport::TestCase
   setup do
-    @valid_ph = phones(:valid)
-    @no_defaults_ph = phones(:no_defaults)
+    @valid_ph = phones(:ph_valid)
+    @no_defaults_ph = phones(:ph_no_deflts)
   end
 
   test 'Can save a valid phone' do

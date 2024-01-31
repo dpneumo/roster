@@ -4,7 +4,7 @@ require 'test_helper'
 
 class OwnershipTest < ActiveSupport::TestCase
   setup do
-    @valid_own = ownerships(:valid)
+    @valid_own = ownerships(:own_valid)
   end
 
   test 'a valid ownership succeeds' do
@@ -22,15 +22,15 @@ class OwnershipTest < ActiveSupport::TestCase
   end
 
   test 'accesses houses through property association' do
-    hse = houses(:valid)
-    pers = people(:valid2)
+    hse = houses(:hs_valid)
+    pers = people(:pers_valid2)
     ownership = Ownership.new(house_id: hse.id, person_id: pers.id)
     assert_equal hse.id, ownership.property.id
   end
 
   test 'accesses people through owner association' do
-    hse = houses(:valid)
-    pers = people(:valid)
+    hse = houses(:hs_valid)
+    pers = people(:pers_valid)
     ownership = Ownership.new(house_id: hse.id, person_id: pers.id)
     assert_equal pers.id, ownership.owner.id
   end

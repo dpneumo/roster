@@ -1,10 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  house: valid
+cntr_valid:
+  house: hs_valid
   date_paid: 2018-12-31
   amount_cents: 39999
 
 no_amount:
-  house: valid2
+  house: hs_valid2
   date_paid: 2019-01-01

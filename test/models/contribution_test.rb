@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ContributionTest < ActiveSupport::TestCase
   setup do
-    @valid_cntrb = contributions(:valid)
+    @valid_cntrb = contributions(:cntr_valid)
   end
 
   test 'a valid contribution succeeds' do

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @usr1 = users(:one)
+    @usr1 = users(:user_one)
   end
 
   test 'std_name returns user email if neither first or last name exist' do

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class EmailTest < ActiveSupport::TestCase
   setup do
-    @valid_em = emails(:valid)
+    @valid_em = emails(:em_valid)
   end
 
   test 'a valid email succeeds' do
@@ -23,7 +23,7 @@ class EmailTest < ActiveSupport::TestCase
 
   # Schema tests (db enforces)
   test 'preferred defaults to false' do
-    assert_equal false, emails(:no_preferred).preferred,
+    assert_equal false, emails(:em_not_pref).preferred,
                  'Default value for preferred not inserted by DB'
   end
 

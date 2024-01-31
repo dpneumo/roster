@@ -4,7 +4,7 @@ require 'test_helper'
 
 class AddressPresenterTest < ActiveSupport::TestCase
   setup do
-    @addr = addresses(:valid)
+    @addr = addresses(:addr_valid)
     @presenter = AddressPresenter.new(@addr, nil)
   end
 

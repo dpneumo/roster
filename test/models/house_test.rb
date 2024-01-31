@@ -4,8 +4,8 @@ require 'test_helper'
 
 class HouseTest < ActiveSupport::TestCase
   setup do
-    @valid_hse = houses(:valid)
-    @hse2 = houses(:valid2)
+    @valid_hse = houses(:hs_valid)
+    @hse2 = houses(:hs_valid2)
   end
 
   test 'a valid house succeeds' do
@@ -47,27 +47,27 @@ class HouseTest < ActiveSupport::TestCase
 
   # Schema tests (db enforces)
   test 'flag defaults to false' do
-    assert_equal false, houses(:no_defaults).flag,
+    assert_equal false, houses(:hs_no_deflts).flag,
                   'Default flag value not inserted by DB'
   end
 
   test 'rental defaults to false' do
-    assert_equal false, houses(:no_defaults).rental,
+    assert_equal false, houses(:hs_no_deflts).rental,
                   'Default rental value not inserted by DB'
   end
 
   test 'listed defaults to false' do
-    assert_equal false, houses(:no_defaults).listed,
+    assert_equal false, houses(:hs_no_deflts).listed,
                   'Default listed value not inserted by DB'
   end
 
   test 'status defaults to Occupied' do
-    assert_equal 'Occupied', houses(:no_defaults).status,
+    assert_equal 'Occupied', houses(:hs_no_deflts).status,
                   'Default status value not inserted by DB'
   end
 
   test 'current_dues defaults to $0.00' do
-    assert_equal '$0.00', houses(:no_defaults).current_dues,
+    assert_equal '$0.00', houses(:hs_no_deflts).current_dues,
                   'Default current_dues value not inserted by DB'
   end
 end

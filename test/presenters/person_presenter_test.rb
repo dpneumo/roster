@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PersonPresenterTest < ActiveSupport::TestCase
   setup do
-    @person = people(:valid)
+    @person = people(:pers_valid)
     @presenter = PersonPresenter.new(@person, nil)
   end
 

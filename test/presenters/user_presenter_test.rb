@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UserPresenterTest < ActiveSupport::TestCase
   setup do
-    @user = users(:one)
+    @user = users(:user_one)
     @presenter = UserPresenter.new(@user, nil)
   end
 

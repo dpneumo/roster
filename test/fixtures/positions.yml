@@ -1,25 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  person: valid
+posn_valid:
+  person: pers_valid
   name: President
   start: <%= Date.yesterday %>
   stop: <%= Date.tomorrow %>
 
-valid2:
-  person: valid
+posn_valid2:
+  person: pers_valid
   name: Secretary
   start: <%= Date.current %>
   stop: <%= Date.tomorrow %>
 
-active:
-  person: valid
+posn_active:
+  person: pers_valid
   name: Treasurer
   start: <%= Date.current.beginning_of_year %>
   stop: <%= Date.current.end_of_year %>
 
-inactive:
-  person: valid2
+posn_inactive:
+  person: pers_valid2
   name: Vice
   start: <%= Date.current.next_year.at_beginning_of_year %>
   stop: <%= Date.current.next_year.at_end_of_year %>

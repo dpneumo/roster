@@ -4,8 +4,8 @@ require 'test_helper'
 
 class HouseOccupantsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:one)
-    @house = houses(:valid)
+    sign_in users(:user_one)
+    @house = houses(:hs_valid)
   end
 
   test 'should get house occupants' do  

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
   setup do
-    @per = people(:valid)
+    @per = people(:pers_valid)
   end
 
   test 'can save a valid person' do

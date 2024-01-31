@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
-  property: valid
-  owner: valid
+own_valid:
+  property: hs_valid
+  owner: pers_valid
 
-two:
-  property: no_defaults
-  owner: valid 
+own_two:
+  property: hs_no_deflts
+  owner: pers_valid 

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PositionPresenterTest < ActiveSupport::TestCase
   setup do
-    @position = positions(:active)
+    @position = positions(:posn_active)
     @presenter = PositionPresenter.new(@position, nil)
   end
 
@@ -13,35 +13,35 @@ class PositionPresenterTest < ActiveSupport::TestCase
   end
 
   test 'return false if the position is currently inactive' do 
-    posn = positions(:inactive)
+    posn = positions(:posn_inactive)
     presenter = PositionPresenter.new(posn, nil)
     refute presenter.currently_active?
   end
 
   test 'returns the prefered phone for the associated person' do  
-    pref_phone = phones(:valid)
-    person = people(:valid)
+    pref_phone = phones(:ph_valid)
+    person = people(:pers_valid)
     person.pref_phone_id = pref_phone.id
     person.save
     assert_equal '(817) 123-4567', @presenter.person_pref_phone
   end
 
   test 'returns nil if no prefered phone for the associated person' do  
-    posn_inact = positions(:inactive)
+    posn_inact = positions(:posn_inactive)
     presenter = PositionPresenter.new(posn_inact, nil)
     assert_equal '', presenter.person_pref_phone
   end
 
   test 'returns the prefered email for the associated person' do  
-    pref_email = emails(:valid)
-    person = people(:valid)
+    pref_email = emails(:em_valid)
+    person = people(:pers_valid)
     person.pref_email_id = pref_email.id
     person.save
     assert_equal 'aaa@bbb.ccc', @presenter.person_pref_email
   end
 
   test 'returns empty string if no prefered email for the associated person' do  
-    posn_inact = positions(:inactive)
+    posn_inact = positions(:posn_inactive)
     presenter = PositionPresenter.new(posn_inact, nil)
     assert_equal '', presenter.person_pref_email
   end

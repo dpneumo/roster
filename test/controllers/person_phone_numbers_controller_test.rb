@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PersonPhoneNumbersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:one)
-    @person = people(:valid)
+    sign_in users(:user_one)
+    @person = people(:pers_valid)
   end
 
   test 'should get phone numbers of a person' do  

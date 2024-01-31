@@ -4,7 +4,7 @@ require 'test_helper'
 
 class EmailPresenterTest < ActiveSupport::TestCase
   setup do
-    @email = emails(:valid)
+    @email = emails(:em_valid)
     @presenter = EmailPresenter.new(@email, nil)
   end
 

@@ -4,12 +4,12 @@ require 'test_helper'
 
 class ContributionPresenterTest < ActiveSupport::TestCase
   setup do
-    @contrib = contributions(:valid)
+    @contrib = contributions(:cntr_valid)
     @presenter = ContributionPresenter.new(@contrib, nil)
   end
 
   test 'returns contributions for a house for a year (text or integer)' do  
-    house = houses(:valid)
+    house = houses(:hs_valid)
     Contribution.new(house: house, date_paid: '2000-01-22', amount_cents: 1000).save 
     Contribution.new(house: house, date_paid: '2000-09-17', amount_cents: 200).save  
     assert_equal 1200, @presenter.for(house_id: house.id, year: '2000')
@@ -18,8 +18,8 @@ class ContributionPresenterTest < ActiveSupport::TestCase
 
 
   test 'returns total contributions for all houses for a year (text or integer)' do
-    house1 = houses(:valid)
-    house2 = houses(:valid2)
+    house1 = houses(:hs_valid)
+    house2 = houses(:hs_valid2)
     Contribution.new(house: house1, date_paid: '2000-01-22', amount_cents: 1000).save 
     Contribution.new(house: house2, date_paid: '2000-09-17', amount_cents: 200).save  
     assert_equal 1200, @presenter.total_for(year: '2000')
