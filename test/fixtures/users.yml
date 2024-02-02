@@ -22,8 +22,8 @@ user_one:
   failed_attempts: 0
   unlock_token:
   locked_at:
-  first_name:
-  last_name:
+  first_name: 
+  last_name: 
   approved:
   session_token:
   role:
@@ -48,8 +48,8 @@ user_two:
   failed_attempts: 2
   unlock_token:
   locked_at:
-  first_name:
-  last_name:
+  first_name: George
+  last_name: Harrison
   approved:
   session_token:
   role:

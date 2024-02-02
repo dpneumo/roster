@@ -8,10 +8,6 @@ class OwnershipPresenterTest < ActiveSupport::TestCase
     @presenter = OwnershipPresenter.new(@ownership, nil)
   end
 
-  test 'the truth is out there' do  
-    assert true
-  end
-
   test 'returns the owner fullname' do 
     assert_equal 'Robert A Heinlin', @presenter.owner_name
   end
