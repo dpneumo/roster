@@ -19,12 +19,12 @@ class WelcomePresenter < ApplicationPresenter
 
   def total_dues_current
     "Total Dues Paid #{current_year}:" + 
-      humanized_money_with_symbol(current_contribs).rjust(14)
+      humanized_money_with_symbol(current_contribs/100).rjust(14)
   end
 
   def total_dues_last_year
     "Total Dues Paid #{last_year}:" + 
-      humanized_money_with_symbol(last_yr_contribs).rjust(14)
+      humanized_money_with_symbol(last_yr_contribs/100).rjust(14)
   end
 
   def current_positions

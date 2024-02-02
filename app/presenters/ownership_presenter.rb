@@ -1,25 +1,22 @@
 # frozen_string_literal: true
 
 class OwnershipPresenter < ApplicationPresenter
-  def house_list
-    HousePresenter.new(nil, nil).select_list
+  def owner_name
+    owner.fullname
   end
 
   def people_list
     PersonPresenter.new(nil, nil).select_list
   end
 
+  def house_list
+    HousePresenter.new(nil, nil).select_list
+  end
+
   def house_address
     HousePresenter.new(property, nil).house_address
   end
-
-  def owner_name
-    owner.fullname
-  end
-
-  def assoc_name
-    house_address
-  end
+  alias assoc_name house_address
 
   def instance_path
     id ? ownership_path(self) : nil

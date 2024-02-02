@@ -71,6 +71,11 @@ class PhonePresenterTest < ActiveSupport::TestCase
     assert_equal path, @presenter.belongs_to_path
   end
 
+  test 'belongs_to_path returns nil if person_id not assigned' do
+    @phone.person_id = nil
+    assert_nil @presenter.belongs_to_path
+  end
+
   test 'returns the belongs_to assoc class name' do  
     assert_equal 'Person', @presenter.belongs_to_name
   end
